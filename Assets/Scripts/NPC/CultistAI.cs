@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -121,7 +122,7 @@ public class CultistAI : MonoBehaviour
     private void SummonZombie(bool self)
     {
         print("New zombie summoned.");
-        GameObject newZombie = Instantiate(zombiePrefab);
+        GameObject newZombie = Instantiate(zombiePrefab, transform.position, Quaternion.identity);
 
         if (self)
         {
