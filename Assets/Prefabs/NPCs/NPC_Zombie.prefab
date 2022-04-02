@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paused: 0
   movementSpeed: 1500
-  nextWaypointDistanceTolerance: 0.1337
+  nextWaypointDistanceTolerance: 0.35
   reachedPath: 0
   updatePathFrequency: 0.5
   movementTargetSeeker: {fileID: 1613943380298144929}
