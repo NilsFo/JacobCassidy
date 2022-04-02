@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerStateBehaviourScript: {fileID: 0}
-  bulletPref: {fileID: 814287117038797209, guid: ad75ed885592ee44685e54f516c410df, type: 3}
+  bulletPref: {fileID: 4388267644796442356, guid: ad75ed885592ee44685e54f516c410df, type: 3}
+  bulletTrailPrefab: {fileID: 327700467025700830, guid: 040da5ca1b046944693857abaec42b19, type: 3}
   speed: 2000
   fireDelay: 0.5

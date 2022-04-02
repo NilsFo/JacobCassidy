@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletBehaviourScript : MonoBehaviour
-{
-
+public class BulletBehaviourScript : MonoBehaviour {
+    
     // Start is called before the first frame update
     void Start()
     {
