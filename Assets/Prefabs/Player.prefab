@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 576056676}
   - component: {fileID: 1516033935}
   - component: {fileID: 6268906861743386856}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,8 @@ GameObject:
   - component: {fileID: 2810526851853326435}
   - component: {fileID: 7361821399617534478}
   - component: {fileID: 7361821399617534477}
-  m_Layer: 0
+  - component: {fileID: 3317967261752876488}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,6 +209,22 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: 0, y: 0.5}
+  m_Size: {x: 0.75, y: 1}
   m_Direction: 0
+--- !u!114 &3317967261752876488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424963430642395798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb6e6da5d573a4340a91f4e4eece5b33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerStateBehaviourScript: {fileID: 0}
+  bulletPref: {fileID: 814287117038797209, guid: ad75ed885592ee44685e54f516c410df, type: 3}
+  speed: 2000
+  fireDelay: 0.5

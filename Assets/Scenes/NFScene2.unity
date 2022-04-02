@@ -3469,6 +3469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 474894337}
   - component: {fileID: 474894336}
+  - component: {fileID: 474894338}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -3526,6 +3527,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &474894338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474894335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &500822184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3584,6 +3597,7 @@ GameObject:
   - component: {fileID: 573094468}
   - component: {fileID: 573094472}
   - component: {fileID: 573094471}
+  - component: {fileID: 573094473}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3723,6 +3737,26 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &573094473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573094467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 16
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &615402956
 GameObject:
   m_ObjectHideFlags: 0
@@ -8308,7 +8342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1481325535
 Transform:
   m_ObjectHideFlags: 0
@@ -9166,6 +9200,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2810526851853326435, guid: 45ac861d2fed5c04980722909b013cfd, type: 3}
+      propertyPath: _playerStateBehaviourScript
+      value: 
+      objectReference: {fileID: 515225244}
+    - target: {fileID: 3317967261752876488, guid: 45ac861d2fed5c04980722909b013cfd, type: 3}
       propertyPath: _playerStateBehaviourScript
       value: 
       objectReference: {fileID: 515225244}

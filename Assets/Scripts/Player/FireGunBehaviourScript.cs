@@ -52,6 +52,8 @@ public class FireGunBehaviourScript : MonoBehaviour
                     //TODO Trigger Reload
                 }
             }   
+        } else {
+            fireTime -= Time.deltaTime;
         }
     }
 }
