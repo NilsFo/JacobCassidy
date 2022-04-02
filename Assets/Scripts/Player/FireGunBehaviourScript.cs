@@ -73,7 +73,7 @@ public class FireGunBehaviourScript : MonoBehaviour
                 }
                 else if (input.Player.Spell.triggered)
                 {
-                    spellStateBehaviourScript.CastSpell(aimDummy.gameObject, _direction);
+                    spellStateBehaviourScript.CastSpell(gameObject, _direction);
                 }
             }   
         } else {

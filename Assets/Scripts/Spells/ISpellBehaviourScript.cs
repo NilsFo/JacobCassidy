@@ -41,7 +41,7 @@ public abstract class ISpellBehaviourScript : MonoBehaviour
         {
             if (playerStateBehaviourScript.ChangeCurrentSanity(-spellCost))
             {
-                Debug.Log("Cast: Fireball");
+                SpawnSpell(startObj, direction);
                 return true;
             }
         }

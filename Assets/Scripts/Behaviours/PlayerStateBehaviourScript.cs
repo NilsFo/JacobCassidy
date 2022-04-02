@@ -86,14 +86,14 @@ public class PlayerStateBehaviourScript : MonoBehaviour
     {
         if (value == 0)
         {
-            return true;
+            return false;
         }
         currentHealth += value;
         if (currentHealth <= 0)
         {
             currentHealth = 0;
             onPlayerDeath.Invoke();
-            return false;
+            return true;
         }
         if (currentHealth > maxHealth)
         {
@@ -107,21 +107,24 @@ public class PlayerStateBehaviourScript : MonoBehaviour
 
     public bool ChangeCurrentSanity(float value)
     {
+        //TODO Umstellen ist Falsch 5/20 -5 Casted nicht
         if (value == 0)
         {
-            return true;
-        }
-        currentSanity += value;
-        if (currentSanity <= 0)
-        {
-            currentSanity = 0;
-            onPlayerMadness.Invoke();
             return false;
         }
+        if (currentSanity < value)
+        {
+            return false;
+        }
+        currentSanity += value;
         if (currentSanity > maxSanity)
         {
             currentSanity = maxSanity;
             //OverSanity!!
+        }
+        if (currentSanity == 0)
+        {
+            onPlayerMadness.Invoke();
         }
         onCurrentSanityChange.Invoke();
         return true;
@@ -134,10 +137,10 @@ public class PlayerStateBehaviourScript : MonoBehaviour
             return true;
         }
         currentAmmo += value;
-        if (currentAmmo <= 0)
+        if (currentAmmo < 0)
         {
             currentAmmo = 0;
-            return false;
+            return true;
         }
         if (currentAmmo > maxAmmo)
         {

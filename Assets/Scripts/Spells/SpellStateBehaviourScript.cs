@@ -92,7 +92,7 @@ public class SpellStateBehaviourScript : MonoBehaviour
 
     public bool CastSpell(GameObject startObj, Vector2 direction)
     {
-        if (spellList.Count > 0) return false;
+        if (spellList.Count < 0) return false;
         var spell = spellList[currentIndex];
         if (spell)
         {

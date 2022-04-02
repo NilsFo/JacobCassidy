@@ -156,6 +156,9 @@ MonoBehaviour:
   spellCooldown: 1
   spellTimer: 0
   spellCost: 5
+  spellPref: {fileID: 0}
+  speed: 10
+  flyTime: 3
 --- !u!114 &6872647183850292548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,10 +172,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStateBehaviourScript: {fileID: 0}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 1edba35aef1189e4e9ab55a544f06125, type: 3}
   spellCooldown: 1
   spellTimer: 0
   spellCost: 5
+  spellPref: {fileID: 8303734707630240663, guid: baa0e0f30334cc44f9e2aa25793197ac, type: 3}
+  speed: 2000
+  flyTime: 3
 --- !u!114 &3588870202593261240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +196,9 @@ MonoBehaviour:
   spellCooldown: 1
   spellTimer: 0
   spellCost: 5
+  spellPref: {fileID: 0}
+  speed: 10
+  flyTime: 3
 --- !u!114 &1182842812073921434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +216,9 @@ MonoBehaviour:
   spellCooldown: 1
   spellTimer: 0
   spellCost: 5
+  spellPref: {fileID: 0}
+  speed: 10
+  flyTime: 3
 --- !u!114 &318111148256976481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +236,9 @@ MonoBehaviour:
   spellCooldown: 1
   spellTimer: 0
   spellCost: 5
+  spellPref: {fileID: 0}
+  speed: 10
+  flyTime: 3
 --- !u!114 &1588181202046067130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,3 +256,6 @@ MonoBehaviour:
   spellCooldown: 1
   spellTimer: 0
   spellCost: 5
+  spellPref: {fileID: 0}
+  speed: 10
+  flyTime: 3

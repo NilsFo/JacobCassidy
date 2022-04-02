@@ -12048,10 +12048,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 318111148256976481, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2fb56185bd79a3646b7180cdcbfab1cc, type: 3}
+    - target: {fileID: 318111148256976481, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
+      propertyPath: playerStateBehaviourScript
+      value: 
+      objectReference: {fileID: 515225244}
+    - target: {fileID: 1182842812073921434, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 90a98e09ae6c5df4d915dc29950ab7d2, type: 3}
+    - target: {fileID: 1182842812073921434, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
+      propertyPath: playerStateBehaviourScript
+      value: 
+      objectReference: {fileID: 515225244}
+    - target: {fileID: 1352714986146920249, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
+      propertyPath: playerStateBehaviourScript
+      value: 
+      objectReference: {fileID: 515225244}
+    - target: {fileID: 1588181202046067130, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dfaf2479f06a88946bbeaa505b2e296b, type: 3}
+    - target: {fileID: 1588181202046067130, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
+      propertyPath: playerStateBehaviourScript
+      value: 
+      objectReference: {fileID: 515225244}
+    - target: {fileID: 3588870202593261240, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 42c27313c01cb7b4293ec190c353a24c, type: 3}
+    - target: {fileID: 3588870202593261240, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
+      propertyPath: playerStateBehaviourScript
+      value: 
+      objectReference: {fileID: 515225244}
+    - target: {fileID: 6872647183850292548, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
+      propertyPath: playerStateBehaviourScript
+      value: 
+      objectReference: {fileID: 515225244}
     - target: {fileID: 7802783470283271108, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
       propertyPath: m_Name
       value: GameState
       objectReference: {fileID: 0}
+    - target: {fileID: 7802783470283271110, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
+      propertyPath: spellStateBehaviourScript
+      value: 
+      objectReference: {fileID: 1639680745}
     - target: {fileID: 7802783470283271129, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
       propertyPath: m_RootOrder
       value: 3
