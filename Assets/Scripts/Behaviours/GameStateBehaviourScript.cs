@@ -1,27 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameStateBehaviourScript : MonoBehaviour
 {
 
-    public UnityEvent onBeforeRestart;
-    
-    //Player Data
-    [SerializeField] private float playerMaxHealth;
-    [SerializeField] private float playerCurrentHealth;
-    
-    [SerializeField] private float playerMaxSanity;
-    [SerializeField] private float playerCurrentSanity;
-    
-    [SerializeField] private float playerMaxAmmo;
-    [SerializeField] private float playerCurrentAmmo;
+    public UnityEvent onResetGameState;
+
+    [SerializeField] private PlayerStateBehaviourScript playerStateBehaviourScript;
     
     // Start is called before the first frame update
     void Start()
     {
+        ResetGameState();
         
+        playerStateBehaviourScript.onPlayerDeath.AddListener(RestartLevel);
+    }
+
+    private void OnEnable()
+    {
+        onResetGameState ??= new UnityEvent();
+    }
+
+    private void OnDisable()
+    {
+        playerStateBehaviourScript.onPlayerDeath.RemoveListener(RestartLevel);
     }
 
     // Update is called once per frame
@@ -29,4 +32,18 @@ public class GameStateBehaviourScript : MonoBehaviour
     {
         
     }
+
+    private void ResetGameState()
+    {
+        playerStateBehaviourScript.ResetState();
+        
+        onResetGameState.Invoke();
+    }
+
+    private void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+    }
+    
+    public PlayerStateBehaviourScript PlayerStateBehaviourScript => playerStateBehaviourScript;
 }
