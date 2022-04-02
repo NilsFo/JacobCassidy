@@ -51,7 +51,7 @@ public class NPCMovementAI : MonoBehaviour
     public NPCMovementStateBase CurrentMovementState => currentMovementState;
 
     // Private fields
-    private PlayerMovement player;
+    private PlayerMovementBehaviour player;
     private int pathsCalculatedCount = 0;
     private Queue<Vector2> velocityHistory;
     private Vector2 _lastFramePosition;
@@ -70,7 +70,7 @@ public class NPCMovementAI : MonoBehaviour
     void Start()
     {
         reachedPathEventFired = false;
-        player = FindObjectOfType<PlayerMovement>();
+        player = FindObjectOfType<PlayerMovementBehaviour>();
         pathsCalculatedCount = 0;
 
 
