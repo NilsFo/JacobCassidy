@@ -6,7 +6,9 @@ using UnityEngine.Serialization;
 
 public class PlayerStateBehaviourScript : MonoBehaviour
 {
+    //Settings
     [SerializeField] private float chargeStaminaPerSec = 0.5f;
+    [SerializeField] private float reloadDelay = 0.5f;
     
     //Player Data
     [SerializeField] private float maxHealth = 20;
@@ -30,6 +32,13 @@ public class PlayerStateBehaviourScript : MonoBehaviour
     public UnityEvent onPlayerDeath;
     public UnityEvent onPlayerMadness;
 
+    public UnityEvent onReloadStart;
+    public UnityEvent onReloadEnd;
+    
+    //Private Fileds
+    private float reloadTimer = 0F;
+    private bool reloading = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +49,11 @@ public class PlayerStateBehaviourScript : MonoBehaviour
         
         onPlayerDeath ??= new UnityEvent();
         onPlayerMadness ??= new UnityEvent();
+
+        onReloadStart ??= new UnityEvent();
+        onReloadEnd ??= new UnityEvent();
+        
+        reloadTimer = 0f;
     }
 
     // Update is called once per frame
@@ -47,6 +61,17 @@ public class PlayerStateBehaviourScript : MonoBehaviour
     {
         float currentStaminaGain = chargeStaminaPerSec * Time.deltaTime;
         ChangeCurrentStamina(currentStaminaGain);
+
+        if (reloading && reloadTimer <= 0)
+        {
+            ChangeCurrentAmmo(maxAmmo);
+            reloading = false;
+            onReloadEnd.Invoke();
+        }
+        else
+        {
+            reloadTimer -= Time.deltaTime;
+        }
     }
 
     public void ResetState()
@@ -143,6 +168,13 @@ public class PlayerStateBehaviourScript : MonoBehaviour
         return true;
     }
 
+    public void ReloadAmmo()
+    {
+        reloadTimer = reloadDelay;
+        reloading = true;
+        onReloadStart.Invoke();
+    }
+    
     public float MAXHealth
     {
         get => maxHealth;
