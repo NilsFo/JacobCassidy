@@ -9,17 +9,23 @@ public class FireGunBehaviourScript : MonoBehaviour
     
     public BulletBehaviourScript bulletPref;
     public BulletTrailBehaviour bulletTrailPrefab;
+    public Transform aimDummy;
+    
     public float speed = 10f;
-    
+
     public float fireDelay = 0.5f;
-    
+
+
     private float fireTime;
+
+    private MainInputActionsSettings input;
     
     
     // Start is called before the first frame update
     void Start()
     {
         fireTime = 0f;
+        input = FindObjectOfType<GameStateBehaviourScript>().mainInputActions;
     }
 
     // Update is called once per frame
@@ -27,13 +33,14 @@ public class FireGunBehaviourScript : MonoBehaviour
     {
         if (fireTime <= 0)
         {
-            var horizontal2Input = Input.GetAxisRaw("Horizontal2");
-            var vertical2Input = Input.GetAxisRaw("Vertical2");
+            var aimDummyPos = aimDummy.transform.localPosition;
+            var horizontal2Input = aimDummyPos.x;
+            var vertical2Input = aimDummyPos.y;
         
             var _direction = new Vector2(horizontal2Input, vertical2Input);
             _direction = _direction.normalized;
 
-            if (Input.GetButtonDown("Fire1") && _direction.magnitude > 0)
+            if (input.Player.Fire.triggered && _direction.magnitude > 0)
             {
                 if (_playerStateBehaviourScript.ChangeCurrentAmmo(-1))
                 {

@@ -7,6 +7,7 @@ public class GameStateBehaviourScript : MonoBehaviour
     
     //Events 
     public UnityEvent onResetGameState;
+    public MainInputActionsSettings mainInputActions;
 
     //Refs
     [SerializeField] private PlayerStateBehaviourScript playerStateBehaviourScript;
@@ -23,6 +24,8 @@ public class GameStateBehaviourScript : MonoBehaviour
     private void OnEnable()
     {
         onResetGameState ??= new UnityEvent();
+        mainInputActions = new MainInputActionsSettings();
+        mainInputActions.Player.Enable();
     }
 
     private void OnDisable()
