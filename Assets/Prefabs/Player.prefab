@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zRange: 10
-  yOffset: -0.5625
+  yOffset: 0.5625
   zFixingEnabled: 1
 --- !u!1 &424963430642395798
 GameObject:
