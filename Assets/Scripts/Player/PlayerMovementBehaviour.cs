@@ -11,11 +11,10 @@ public class PlayerMovementBehaviour : MonoBehaviour
     MainInputActionsSettings input;
     private PlayerInput _playerInput;
 
-    [SerializeField]
-    PlayerStateBehaviourScript _playerStateBehaviourScript;
+    [SerializeField] PlayerStateBehaviourScript _playerStateBehaviourScript;
 
     [SerializeField] private float speed = 10;
-    
+
     [SerializeField] private float dashMod = 5;
     [SerializeField] private float dashDuration = 2;
     public MovementAnimator movementAnimator;
@@ -23,6 +22,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
     public Transform aimDummy;
 
     private Vector2 _velocity;
+
     private Vector2 _lookDirection = new Vector2(1,0);
     
     private float _dashTime;
@@ -44,7 +44,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
         {
             _dashTime = dashDuration;
         }
-        
+
         if (_dashTime > Time.deltaTime)
         {
             _dashTime -= Time.deltaTime;
@@ -91,7 +91,13 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
-        myRgidbody2D.MovePosition(myRgidbody2D.position + _velocity * Time.fixedDeltaTime);
+        myRgidbody2D.AddForce(_velocity * Time.fixedDeltaTime * 1000);
     }
-    
+
+    public void Knockback(Vector2 sourcePosition, float force)
+    {
+        Vector2 angle = (Vector2)transform.position - sourcePosition;
+        angle = angle.normalized;
+        myRgidbody2D.AddForce(angle * force);
+    }
 }

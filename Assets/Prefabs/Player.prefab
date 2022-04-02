@@ -250,6 +250,7 @@ MonoBehaviour:
   aimDummy: {fileID: 1250300201869196862}
   speed: 4000
   fireDelay: 0.5
+  playerMovementBehaviour: {fileID: 2810526851853326435}
 --- !u!114 &4333264208361521933
 MonoBehaviour:
   m_ObjectHideFlags: 0
