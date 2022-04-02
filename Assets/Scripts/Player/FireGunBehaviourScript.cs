@@ -55,7 +55,7 @@ public class FireGunBehaviourScript : MonoBehaviour
                 else
                 {
                     //TODO Click Sound Trigger
-                    //TODO Trigger Reload
+                    _playerStateBehaviourScript.ReloadAmmo();
                 }
             }   
         } else {
