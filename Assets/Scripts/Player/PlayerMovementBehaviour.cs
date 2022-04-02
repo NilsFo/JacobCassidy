@@ -7,17 +7,16 @@ public class PlayerMovementBehaviour : MonoBehaviour
     [Header("Dependency")] [SerializeField]
     private Rigidbody2D myRgidbody2D;
 
-    [SerializeField]
-    PlayerStateBehaviourScript _playerStateBehaviourScript;
+    [SerializeField] PlayerStateBehaviourScript _playerStateBehaviourScript;
 
     [SerializeField] private float speed = 10;
-    
+
     [SerializeField] private float dashMod = 5;
     [SerializeField] private float dashDuration = 2;
     public MovementAnimator movementAnimator;
 
     private Vector2 _velocity;
-    
+
     private float _dashTime;
 
     private void Awake()
@@ -31,7 +30,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
         {
             _dashTime = dashDuration;
         }
-        
+
         if (_dashTime > Time.deltaTime)
         {
             _dashTime -= Time.deltaTime;
@@ -40,7 +39,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
         {
             _dashTime = 0;
         }
-        
+
         var horizontalInput = Input.GetAxisRaw("Horizontal");
         var verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -49,19 +48,24 @@ public class PlayerMovementBehaviour : MonoBehaviour
         {
             modSpeed *= dashMod;
         }
-        
+
         _velocity = new Vector2(horizontalInput, verticalInput);
         _velocity = _velocity.normalized;
-        
-        _velocity *= modSpeed;
-        
-        movementAnimator.velocity = _velocity;
 
+        _velocity *= modSpeed;
+
+        movementAnimator.velocity = _velocity;
     }
 
     private void FixedUpdate()
     {
         myRgidbody2D.MovePosition(myRgidbody2D.position + _velocity * Time.fixedDeltaTime);
     }
-    
+
+    public void Knockback(Vector2 sourcePosition, float force)
+    {
+        Vector2 angle = (Vector2)transform.position - sourcePosition;
+        angle = angle.normalized;
+        myRgidbody2D.AddForce(angle * force);
+    }
 }

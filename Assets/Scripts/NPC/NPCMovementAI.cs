@@ -29,6 +29,7 @@ public class NPCMovementAI : MonoBehaviour
 
     [Header("Movement Params")] public float movementSpeed = 1500f;
     private Rigidbody2D rb;
+    public float roamingRadius = 3.5f;
 
     [Header("Pathfinding Parameters")] public float nextWaypointDistanceTolerance = .1337f;
     private Path currentPathToTarget;
@@ -202,7 +203,6 @@ public class NPCMovementAI : MonoBehaviour
                 OnPathReached();
             }
             currentPathToTarget = null;
-
             return;
         }
 
@@ -307,7 +307,7 @@ public class NPCMovementAI : MonoBehaviour
 
     public void SetMovementStateRoaming()
     {
-        SetMovementState(new NPCMovementStateRoaming(this, transform.position));
+        SetMovementState(new NPCMovementStateRoaming(this, transform.position,roamingRadius));
     }
 
     public void SetMovementStatePatrolToPlayer()

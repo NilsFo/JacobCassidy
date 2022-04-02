@@ -14,7 +14,7 @@ public class FireGunBehaviourScript : MonoBehaviour
     public float fireDelay = 0.5f;
     
     private float fireTime;
-    
+    public PlayerMovementBehaviour playerMovementBehaviour;
     
     // Start is called before the first frame update
     void Start()
@@ -44,6 +44,9 @@ public class FireGunBehaviourScript : MonoBehaviour
 
                     Destroy(instBullet, 3f);
                     fireTime = fireDelay;
+                    
+                    // Knockback
+                    playerMovementBehaviour.Knockback(_direction,-150);
                     
                     // Gun Trail
                     var bulletTrail = Instantiate(bulletTrailPrefab, transform.position, Quaternion.identity);
