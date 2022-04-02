@@ -4,25 +4,25 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -8660396610530198205
-    second: Revolver_4
+    second: Revolver_nw
   - first:
       213: 7825724369199148441
-    second: Revolver_5
+    second: Revolver_ne
   - first:
       213: -3083024517234379138
-    second: Revolver_7
+    second: Revolver_w
   - first:
       213: 6923594022277186243
-    second: Revolver_8
+    second: Revolver_e
   - first:
       213: 40838338203732660
-    second: Revolver_9
+    second: Revolver_sw
   - first:
       213: 8785155753439522890
-    second: Revolver_10
+    second: Revolver_s
   - first:
       213: 3957572682370706586
-    second: Revolver_11
+    second: Revolver_se
   - first:
       213: 4011165979584494121
     second: bullet
@@ -127,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Revolver_4
+      name: Revolver_nw
       rect:
         serializedVersion: 2
         x: 17
@@ -148,7 +148,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Revolver_5
+      name: Revolver_ne
       rect:
         serializedVersion: 2
         x: 34
@@ -169,7 +169,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Revolver_7
+      name: Revolver_w
       rect:
         serializedVersion: 2
         x: 15
@@ -190,7 +190,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Revolver_8
+      name: Revolver_e
       rect:
         serializedVersion: 2
         x: 32
@@ -211,7 +211,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Revolver_9
+      name: Revolver_sw
       rect:
         serializedVersion: 2
         x: 15
@@ -232,7 +232,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Revolver_10
+      name: Revolver_s
       rect:
         serializedVersion: 2
         x: 27
@@ -253,7 +253,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Revolver_11
+      name: Revolver_se
       rect:
         serializedVersion: 2
         x: 38
