@@ -44,12 +44,14 @@ public class ZombieAI : MonoBehaviour
                 {
                     currentState = ZombieState.Roaming;
                 }
+
                 break;
             case ZombieState.GoToPlayer:
                 if (IsInMeleeRange() && canSeePlayer)
                 {
                     currentState = ZombieState.Attacking;
                 }
+
                 break;
         }
 
@@ -60,6 +62,14 @@ public class ZombieAI : MonoBehaviour
             if (canSeePlayer)
             {
                 currentState = ZombieState.GoToPlayer;
+            }
+        }
+
+        if (currentState == ZombieState.GoToPlayer)
+        {
+            if (!canSeePlayer)
+            {
+                currentState = ZombieState.GoToSpawn;
             }
         }
     }
@@ -99,13 +109,25 @@ public class ZombieAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        canSeePlayer = CanSeePlayer();
-        //print("state: "+currentState+" - see player "+canSeePlayer);
+        UpdateCanSeePlayer();
     }
 
-    public bool CanSeePlayer()
+    public void UpdateCanSeePlayer()
     {
-        return Vector2.Distance(transform.position, player.transform.position) < playerDetectionDistance;
+        canSeePlayer = false;
+        float dist = Vector2.Distance(transform.position, player.transform.position);
+
+        if (dist < playerDetectionDistance)
+        {
+            canSeePlayer = true;
+            var mask = LayerMask.GetMask("NavMeshBlocker");
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position,
+                distance: dist, layerMask: mask);
+            if (hit.collider != null)
+            {
+                canSeePlayer = false;
+            }
+        }
     }
 
     public bool IsInMeleeRange()
