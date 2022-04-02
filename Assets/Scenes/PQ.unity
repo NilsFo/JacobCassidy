@@ -13740,6 +13740,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 515225244}
     - target: {fileID: 3317967261752876488, guid: 45ac861d2fed5c04980722909b013cfd, type: 3}
+      propertyPath: spellStateBehaviourScript
+      value: 
+      objectReference: {fileID: 1639680745}
+    - target: {fileID: 3317967261752876488, guid: 45ac861d2fed5c04980722909b013cfd, type: 3}
+      propertyPath: playerStateBehaviourScript
+      value: 
+      objectReference: {fileID: 515225244}
+    - target: {fileID: 3317967261752876488, guid: 45ac861d2fed5c04980722909b013cfd, type: 3}
       propertyPath: _playerStateBehaviourScript
       value: 
       objectReference: {fileID: 515225244}
