@@ -12,6 +12,13 @@ GameObject:
   - component: {fileID: 7802783470283271110}
   - component: {fileID: 7802783470283271111}
   - component: {fileID: 3191035166800469499}
+  - component: {fileID: 1809202575865811791}
+  - component: {fileID: 1352714986146920249}
+  - component: {fileID: 6872647183850292548}
+  - component: {fileID: 3588870202593261240}
+  - component: {fileID: 1182842812073921434}
+  - component: {fileID: 318111148256976481}
+  - component: {fileID: 1588181202046067130}
   m_Layer: 0
   m_Name: GameState
   m_TagString: Untagged
@@ -50,6 +57,7 @@ MonoBehaviour:
       m_Calls: []
   playerStateBehaviourScript: {fileID: 7802783470283271111}
   enemieStateBehaviourScript: {fileID: 3191035166800469499}
+  spellStateBehaviourScript: {fileID: 0}
 --- !u!114 &7802783470283271111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,3 +116,128 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df813ee4f1da7945a58c62d10a3ae64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1809202575865811791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802783470283271108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a66d72918fb7646b7ce20330a35de4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onSpellStateChange:
+    m_PersistentCalls:
+      m_Calls: []
+  spellList:
+  - {fileID: 6872647183850292548}
+  - {fileID: 3588870202593261240}
+  - {fileID: 1182842812073921434}
+  - {fileID: 318111148256976481}
+  - {fileID: 1588181202046067130}
+  placeHold: {fileID: 1352714986146920249}
+  currentIndex: 0
+--- !u!114 &1352714986146920249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802783470283271108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8eb22bade881bd44b6447c3d9512378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStateBehaviourScript: {fileID: 0}
+  sprite: {fileID: 0}
+  spellCooldown: 1
+  spellTimer: 0
+  spellCost: 5
+--- !u!114 &6872647183850292548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802783470283271108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7482ed6fd4476e64ea01ddaaa9046d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStateBehaviourScript: {fileID: 0}
+  sprite: {fileID: 0}
+  spellCooldown: 1
+  spellTimer: 0
+  spellCost: 5
+--- !u!114 &3588870202593261240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802783470283271108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321e8f80bec0f5440b504d490d2b404a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStateBehaviourScript: {fileID: 0}
+  sprite: {fileID: 0}
+  spellCooldown: 1
+  spellTimer: 0
+  spellCost: 5
+--- !u!114 &1182842812073921434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802783470283271108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e9da3e98a21364a9d95ae2333127e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStateBehaviourScript: {fileID: 0}
+  sprite: {fileID: 0}
+  spellCooldown: 1
+  spellTimer: 0
+  spellCost: 5
+--- !u!114 &318111148256976481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802783470283271108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40cb84fbdeacf9845ac27536b75b0eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStateBehaviourScript: {fileID: 0}
+  sprite: {fileID: 0}
+  spellCooldown: 1
+  spellTimer: 0
+  spellCost: 5
+--- !u!114 &1588181202046067130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802783470283271108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92693ba36df50294bbfb85e9393ea3fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStateBehaviourScript: {fileID: 0}
+  sprite: {fileID: 0}
+  spellCooldown: 1
+  spellTimer: 0
+  spellCost: 5
