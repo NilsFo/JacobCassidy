@@ -14,7 +14,8 @@ public class PlayerMovementBehaviour : MonoBehaviour
     
     [SerializeField] private float dashMod = 5;
     [SerializeField] private float dashDuration = 2;
-    
+    public MovementAnimator movementAnimator;
+
     private Vector2 _velocity;
     
     private float _dashTime;
@@ -53,6 +54,9 @@ public class PlayerMovementBehaviour : MonoBehaviour
         _velocity = _velocity.normalized;
         
         _velocity *= modSpeed;
+        
+        movementAnimator.velocity = _velocity;
+
     }
 
     private void FixedUpdate()
