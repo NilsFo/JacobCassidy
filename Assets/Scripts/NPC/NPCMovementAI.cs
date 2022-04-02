@@ -183,13 +183,30 @@ public class NPCMovementAI : MonoBehaviour
     private void FixedUpdate()
     {
         // TODO update animations here
-
         if (paused)
         {
             return;
         }
 
         if (currentPathToTarget == null)
+        {
+            return;
+        }
+        
+        if (currentWaypointIndexToTarget >= currentPathToTarget.vectorPath.Count)
+        {
+            reachedPath = true;
+            if (!reachedPathEventFired)
+            {
+                reachedPathEventFired = true;
+                OnPathReached();
+            }
+            currentPathToTarget = null;
+
+            return;
+        }
+
+        if (!currentMovementState.ShouldMove())
         {
             return;
         }
