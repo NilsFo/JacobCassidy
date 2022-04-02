@@ -9199,6 +9199,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 932925423083725276, guid: 45ac861d2fed5c04980722909b013cfd, type: 3}
+      propertyPath: _playerStateBehaviourScript
+      value: 
+      objectReference: {fileID: 515225244}
     - target: {fileID: 2810526851853326435, guid: 45ac861d2fed5c04980722909b013cfd, type: 3}
       propertyPath: _playerStateBehaviourScript
       value: 

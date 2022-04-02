@@ -20,6 +20,8 @@ public class EnemyBehaviourScript : MonoBehaviour
 
     [SerializeField] private EnemyState enemyState;
     
+    [SerializeField] private float damageOnContact = 1;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -81,5 +83,14 @@ public class EnemyBehaviourScript : MonoBehaviour
             currentHealth = maxHealth;
         }
         return true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        PlayerBehaviourScript playerBehaviourScript = other.gameObject.GetComponent<PlayerBehaviourScript>();
+        if (playerBehaviourScript)
+        {
+            playerBehaviourScript.PlayerStateBehaviourScript.ChangeCurrentHealth(-damageOnContact);
+        }
     }
 }
