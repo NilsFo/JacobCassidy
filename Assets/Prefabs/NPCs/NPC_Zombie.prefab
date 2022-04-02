@@ -144,6 +144,10 @@ MonoBehaviour:
   deathDelay: 0
   deathTimer: 0
   enemyState: 0
+  damageOnContact: 1
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8281509082611758384
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +159,7 @@ GameObject:
   - component: {fileID: 275283394655440222}
   - component: {fileID: 3235440292474752536}
   - component: {fileID: 6833511448371705927}
+  - component: {fileID: 3864300169355532681}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -243,3 +248,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.5, y: 2}
   m_Direction: 0
+--- !u!114 &3864300169355532681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8281509082611758384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 785cb1ea38ee9ba4799cccc2efbd6514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zRange: 10
+  yOffset: 0
+  zFixingEnabled: 1
