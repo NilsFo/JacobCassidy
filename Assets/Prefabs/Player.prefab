@@ -229,3 +229,4 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 327700467025700830, guid: 040da5ca1b046944693857abaec42b19, type: 3}
   speed: 2000
   fireDelay: 0.5
+  playerMovementBehaviour: {fileID: 2810526851853326435}

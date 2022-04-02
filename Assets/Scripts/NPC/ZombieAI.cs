@@ -20,6 +20,7 @@ public class ZombieAI : MonoBehaviour
     public ZombieState currentState = ZombieState.Waiting;
     private ZombieState _lastState;
     private PlayerMovementBehaviour player;
+    private PlayerStateBehaviourScript playerState;
     public float meleeRange = 0.95f;
     [SerializeField] private bool canSeePlayer;
 
@@ -30,6 +31,7 @@ public class ZombieAI : MonoBehaviour
         _lastState = currentState;
         myMovement.SetMovementStateStasis();
         player = FindObjectOfType<PlayerMovementBehaviour>();
+        playerState = FindObjectOfType<PlayerStateBehaviourScript>();
     }
 
     // Update is called once per frame
@@ -88,9 +90,7 @@ public class ZombieAI : MonoBehaviour
                 myMovement.SetMovementStateWaitHere();
                 break;
             case ZombieState.Attacking:
-                // TODO: Attack animation here
-                Debug.LogWarning("ZOMBIE ATTACK!");
-                currentState = ZombieState.GoToSpawn;
+                BeginAttack();
                 break;
             case ZombieState.Roaming:
                 myMovement.SetMovementStateRoaming();
@@ -110,6 +110,16 @@ public class ZombieAI : MonoBehaviour
     private void FixedUpdate()
     {
         UpdateCanSeePlayer();
+    }
+
+    public void BeginAttack()
+    {
+        // TODO: Attack animation here
+        Debug.LogWarning("ZOMBIE ATTACK!");
+        currentState = ZombieState.GoToSpawn;
+
+        player.Knockback(transform.position,3500);
+        playerState.ChangeCurrentHealth(-1);
     }
 
     public void UpdateCanSeePlayer()

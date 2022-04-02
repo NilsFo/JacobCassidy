@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1613943380298144929}
   - component: {fileID: 4932246754495482904}
   - component: {fileID: 174576583}
+  - component: {fileID: 174576587}
   m_Layer: 0
   m_Name: NPC_Zombie
   m_TagString: Untagged
@@ -125,6 +126,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &174576587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5778056782712197230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0edc5bb72bbb56c44879a22830d5ab89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  currentHealth: 2
+  deathDelay: 0
+  deathTimer: 0
+  enemyState: 0
 --- !u!1 &8281509082611758384
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +154,6 @@ GameObject:
   - component: {fileID: 275283394655440222}
   - component: {fileID: 3235440292474752536}
   - component: {fileID: 6833511448371705927}
-  - component: {fileID: 4736202905333922648}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -225,20 +242,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.5, y: 2}
   m_Direction: 0
---- !u!114 &4736202905333922648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8281509082611758384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0edc5bb72bbb56c44879a22830d5ab89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 2
-  currentHealth: 2
-  deathDelay: 0
-  deathTimer: 0
-  enemyState: 0
