@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8549,6 +8549,11 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
+--- !u!50 &1777662809 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7361821399617534478, guid: 45ac861d2fed5c04980722909b013cfd, type: 3}
+  m_PrefabInstance: {fileID: 7361821399617534474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1850120120
 GameObject:
   m_ObjectHideFlags: 0
@@ -9123,6 +9128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2810526851853326435, guid: 45ac861d2fed5c04980722909b013cfd, type: 3}
+      propertyPath: myRgidbody2D
+      value: 
+      objectReference: {fileID: 1777662809}
     - target: {fileID: 5146744408777786674, guid: 45ac861d2fed5c04980722909b013cfd, type: 3}
       propertyPath: m_RootOrder
       value: 5
