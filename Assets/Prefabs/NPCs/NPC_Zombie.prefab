@@ -218,3 +218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edc5bb72bbb56c44879a22830d5ab89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 2
+  currentHealth: 2
+  deathDelay: 0
+  deathTimer: 0
+  enemyState: 0

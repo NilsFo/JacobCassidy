@@ -12,6 +12,7 @@ public class BulletBehaviourScript : MonoBehaviour
         {
             enemyBehaviourScript.ChangeCurrentHealth(-1);
         }
-        Debug.Log(other.gameObject.name);
+        Destroy(gameObject);
+
     }
 }
