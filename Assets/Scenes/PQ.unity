@@ -4126,6 +4126,10 @@ PrefabInstance:
       propertyPath: _playerStateBehaviourScript
       value: 
       objectReference: {fileID: 515225244}
+    - target: {fileID: 1094495366282845864, guid: d56a5e60563ca6849ac959327c9d31b3, type: 3}
+      propertyPath: m_Name
+      value: SanityIndicatorcator
+      objectReference: {fileID: 0}
     - target: {fileID: 1094495366282845870, guid: d56a5e60563ca6849ac959327c9d31b3, type: 3}
       propertyPath: _playerStateBehaviourScript
       value: 
