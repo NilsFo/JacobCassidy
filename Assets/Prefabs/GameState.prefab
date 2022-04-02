@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7802783470283271129}
   - component: {fileID: 7802783470283271110}
   - component: {fileID: 7802783470283271111}
+  - component: {fileID: 3191035166800469499}
   m_Layer: 0
   m_Name: GameState
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   playerStateBehaviourScript: {fileID: 7802783470283271111}
+  enemieStateBehaviourScript: {fileID: 3191035166800469499}
 --- !u!114 &7802783470283271111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeStaminaPerSec: 0.5
+  reloadDelay: 0.5
   maxHealth: 20
   currentHealth: 20
   maxSanity: 20
@@ -87,3 +90,21 @@ MonoBehaviour:
   onPlayerMadness:
     m_PersistentCalls:
       m_Calls: []
+  onReloadStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onReloadEnd:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &3191035166800469499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802783470283271108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8df813ee4f1da7945a58c62d10a3ae64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -4,10 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class GameStateBehaviourScript : MonoBehaviour
 {
-
+    
+    //Events 
     public UnityEvent onResetGameState;
 
+    //Refs
     [SerializeField] private PlayerStateBehaviourScript playerStateBehaviourScript;
+    [SerializeField] private EnemieStateBehaviourScript enemieStateBehaviourScript;
     
     // Start is called before the first frame update
     void Start()
