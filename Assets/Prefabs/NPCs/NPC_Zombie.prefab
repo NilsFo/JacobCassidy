@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5778056782712197231}
   - component: {fileID: 4099262087088168101}
   - component: {fileID: 1613943380298144929}
+  - component: {fileID: 4932246754495482904}
+  - component: {fileID: 174576583}
   m_Layer: 0
   m_Name: NPC_Zombie
   m_TagString: Untagged
@@ -47,12 +49,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paused: 0
   movementSpeed: 1500
+  roamingRadius: 3.5
   nextWaypointDistanceTolerance: 0.35
   reachedPath: 0
   updatePathFrequency: 0.5
   movementTargetSeeker: {fileID: 1613943380298144929}
   nodeSkippingCount: 3
-  initialMovementState: 4
+  initialMovementState: 1
   onPathCompleted:
     m_PersistentCalls:
       m_Calls: []
@@ -84,6 +87,44 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &4932246754495482904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5778056782712197230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e546cd8c7982d4897f8103f3d1a716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMovement: {fileID: 4099262087088168101}
+  playerDetectionDistance: 6
+  currentState: 0
+  meleeRange: 3
+  canSeePlayer: 0
+--- !u!50 &174576583
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5778056782712197230}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 20
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &8281509082611758384
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +136,6 @@ GameObject:
   - component: {fileID: 275283394655440222}
   - component: {fileID: 3235440292474752536}
   - component: {fileID: 6833511448371705927}
-  - component: {fileID: 2631101254708523437}
   - component: {fileID: 4736202905333922648}
   m_Layer: 0
   m_Name: Sprite
@@ -183,29 +223,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 3.6875, y: 3.125}
+  m_Size: {x: 1.5, y: 2}
   m_Direction: 0
---- !u!50 &2631101254708523437
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8281509082611758384}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 20
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!114 &4736202905333922648
 MonoBehaviour:
   m_ObjectHideFlags: 0
