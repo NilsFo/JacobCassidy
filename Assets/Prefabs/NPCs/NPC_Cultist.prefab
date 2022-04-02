@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158401459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1750998399564402531}
@@ -97,8 +97,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: -0.016681194, y: 0.299829}
+  m_Size: {x: 0.599658, y: 0.599658}
   m_Direction: 0
 --- !u!114 &3854553790457625850
 MonoBehaviour:
@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 3227863212620385698}
   - component: {fileID: 3227863212620385697}
   - component: {fileID: 2050335018}
+  - component: {fileID: 8802906259143886239}
   m_Layer: 0
   m_Name: NPC_Cultist
   m_TagString: Untagged
@@ -164,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
+  myAnimator: {fileID: 0}
   movementSpeed: 1500
   roamingRadius: 3.5
   nextWaypointDistanceTolerance: 0.35
@@ -267,3 +269,25 @@ MonoBehaviour:
   currentState: 0
   congregationSize: 3
   congregation: []
+--- !u!114 &8802906259143886239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4058903996095027878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6a34d769a1e4ac7b0b30e433aa443c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  smoothType: 2
+  subdivisions: 2
+  iterations: 2
+  strength: 0.5
+  uniformLength: 1
+  maxSegmentLength: 2
+  bezierTangentLength: 0.4
+  offset: 0.2
+  factor: 0.1

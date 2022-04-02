@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4932246754495482904}
   - component: {fileID: 174576583}
   - component: {fileID: 174576587}
+  - component: {fileID: 6562028763468609610}
+  - component: {fileID: 5847416454935700119}
   m_Layer: 0
   m_Name: NPC_Zombie
   m_TagString: Untagged
@@ -49,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
+  myAnimator: {fileID: 6562028763468609610}
   movementSpeed: 1500
   roamingRadius: 3.5
   nextWaypointDistanceTolerance: 0.35
@@ -103,7 +106,7 @@ MonoBehaviour:
   myMovement: {fileID: 4099262087088168101}
   playerDetectionDistance: 6
   currentState: 0
-  meleeRange: 3
+  meleeRange: 1
   canSeePlayer: 0
   knockbackForce: 750
 --- !u!50 &174576583
@@ -148,6 +151,47 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6562028763468609610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5778056782712197230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff274b73f9657145bf8f5e2f35cebe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMovementAnimator: {fileID: 7201418619003615781}
+  playing: 1
+  velocity: {x: 0, y: 0}
+  onAnimationEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  spawnDustNextFrame: 0
+--- !u!114 &5847416454935700119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5778056782712197230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6a34d769a1e4ac7b0b30e433aa443c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  smoothType: 2
+  subdivisions: 2
+  iterations: 2
+  strength: 0.5
+  uniformLength: 1
+  maxSegmentLength: 2
+  bezierTangentLength: 0.4
+  offset: 0.2
+  factor: 0.1
 --- !u!1 &8281509082611758384
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +204,7 @@ GameObject:
   - component: {fileID: 3235440292474752536}
   - component: {fileID: 6833511448371705927}
   - component: {fileID: 3864300169355532681}
+  - component: {fileID: 7201418619003615781}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -175,7 +220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8281509082611758384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.375, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5778056782712197231}
@@ -221,8 +266,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3e834274cb89c7646adfbd84190232f0, type: 3}
-  m_Color: {r: 0.15513395, g: 0.8962264, b: 0.11329652, a: 1}
+  m_Sprite: {fileID: 3267800377565148373, guid: a0dfdcb6bc5ea6f45a2de990a35dbd01, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -245,8 +290,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.5, y: 2}
+  m_Offset: {x: -0.03960085, y: 0.30940098}
+  m_Size: {x: 0.6683836, y: 0.78718483}
   m_Direction: 0
 --- !u!114 &3864300169355532681
 MonoBehaviour:
@@ -261,5 +306,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zRange: 10
-  yOffset: 0
+  yOffset: 0.375
   zFixingEnabled: 1
+--- !u!95 &7201418619003615781
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8281509082611758384}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2761dd294554d2b4381f1802201d721a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

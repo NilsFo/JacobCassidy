@@ -4190,6 +4190,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158401460, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.3125
+      objectReference: {fileID: 0}
     - target: {fileID: 2050335018, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}
       propertyPath: pointOfInterestHolder
       value: 
@@ -4208,7 +4212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1750998399564402531, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1750998399564402531, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4238,25 +4242,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3854553790457625850, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}
+      propertyPath: yOffset
+      value: 0.3125
+      objectReference: {fileID: 0}
     - target: {fileID: 4058903996095027878, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}
       propertyPath: m_Name
       value: NPC_Cultist
-      objectReference: {fileID: 0}
-    - target: {fileID: 7700122346614994764, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}
-      propertyPath: m_Size.x
-      value: 0.599658
-      objectReference: {fileID: 0}
-    - target: {fileID: 7700122346614994764, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}
-      propertyPath: m_Size.y
-      value: 0.599658
-      objectReference: {fileID: 0}
-    - target: {fileID: 7700122346614994764, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.016681194
-      objectReference: {fileID: 0}
-    - target: {fileID: 7700122346614994764, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.299829
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}
@@ -10698,6 +10690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showSprite: 1
   fadeSpeed: 2
+  minAlpha: 0.2
 --- !u!61 &979372157
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11817,7 +11810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481325534}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.299181, y: 0.19377802, z: -0.45077524}
+  m_LocalPosition: {x: -9.299181, y: 0.19377802, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 827313567}
@@ -11948,6 +11941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showSprite: 1
   fadeSpeed: 2
+  minAlpha: 0.2
 --- !u!213 &1577819955
 Sprite:
   m_ObjectHideFlags: 0
@@ -13918,7 +13912,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3555186089362570380, guid: f9adcbcfe78b3b141b4bdbe2fc5d80ec, type: 3}
       propertyPath: data.dataString
-      value: UEsDBBQAAAgIAAAIIewPW3XdYAIAABkFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVNuO2jAQ/RXk51JxW7r0rQ0s2wcWtGy1L3kxzoRYOHbkC7cV/96xk5CQSkg4c87MnDOe5ItwaQpgVuml5slKJUB+9og/k2+9BnyFM90rueVXqDmfPLGZJ9HAeaeWK4wPfZpROVjN2S+5F548wKCTPFU6XyR7iJSxBsMpFQYQ0sr6bImhrx45419/5lMueBr98KcrnmaD3g2PDKQF3aIOa2pNLHlOMkHzAhIvuqGPRt+f6tJ4DFSJlirWIKBMCcFNpYjYSxEcR7QwDv0gIeEUHQYZ3nAGfJ9ZX7KdvE5TA7YSpullzjUOqqxKfqtyejk1h1LdkQrn+0wnQVRZc/Uf3B8GONUqf63bDge+hc04O7zTC6PGtqbbDs8fdTt5ouJAdwI+M5BvaqmVkwmCVjuf6gyM5s3j3VmUATs08VJqHaz7uqKZeveKvIlbcH+OBM93YfKTMrAVKsw7rABovJs/qDgsiKlKYNTL+Gvgg+7bm1QBL1wbi1BlU3p9O+W0p5JFGJq342yktIQQrqwUIKmwlw2Wsd0r7GCtth3khfp3pmpeYfWr0EkJ4YY/GHSgjTrdb8tk6rQCk62dFVxCI9oDbzinSElZbph5BH3W1umUslbW3vHkcbXIDNLRhE0oY+Mx/p7648kzzBhLn8fD3XTKxiTsHpdok4pNqbOaDl6abIpL3LP6S9JbalqEZU80PS35NVctfVymass0gFyXFeoJGdDYBF/LZJFwnM8WrOUyXDf5iolQ7ABJfC8UB6eLs9U0bqrEpOBHZX0kJlH4dMTEh++7vNFw5HDyzetiN3L7B1BLAwQUAAAICAAACCHsyFjgAmwAAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kmVqmpFJsklicrKxMRCZ6hqbWKRaJienWRgbJpmZJRsrxQLVl1QWpPol5qZC9AQklmSkZealZOal67kXZaa4g4xWiq0FAFBLAQItABQAAAgIAAAIIewPW3XdYAIAABkFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIezIWOACbAAAAHgAAAAJACQAAAAAAAAAAAAAAK0CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAZAMAAAAA
+      value: UEsDBBQAAAgIAAAIIeySAL2NXwIAABkFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVNuO2jAQ/RXk57Li3qVvbWDZPrCgpdW+5MU4E2Lh2JEvXMW/d+wkJFAJCeecMzNnxpNcCZemAGaVXmieLFUC5EeH+DP51mnIdzjRnZIbfoFa88UTm3kRDZpParlCvO/DjMrBas5+yp3w4h6CTvJU6Xye7CBSxhqEUyoMIKWV9dESoWuHnPCvO/UhZzwNvvvTBU/TXueGRwbSgm5J+7W0FpY6J5mgeQGJN93Ih72XcZ168DIOUoktVaqSZUoIbipHxJ6L0HFEC+OwHxQknGKHwYZvOAO+y6xP2Q5epakBWxnT9DzjGgdVZiW/VDm9nJp96e5AhfN1JqNgqsy5/I/u9gOdapW/12X7PV/CZpztP+mZUWNb023Ds0ffTh6p2NOtgK8M5IdaaOVkgqTVzoc6A4NZ83jvLMqA7Ru8tFqDdV1XNFN/viLfxC10f4oEz7dh8qMS2AgV5h1WADTezW90HBbEVCkQ9Tb+GvhDd+1Nqog3ro1FqmpTen9b5bSXknkYmm/H2UhpCQGuWilAUmHPa0xjn6/wiWuVfWLeqH9nquIVV78KTyEBbvS93hO1Vsf7bZlMHZdgspWzgktoTHviA+cUKSnLDTOPpI/aOJ1S1oraOZ48rhaZQjoYsRFlbDjE37g7HL3ClLH0ddjfTiZsSMLucYltUrEufVbTwUuTTXKJe1Z/SToLTYuw7ImmxwW/5Krlj8tUbZgGkKsyQz0hAxqL4GuZzBOO89mAtVyG6ybXmAjF9pDE90Rx6HR+sprGTZaYFPygrEdiEoVPR0w8fN/ltYYDh6MvXie7kds/UEsDBBQAAAgIAAAIIezIWOACbAAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSZWqakUmySWJysrExEJnqGptYpFomJ6dZGBsmmZklGyvFAtWXVBak+iXmpkL0BCSWZKRl5qVk5qXruRdlpriDjFaKrQUAUEsBAi0AFAAACAgAAAgh7JIAvY1fAgAAGQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7MhY4AJsAAAAeAAAAAkAJAAAAAAAAAAAAAAArAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABjAwAAAAA=
       objectReference: {fileID: 0}
     - target: {fileID: 3555186089362570381, guid: f9adcbcfe78b3b141b4bdbe2fc5d80ec, type: 3}
       propertyPath: m_Name

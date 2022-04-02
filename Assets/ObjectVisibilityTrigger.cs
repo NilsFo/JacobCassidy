@@ -7,13 +7,14 @@ public class ObjectVisibilityTrigger : MonoBehaviour
     private SpriteRenderer mySprite;
     public bool showSprite = true;
     public float fadeSpeed = 2f;
+    public float minAlpha = 0.2f;
     private float _fade;
     private Color initialColor;
     
     // Start is called before the first frame update
     void Start() {
         mySprite = GetComponent<SpriteRenderer>();
-        _fade = showSprite ? 1.0f : 0.0f;
+        _fade = showSprite ? 1.0f : minAlpha;
         initialColor = mySprite.color;
     }
 
@@ -25,9 +26,9 @@ public class ObjectVisibilityTrigger : MonoBehaviour
             initialColor.a = Mathf.Min(_fade, 1.0f);
             mySprite.color = initialColor;
         }
-        else if (!showSprite && _fade > 0f) {
+        else if (!showSprite && _fade > minAlpha) {
             _fade -= fadeSpeed * Time.deltaTime;
-            initialColor.a = Mathf.Max(_fade, 0f);
+            initialColor.a = Mathf.Max(_fade, minAlpha);
             mySprite.color = initialColor;
         }
     }

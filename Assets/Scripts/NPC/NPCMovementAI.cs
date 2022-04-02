@@ -24,8 +24,7 @@ public class NPCMovementAI : MonoBehaviour
     }
 
     [Header("General Movement Settings")] public bool paused = false;
-    // public MovementAnimator myAnimator;
-    // TODO add
+    public MovementAnimator myAnimator;
 
     [Header("Movement Params")] public float movementSpeed = 1500f;
     private Rigidbody2D rb;
@@ -183,7 +182,15 @@ public class NPCMovementAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // TODO update animations here
+        // Updating animations
+        if (myAnimator != null)
+        {
+            Vector2 rbVel = (rb.position - _lastFramePosition ) / Time.fixedDeltaTime;
+            _lastFramePosition = rb.position;
+
+            myAnimator.velocity = rbVel;
+        }
+        
         if (paused)
         {
             return;

@@ -122,7 +122,7 @@ public class CultistAI : MonoBehaviour
     private void SummonZombie(bool self)
     {
         print("New zombie summoned.");
-        GameObject newZombie = Instantiate(zombiePrefab, transform.position, Quaternion.identity);
+        GameObject newZombie = Instantiate(zombiePrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
 
         if (self)
         {
