@@ -79,7 +79,6 @@ public class PlayerMovementBehaviour : MonoBehaviour
             var mousePos = Mouse.current.position.ReadValue();
             var worldPos = Camera.main.ScreenToWorldPoint(mousePos);
             lookInput = worldPos -transform.position;
-            Debug.Log(_lookDirection);
         }
         
 

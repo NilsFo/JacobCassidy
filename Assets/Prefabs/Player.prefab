@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 576056676}
   - component: {fileID: 1516033935}
   - component: {fileID: 6268906861743386856}
+  - component: {fileID: 5135959691147198327}
   m_Layer: 7
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576056674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5146744408777786674}
@@ -122,6 +123,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   spawnDustNextFrame: 0
+--- !u!114 &5135959691147198327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576056674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 785cb1ea38ee9ba4799cccc2efbd6514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zRange: 10
+  yOffset: -0.5625
+  zFixingEnabled: 1
 --- !u!1 &424963430642395798
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +194,7 @@ MonoBehaviour:
   dashMod: 5
   dashDuration: 2
   movementAnimator: {fileID: 6268906861743386856}
-  aimDummy: {fileID: 0}
+  aimDummy: {fileID: 1250300201869196862}
 --- !u!50 &7361821399617534478
 Rigidbody2D:
   serializedVersion: 4
@@ -213,7 +229,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.75, y: 1}
   m_Direction: 0
 --- !u!114 &3317967261752876488
@@ -260,7 +276,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -276,7 +292,7 @@ GameObject:
   m_Layer: 7
   m_Name: AimDummy
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -288,7 +304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9015407937773417085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5146744408777786674}
