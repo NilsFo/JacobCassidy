@@ -22,7 +22,7 @@ public class GunSpriteBehaviour : MonoBehaviour {
         
         var direction = movementBehaviour.lookDirection;
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Debug.Log(angle);
+
         if (angle < -150 || angle > 150) {
             SetSprite(gunW);
         }
