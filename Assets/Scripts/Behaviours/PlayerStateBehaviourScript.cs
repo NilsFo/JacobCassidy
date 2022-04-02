@@ -130,7 +130,7 @@ public class PlayerStateBehaviourScript : MonoBehaviour
             return true;
         }
         currentStamina += value;
-        if (currentStamina <= 0)
+        if (currentStamina < 0)
         {
             currentStamina = 0;
             return false;
