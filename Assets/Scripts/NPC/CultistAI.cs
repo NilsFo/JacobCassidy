@@ -125,6 +125,7 @@ public class CultistAI : MonoBehaviour
         GameObject newZombie = Instantiate(zombiePrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
         ZombieAI zombieAI = newZombie.GetComponent<ZombieAI>();
         zombieAI.myCultist = gameObject;
+        zombieAI.SetStunTime(2f);
         
         if (self)
         {

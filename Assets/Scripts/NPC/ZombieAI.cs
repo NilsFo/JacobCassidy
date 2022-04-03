@@ -216,10 +216,6 @@ public class ZombieAI : MonoBehaviour
         return Vector2.Distance(transform.position, player.transform.position) < meleeRange;
     }
 
-    public void DamageTaken(float damage)
-    {
-    }
-
     public void Death()
     {
         currentState = ZombieState.Dead;
@@ -260,4 +256,10 @@ public class ZombieAI : MonoBehaviour
         }
 #endif
     }
+
+    public void SetStunTime(float time)
+    {
+        myMovement.stunnedTimer = time;
+    }
+    
 }
