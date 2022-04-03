@@ -117,10 +117,10 @@ public class ZombieAI : MonoBehaviour
 
     public void BeginAttack()
     {
-        // TODO: Attack animation here
+        
         Debug.LogWarning("ZOMBIE ATTACK!");
         myMovement.myAnimator.myMovementAnimator.SetTrigger("Attack");
-
+        myMovement.SetMovementStateWaitHere();
     }
 
     public void MakeAttack() {
@@ -133,7 +133,7 @@ public class ZombieAI : MonoBehaviour
 
     public void EndAttack() {
         
-        currentState = ZombieState.GoToSpawn;
+        currentState = ZombieState.Roaming;
     }
 
     public void UpdateCanSeePlayer()

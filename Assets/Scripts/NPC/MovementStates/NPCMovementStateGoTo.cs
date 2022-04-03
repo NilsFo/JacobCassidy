@@ -35,6 +35,6 @@ public class NPCMovementStateGoTo : NPCMovementStateBase
     public override void OnPathComplete()
     {
         base.OnPathComplete();
-        sourceNPC.SetMovementStateWaitAtLocation(goToTarget);
+        //sourceNPC.SetMovementStateWaitAtLocation(goToTarget);
     }
 }

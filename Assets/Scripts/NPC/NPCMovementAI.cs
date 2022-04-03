@@ -309,7 +309,7 @@ public class NPCMovementAI : MonoBehaviour
 
     public void SetStateFollow(GameObject followTarget)
     {
-        SetMovementState(new NPCMovementStateFollow(this, followTarget));
+        SetMovementState(new NPCMovementStateFollow(this, followTarget, false));
     }
 
     public void SetMovementStateRoaming()

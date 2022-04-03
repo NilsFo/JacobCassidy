@@ -31,7 +31,6 @@ public class MovementAnimator : MonoBehaviour
     private void Awake()
     {
         // Checking if animator has animations
-        Debug.Assert(ContainsParam("test"), gameObject);
         Debug.Assert(ContainsParam("Velocity_Horizontal"), gameObject);
         Debug.Assert(ContainsParam("Velocity_Vertical"), gameObject);
         Debug.Assert(ContainsParam("Idle_Horizontal"), gameObject);
