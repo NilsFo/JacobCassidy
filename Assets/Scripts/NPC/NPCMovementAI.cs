@@ -28,7 +28,10 @@ public class NPCMovementAI : MonoBehaviour
 
     [Header("Movement Params")] public float movementSpeed = 1500f;
     private Rigidbody2D rb;
-    public float roamingRadius = 3.5f;
+    public float roamingRadius = 5.5f;
+    public float nextRoamingTimer = 2.5f;
+    public float nextRoamingTimerJitter = 3.5f;
+    public float stunnedTimer = 0;
 
     [Header("Pathfinding Parameters")] public float nextWaypointDistanceTolerance = .1337f;
     private Path currentPathToTarget;
@@ -58,6 +61,7 @@ public class NPCMovementAI : MonoBehaviour
 
     private void Awake()
     {
+        stunnedTimer = 0;
         currentWaypointIndexToTarget = 0;
         reachedPath = false;
         currentMovementState = null;
@@ -153,6 +157,7 @@ public class NPCMovementAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        stunnedTimer = stunnedTimer - Time.deltaTime;
         if (!currentMovementState.ShouldMove())
             currentPathToTarget = null;
 
@@ -191,7 +196,7 @@ public class NPCMovementAI : MonoBehaviour
             myAnimator.velocity = rbVel;
         }
         
-        if (paused)
+        if (paused || stunnedTimer > 0)
         {
             return;
         }
@@ -314,7 +319,7 @@ public class NPCMovementAI : MonoBehaviour
 
     public void SetMovementStateRoaming()
     {
-        SetMovementState(new NPCMovementStateRoaming(this, transform.position,roamingRadius));
+        SetMovementState(new NPCMovementStateRoaming(this, transform.position,roamingRadius,nextRoamingTimer,nextRoamingTimerJitter));
     }
 
     public void SetMovementStatePatrolToPlayer()

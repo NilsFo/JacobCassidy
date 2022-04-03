@@ -91,7 +91,7 @@ public class EnemyBehaviourScript : MonoBehaviour
             return true;
         }
         currentHealth += value;
-        if (currentHealth < 0) {
+        if (value < 0) {
             onDamageTaken?.Invoke();
             OnDamageTaken?.Invoke(gameObject, value);
         }

@@ -140,15 +140,21 @@ public class CultistAI : MonoBehaviour
         GameObject newZombie = Instantiate(zombiePrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
         newZombie.GetComponent<MovementAnimator>().myMovementAnimator.SetTrigger("Spawn");
 
+        ZombieAI zombieAI = newZombie.GetComponent<ZombieAI>();
+        zombieAI.myCultist = gameObject;
+        zombieAI.SetStunTime(2f);
+        
         if (self)
         {
             EnemyBehaviourScript script = newZombie.GetComponent<EnemyBehaviourScript>();
             congregation.Add(script.gameObject);
             script.OnDeath += OnCongregationZombieDeath;
+            zombieAI.currentState = ZombieAI.ZombieState.FollowCultist;
         }
         else
         {
             GetCurrentPointOfInterest().AddZombie(newZombie);
+            zombieAI.currentState = ZombieAI.ZombieState.Roaming;
         }
 
 
