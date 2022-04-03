@@ -36,6 +36,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,7 +58,7 @@ MonoBehaviour:
       m_Calls: []
   playerStateBehaviourScript: {fileID: 7802783470283271111}
   enemieStateBehaviourScript: {fileID: 3191035166800469499}
-  spellStateBehaviourScript: {fileID: 0}
+  spellStateBehaviourScript: {fileID: 1809202575865811791}
 --- !u!114 &7802783470283271111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +140,8 @@ MonoBehaviour:
   - {fileID: 1588181202046067130}
   placeHold: {fileID: 1352714986146920249}
   currentIndex: 0
+  learnAll: 1
+  swapDelay: 0.2
 --- !u!114 &1352714986146920249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8eb22bade881bd44b6447c3d9512378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStateBehaviourScript: {fileID: 0}
+  playerStateBehaviourScript: {fileID: 7802783470283271111}
+  spellStateBehaviourScript: {fileID: 1809202575865811791}
   sprite: {fileID: 0}
   spellCooldown: 1
   spellTimer: 0
@@ -171,13 +175,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7482ed6fd4476e64ea01ddaaa9046d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStateBehaviourScript: {fileID: 0}
+  playerStateBehaviourScript: {fileID: 7802783470283271111}
+  spellStateBehaviourScript: {fileID: 1809202575865811791}
   sprite: {fileID: 21300000, guid: 1edba35aef1189e4e9ab55a544f06125, type: 3}
   spellCooldown: 1
   spellTimer: 0
   spellCost: 5
   spellPref: {fileID: 8303734707630240663, guid: baa0e0f30334cc44f9e2aa25793197ac, type: 3}
-  speed: 2000
+  speed: 500
   flyTime: 3
 --- !u!114 &3588870202593261240
 MonoBehaviour:
@@ -191,13 +196,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321e8f80bec0f5440b504d490d2b404a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStateBehaviourScript: {fileID: 0}
-  sprite: {fileID: 0}
+  playerStateBehaviourScript: {fileID: 7802783470283271111}
+  spellStateBehaviourScript: {fileID: 1809202575865811791}
+  sprite: {fileID: 21300000, guid: 42c27313c01cb7b4293ec190c353a24c, type: 3}
   spellCooldown: 1
   spellTimer: 0
   spellCost: 5
-  spellPref: {fileID: 0}
-  speed: 10
+  spellPref: {fileID: 7618538752422577317, guid: 55dea8abb1118424bbbee50b53677132, type: 3}
+  speed: 500
   flyTime: 3
 --- !u!114 &1182842812073921434
 MonoBehaviour:
@@ -211,8 +217,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e9da3e98a21364a9d95ae2333127e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStateBehaviourScript: {fileID: 0}
-  sprite: {fileID: 0}
+  playerStateBehaviourScript: {fileID: 7802783470283271111}
+  spellStateBehaviourScript: {fileID: 1809202575865811791}
+  sprite: {fileID: 21300000, guid: 90a98e09ae6c5df4d915dc29950ab7d2, type: 3}
   spellCooldown: 1
   spellTimer: 0
   spellCost: 5
@@ -231,8 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40cb84fbdeacf9845ac27536b75b0eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStateBehaviourScript: {fileID: 0}
-  sprite: {fileID: 0}
+  playerStateBehaviourScript: {fileID: 7802783470283271111}
+  spellStateBehaviourScript: {fileID: 1809202575865811791}
+  sprite: {fileID: 21300000, guid: 2fb56185bd79a3646b7180cdcbfab1cc, type: 3}
   spellCooldown: 1
   spellTimer: 0
   spellCost: 5
@@ -251,8 +259,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92693ba36df50294bbfb85e9393ea3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStateBehaviourScript: {fileID: 0}
-  sprite: {fileID: 0}
+  playerStateBehaviourScript: {fileID: 7802783470283271111}
+  spellStateBehaviourScript: {fileID: 1809202575865811791}
+  sprite: {fileID: 21300000, guid: dfaf2479f06a88946bbeaa505b2e296b, type: 3}
   spellCooldown: 1
   spellTimer: 0
   spellCost: 5
