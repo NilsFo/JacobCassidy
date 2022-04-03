@@ -19,7 +19,6 @@ public abstract class ISpellBehaviourScript : MonoBehaviour
     [SerializeField] private GameObject spellPref;
     
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float flyTime = 3f;
 
     private void Start()
     {
@@ -72,10 +71,7 @@ public abstract class ISpellBehaviourScript : MonoBehaviour
     {
         GameObject instBullet = Instantiate(spellPref, new Vector3(startObj.transform.position.x, startObj.transform.position.y, -6), Quaternion.Euler(0,0,Mathf.Rad2Deg*Mathf.Atan2(direction.y, direction.x)));
         Rigidbody2D instBulletRB = instBullet.GetComponent<Rigidbody2D>();
-                
         instBulletRB.AddForce(direction * speed, ForceMode2D.Force);
-
-        Destroy(instBullet, flyTime);
     }
     
     public abstract string GetName();

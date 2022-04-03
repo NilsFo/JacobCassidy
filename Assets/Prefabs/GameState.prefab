@@ -162,7 +162,6 @@ MonoBehaviour:
   spellCost: 5
   spellPref: {fileID: 0}
   speed: 10
-  flyTime: 3
 --- !u!114 &6872647183850292548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +182,6 @@ MonoBehaviour:
   spellCost: 5
   spellPref: {fileID: 8303734707630240663, guid: baa0e0f30334cc44f9e2aa25793197ac, type: 3}
   speed: 500
-  flyTime: 3
 --- !u!114 &3588870202593261240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +202,6 @@ MonoBehaviour:
   spellCost: 5
   spellPref: {fileID: 7618538752422577317, guid: 55dea8abb1118424bbbee50b53677132, type: 3}
   speed: 500
-  flyTime: 3
 --- !u!114 &1182842812073921434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,9 +220,8 @@ MonoBehaviour:
   spellCooldown: 1
   spellTimer: 0
   spellCost: 5
-  spellPref: {fileID: 0}
-  speed: 10
-  flyTime: 3
+  spellPref: {fileID: 919879169368235554, guid: 54177df2978dd254a91eb8f1d18b2119, type: 3}
+  speed: 1
 --- !u!114 &318111148256976481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,12 +237,11 @@ MonoBehaviour:
   playerStateBehaviourScript: {fileID: 7802783470283271111}
   spellStateBehaviourScript: {fileID: 1809202575865811791}
   sprite: {fileID: 21300000, guid: 2fb56185bd79a3646b7180cdcbfab1cc, type: 3}
-  spellCooldown: 1
+  spellCooldown: 3
   spellTimer: 0
-  spellCost: 5
-  spellPref: {fileID: 0}
-  speed: 10
-  flyTime: 3
+  spellCost: 20
+  spellPref: {fileID: 6154429769362283141, guid: a21779166396660408363751e886af88, type: 3}
+  speed: 1
 --- !u!114 &1588181202046067130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +259,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: dfaf2479f06a88946bbeaa505b2e296b, type: 3}
   spellCooldown: 1
   spellTimer: 0
-  spellCost: 5
-  spellPref: {fileID: 0}
-  speed: 10
-  flyTime: 3
+  spellCost: 1
+  spellPref: {fileID: 6505627646986575845, guid: 1cc7c08516b799c4fa8c3a291ff84faf, type: 3}
+  speed: 500

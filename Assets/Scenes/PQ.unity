@@ -12089,6 +12089,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 318111148256976481, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
+      propertyPath: spellPref
+      value: 
+      objectReference: {fileID: 6154429769362283141, guid: a21779166396660408363751e886af88, type: 3}
     - target: {fileID: 7802783470283271108, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
       propertyPath: m_Name
       value: GameState
