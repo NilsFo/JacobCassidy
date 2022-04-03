@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HealthPotionBehaviourScript : MonoBehaviour
 {
-    [SerializeField] private PlayerStateBehaviourScript playerStateBehaviourScript;
+    private PlayerStateBehaviourScript playerStateBehaviourScript;
 
     [SerializeField] private float amountToHeal = 5f;
 
