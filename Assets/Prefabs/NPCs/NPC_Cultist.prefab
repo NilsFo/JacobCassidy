@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 158401461}
   - component: {fileID: 7700122346614994764}
   - component: {fileID: 3854553790457625850}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 3227863212620385697}
   - component: {fileID: 2050335018}
   - component: {fileID: 8802906259143886239}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: NPC_Cultist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,6 +172,8 @@ MonoBehaviour:
   myAnimator: {fileID: 0}
   movementSpeed: 1500
   roamingRadius: 3.5
+  nextRoamingTimer: 2.5
+  nextRoamingTimerJitter: 3.5
   nextWaypointDistanceTolerance: 0.35
   reachedPath: 0
   updatePathFrequency: 0.5
@@ -251,6 +253,9 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  onDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2050335018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +276,7 @@ MonoBehaviour:
   playerDetectionDistance: 2
   playerSpotted: 0
   currentState: 0
-  congregationSize: 3
+  congregationSize: 1
   congregation: []
 --- !u!114 &8802906259143886239
 MonoBehaviour:
