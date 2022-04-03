@@ -2,23 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SanityBehaviourScript : MonoBehaviour
 {
-    [SerializeField] private PlayerStateBehaviourScript _playerStateBehaviourScript;
+    private PlayerStateBehaviourScript _playerStateBehaviourScript;
     
-    [SerializeField] private TextMeshProUGUI goText;
+    [SerializeField] private Slider slider;
     
     private void Awake()
     {
-        Debug.Assert(_playerStateBehaviourScript != null, gameObject);
-        Debug.Assert(goText != null, gameObject);
+        Debug.Assert(slider != null, gameObject);
     }
     
-    // Start is called before the first frame update
     void Start()
     {
+        _playerStateBehaviourScript = FindObjectOfType<PlayerStateBehaviourScript>();
+        
         _playerStateBehaviourScript.onCurrentSanityChange.AddListener(UpdateSanityText);
+        
+        UpdateSanityText();
     }
 
     private void OnDisable()
@@ -28,6 +31,8 @@ public class SanityBehaviourScript : MonoBehaviour
 
     public void UpdateSanityText()
     {
-        goText.SetText(_playerStateBehaviourScript.CurrentSanity + "/" + _playerStateBehaviourScript.MAXSanity);
+        slider.value = _playerStateBehaviourScript.CurrentSanity;
+        slider.maxValue = _playerStateBehaviourScript.MAXSanity;
+        slider.minValue = 0;
     }
 }
