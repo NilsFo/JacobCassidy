@@ -11,7 +11,8 @@ public class ZombieAI : MonoBehaviour
         Attacking,
         GoToPlayer,
         GoToSpawn,
-        Roaming
+        Roaming,
+        Dead
     }
 
     public NPCMovementAI myMovement;
@@ -104,6 +105,9 @@ public class ZombieAI : MonoBehaviour
             case ZombieState.GoToSpawn:
                 myMovement.SetMovementStateMoveTo(myCreationPoint);
                 break;
+            case ZombieState.Dead:
+                myMovement.SetMovementStateStasis();
+                break;
             default:
                 Debug.LogWarning("Unknown movement state for this zombie!", gameObject);
                 break;
@@ -121,6 +125,11 @@ public class ZombieAI : MonoBehaviour
         Debug.LogWarning("ZOMBIE ATTACK!");
         myMovement.myAnimator.myMovementAnimator.SetTrigger("Attack");
         myMovement.SetMovementStateWaitHere();
+        
+        // Rotate attack collider towards player
+        Vector3 playerTarget = FindObjectOfType<PlayerMovementBehaviour>().transform.position;
+        var dir = playerTarget - transform.position;
+        attackCollider.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90f);
     }
 
     public void MakeAttack() {
@@ -157,5 +166,19 @@ public class ZombieAI : MonoBehaviour
     public bool IsInMeleeRange()
     {
         return Vector2.Distance(transform.position, player.transform.position) < meleeRange;
+    }
+
+    public void Death() {
+        currentState = ZombieState.Dead;
+        myMovement.myAnimator.myMovementAnimator.SetTrigger("Die");
+        var debrisLayer = LayerMask.NameToLayer("Debris");
+        gameObject.layer = debrisLayer;
+        foreach (var componentsInChild in gameObject.GetComponentsInChildren<Collider2D>()) {
+            componentsInChild.gameObject.layer = debrisLayer;
+        }
+    }
+
+    public void DespawnAfterDeath() {
+        Destroy(gameObject);
     }
 }

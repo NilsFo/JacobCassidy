@@ -13,4 +13,8 @@ public class ZombieAnimationEvent : MonoBehaviour {
     public void FishmanAttackEnd() {
         myZombie.EndAttack();
     }
+
+    public void FishmanDespawn() {
+        myZombie.DespawnAfterDeath();
+    }
 }

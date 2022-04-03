@@ -11,8 +11,6 @@ public class FireGunBehaviourScript : MonoBehaviour
     public BulletTrailBehaviour bulletTrailPrefab;
     public Transform aimDummy;
     
-    public float speed = 10f;
-
     public float fireDelay = 0.2f;
 
 
@@ -59,12 +57,27 @@ public class FireGunBehaviourScript : MonoBehaviour
     
     private void Fire(Vector2 direction) {
 
-        BulletBehaviourScript instBullet = Instantiate(bulletPref, transform.position, Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(direction.y, direction.x)));
-        Rigidbody2D instBulletRB = instBullet.GetComponent<Rigidbody2D>();
+        var layerMask = LayerMask.GetMask(new[] {
+            "EnemyHitbox",
+            "Objects",
+            "NavMeshBlocker"
+        });
+        float maxRaycastDist = 50f;
+        var hit = Physics2D.Raycast(transform.position, direction, maxRaycastDist, layerMask);
 
-        instBulletRB.AddForce(direction * speed, ForceMode2D.Force);
-
-        Destroy(instBullet, 3f);
+        Vector3 hitPos = Vector3.zero;
+        if (hit.collider != null) {
+            var enemy = hit.collider.transform.parent.GetComponent<EnemyBehaviourScript>();
+            if (enemy != null) {
+                enemy.ChangeCurrentHealth(-1);
+            }
+            hitPos = hit.point;
+            hitPos.z = -10;
+            // TODO hit objects etc
+        } else {
+            hitPos = new Vector3(transform.position.x + direction.normalized.x * maxRaycastDist, transform.position.y + direction.normalized.y * maxRaycastDist, -5f);
+        }
+        
         fireTime = fireDelay;
 
         // Knockback
@@ -75,7 +88,8 @@ public class FireGunBehaviourScript : MonoBehaviour
 
         // Gun Trail
         var bulletTrail = Instantiate(bulletTrailPrefab, transform.position, Quaternion.identity);
-        bulletTrail.bullet = instBullet;
+
+        bulletTrail.hitPos = hitPos;
         bulletTrail.startPos = transform.position;
 
         //TODO Gun Sound Trigger

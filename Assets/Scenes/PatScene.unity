@@ -3907,7 +3907,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8070444, y: 1}
+    m_SensorSize: {x: 1.8177676, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4045,7 +4045,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.8020835
+  orthographic size: 9.145833
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4225,10 +4225,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1481325535}
     m_Modifications:
-    - target: {fileID: 158401460, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.3125
-      objectReference: {fileID: 0}
     - target: {fileID: 2050335018, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}
       propertyPath: pointOfInterestHolder
       value: 
@@ -4277,17 +4273,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3854553790457625850, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}
-      propertyPath: yOffset
-      value: 0.3125
-      objectReference: {fileID: 0}
     - target: {fileID: 4058903996095027878, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}
       propertyPath: m_Name
       value: NPC_Cultist
-      objectReference: {fileID: 0}
-    - target: {fileID: 4058903996095027878, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6e3002af5f1b9e418d469fa7266367a, type: 3}

@@ -43,6 +43,20 @@ AnimationClip:
       value: {fileID: 3847344474669583607, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
     - time: 0.9166667
       value: {fileID: 1990559543703255481, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
+    - time: 1
+      value: {fileID: 1785679122, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
+    - time: 1.0833334
+      value: {fileID: -1509786948, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
+    - time: 1.1666666
+      value: {fileID: -1594639414, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
+    - time: 1.25
+      value: {fileID: 1923303831, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
+    - time: 1.3333334
+      value: {fileID: -1648631099, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
+    - time: 1.4166666
+      value: {fileID: 1993495196, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
+    - time: 1.5
+      value: {fileID: -376239138, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -74,12 +88,19 @@ AnimationClip:
     - {fileID: -7580948671800805610, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
     - {fileID: 3847344474669583607, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
     - {fileID: 1990559543703255481, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
+    - {fileID: 1785679122, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
+    - {fileID: -1509786948, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
+    - {fileID: -1594639414, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
+    - {fileID: 1923303831, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
+    - {fileID: -1648631099, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
+    - {fileID: 1993495196, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
+    - {fileID: -376239138, guid: 93b6fdea3fec05d4897eaead4a98dd6f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: 1.5833334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -98,4 +119,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1.5833334
+    functionName: FishmanDespawn
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

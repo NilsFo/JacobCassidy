@@ -55,9 +55,7 @@ public class EnemyBehaviourScript : MonoBehaviour
         {
             if (deathTimer < 0)
             {
-                Destroy(gameObject);
-                onDeath.Invoke();
-                OnDeath?.Invoke(gameObject);
+                //Destroy(gameObject);
             }
             else
             {
@@ -76,6 +74,8 @@ public class EnemyBehaviourScript : MonoBehaviour
     {
         enemyState = EnemyState.Dead;
         deathTimer = deathDelay;
+        onDeath.Invoke();
+        OnDeath?.Invoke(gameObject);
     }
     
     public bool ChangeCurrentHealth(float value)

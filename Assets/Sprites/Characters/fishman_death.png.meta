@@ -144,7 +144,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 352
+        y: 576
         width: 48
         height: 32
       alignment: 7
@@ -165,7 +165,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 320
+        y: 544
         width: 48
         height: 32
       alignment: 7
@@ -186,7 +186,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 288
+        y: 512
         width: 48
         height: 32
       alignment: 7
@@ -207,7 +207,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
+        y: 480
         width: 48
         height: 32
       alignment: 7
@@ -228,7 +228,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 224
+        y: 448
         width: 48
         height: 32
       alignment: 7
@@ -249,7 +249,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 416
         width: 48
         height: 32
       alignment: 7
@@ -270,7 +270,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 160
+        y: 384
         width: 48
         height: 32
       alignment: 7
@@ -291,7 +291,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 352
         width: 48
         height: 32
       alignment: 7
@@ -312,7 +312,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
+        y: 320
         width: 48
         height: 32
       alignment: 7
@@ -333,7 +333,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 288
         width: 48
         height: 32
       alignment: 7
@@ -354,7 +354,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
+        y: 256
         width: 48
         height: 32
       alignment: 7
@@ -375,7 +375,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 224
         width: 48
         height: 32
       alignment: 7
@@ -387,6 +387,153 @@ TextureImporter:
       bones: []
       spriteID: 9b932bacb53ef9b10800000000000000
       internalID: 1990559543703255481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fishman_death_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 48
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3157b725f9a3758419dc206f71559c01
+      internalID: 1785679122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fishman_death_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 48
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a04e14a10c882941baae383c557fc09
+      internalID: -1509786948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fishman_death_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 48
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04a9b4ebc3b43ef4d9cc3c2d7dd91edf
+      internalID: -1594639414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fishman_death_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 48
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6f5cde3e25887546b23c52cb7873d0d
+      internalID: 1923303831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fishman_death_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 48
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49a7084089f9a7d419f6cf35c963b7cf
+      internalID: -1648631099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fishman_death_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 48
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd0c8965991619340987ac89ad5d8214
+      internalID: 1993495196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fishman_death_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66454eb359f0f754eade67393439617d
+      internalID: -376239138
       vertices: []
       indices: 
       edges: []
@@ -404,14 +551,21 @@ TextureImporter:
     nameFileIdTable:
       fishman_death_2: 2007207099636612813
       fishman_death_8: 5178284105459430314
+      fishman_death_18: -376239138
       fishman_death_4: -5474002339160553635
+      fishman_death_13: -1509786948
       fishman_death_10: 3847344474669583607
       fishman_death_5: 7063465589790776575
       fishman_death_7: -1803541271713685596
       fishman_death_9: -7580948671800805610
+      fishman_death_17: 1993495196
+      fishman_death_16: -1648631099
       fishman_death_1: -4552372610434691998
+      fishman_death_14: -1594639414
+      fishman_death_12: 1785679122
       fishman_death_6: 4050327338670154462
       fishman_death_11: 1990559543703255481
+      fishman_death_15: 1923303831
       fishman_death_3: -2306694216334530858
       fishman_death_0: 676041991108413593
   spritePackingTag: 
