@@ -60,6 +60,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -400,6 +401,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      fishman_death_2: 2007207099636612813
+      fishman_death_8: 5178284105459430314
+      fishman_death_4: -5474002339160553635
+      fishman_death_10: 3847344474669583607
+      fishman_death_5: 7063465589790776575
+      fishman_death_7: -1803541271713685596
+      fishman_death_9: -7580948671800805610
+      fishman_death_1: -4552372610434691998
+      fishman_death_6: 4050327338670154462
+      fishman_death_11: 1990559543703255481
+      fishman_death_3: -2306694216334530858
+      fishman_death_0: 676041991108413593
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

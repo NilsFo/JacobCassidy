@@ -48,6 +48,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -304,6 +305,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Revolver_se: 3957572682370706586
+      Revolver_s: 8785155753439522890
+      Revolver_e: 6923594022277186243
+      bullet: 4011165979584494121
+      Revolver_ne: 7825724369199148441
+      Revolver_w: -3083024517234379138
+      Revolver_sw: 40838338203732660
+      Revolver_nw: -8660396610530198205
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -258,6 +258,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1984,6 +1985,85 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      stone_path_63: -95180028032175861
+      stone_path_26: 1988107176448940391
+      stone_path_33: -5567738422302296166
+      stone_path_52: 1789273974995135019
+      stone_path_15: -9219739686900438392
+      stone_path_56: 3557938900456327358
+      stone_path_5: 8240116399211018262
+      stone_path_29: 7149940120242958603
+      stone_path_9: 1450794462959318235
+      stone_path_67: -8719401707038688406
+      stone_path_28: -5344000292036304762
+      stone_path_11: 1546135196853345229
+      stone_path_10: -2637844355462677401
+      stone_path_3: 7338929524660437117
+      stone_path_30: 687339732788330012
+      stone_path_58: 4155797448049099297
+      stone_path_53: -3243807892941646947
+      stone_path_69: 7749613338305613648
+      stone_path_65: 1323520306553631117
+      stone_path_36: 7161301349607632314
+      stone_path_43: 1417900240426747661
+      stone_path_21: 3104957714460343040
+      stone_path_27: -3791128187770273288
+      stone_path_22: -9020618299165181808
+      stone_path_20: -3791274362835110534
+      stone_path_47: -3444433921233299840
+      stone_path_62: -4925269644960150395
+      stone_path_66: 563791575497388903
+      stone_path_73: 2290177400578122615
+      stone_path_57: -5041704012685459897
+      stone_path_72: 512521292777468018
+      stone_path_12: -1124388937272261078
+      stone_path_14: -5391951356997458705
+      stone_path_23: 3379791164702645337
+      stone_path_17: 7130504962080721565
+      stone_path_35: -249181729610304653
+      stone_path_71: 30811713788201798
+      stone_path_41: -5372060679361235043
+      stone_path_2: 2298015660642293557
+      stone_path_45: -4227215421708621219
+      stone_path_18: 768875781396634027
+      stone_path_44: 2085906057134750046
+      stone_path_31: 8421688621462217551
+      stone_path_8: -6987855668139075626
+      stone_path_51: 4514221827288750784
+      stone_path_0: 6363083488259357930
+      stone_path_32: 8471749697503096198
+      stone_path_64: -3582600288072686784
+      stone_path_39: -1241924955597590793
+      stone_path_19: -2556272003122988942
+      stone_path_1: -4273667507459406458
+      stone_path_54: -7826789197257299570
+      stone_path_40: -8574599775197040211
+      stone_path_42: 6568761206066906376
+      stone_path_6: -4932751370284932691
+      stone_path_49: 1705407670117357538
+      stone_path_48: 4758780290467413850
+      stone_path_76: -8807145835280892050
+      stone_path_13: -2702502868553641486
+      stone_path_7: 6027253058476444569
+      stone_path_70: 9036888396252619431
+      stone_path_74: -3879123202488310278
+      stone_path_68: 7971074593204122277
+      stone_path_60: -8052884981635941010
+      stone_path_50: 290313460231931649
+      stone_path_46: 5162224331806438612
+      stone_path_25: 9100727008045913442
+      stone_path_4: 2011754711686602148
+      stone_path_59: -4469735200063991998
+      stone_path_77: 4766174130742103684
+      stone_path_24: -4197640933557622012
+      stone_path_61: -5662834930025684921
+      stone_path_34: -2543294808479276080
+      stone_path_55: 6169414866219006364
+      stone_path_16: 5063651212183777000
+      stone_path_38: -4284956384256181462
+      stone_path_75: 5865508185202528571
+      stone_path_37: -8536748092627369052
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
