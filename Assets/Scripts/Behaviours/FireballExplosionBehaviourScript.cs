@@ -36,19 +36,20 @@ public class FireballExplosionBehaviourScript : MonoBehaviour
             explosionTimer -= Time.deltaTime;
         }
     }
+    
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        EnemyBehaviourScript enemyBehaviourScript = other.gameObject.GetComponent<EnemyBehaviourScript>();
+        EnemyBehaviourScript enemyBehaviourScript = other.gameObject.GetComponentInParent<EnemyBehaviourScript>();
         if (enemyBehaviourScript)
         {
             _list.Add(enemyBehaviourScript);
         }
     }
 
-    private void OnCollisionExit2D(Collision2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        EnemyBehaviourScript enemyBehaviourScript = other.gameObject.GetComponent<EnemyBehaviourScript>();
+        EnemyBehaviourScript enemyBehaviourScript = other.gameObject.GetComponentInParent<EnemyBehaviourScript>();
         if (enemyBehaviourScript)
         {
             _list.Remove(enemyBehaviourScript);

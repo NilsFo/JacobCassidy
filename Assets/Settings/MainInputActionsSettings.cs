@@ -842,7 +842,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""id"": ""c53f2f30-8d7a-4680-a8e6-669694c90a95"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -851,7 +851,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""id"": ""f9d530d8-473b-4b45-bb61-16e47fc7b035"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -860,7 +860,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""id"": ""ab0b24ca-e454-45b7-988b-82569df2cb2a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -869,7 +869,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""id"": ""350baa78-368c-4a31-91bc-0cd967c86188"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -878,7 +878,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""id"": ""af4b321e-7969-41e4-83c2-87e5aada6115"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -932,7 +932,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""id"": ""ff44fb7a-6fcf-45ee-b732-07de320d95a3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -941,7 +941,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""id"": ""dc533e5d-5bca-400a-996e-87939f58133a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -950,6 +950,17 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""name"": """",
                     ""id"": ""39bb7fb4-11fc-45d0-a6a2-dbb88754d2bb"",
                     ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Slot1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91455345-8140-4b9a-8141-9e46da36261b"",
+                    ""path"": ""<Keyboard>/numpad1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -970,8 +981,30 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 },
                 {
                     ""name"": """",
+                    ""id"": ""4ea521ce-ec50-4415-a215-28ca35e1a0df"",
+                    ""path"": ""<Keyboard>/numpad2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slot2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""fbe10dd1-a55d-42cb-910b-c5c58149abce"",
                     ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Slot3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c2d0e6e4-b75e-4ccc-abd9-67f42ddd77b2"",
+                    ""path"": ""<Keyboard>/numpad3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -992,8 +1025,30 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 },
                 {
                     ""name"": """",
+                    ""id"": ""941bc93f-7678-4241-bf94-55f9356b65c9"",
+                    ""path"": ""<Keyboard>/numpad4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Slot4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""7fda1f2a-5589-4b20-89a5-86dc58a76f4f"",
                     ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Slot5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""10310fea-3795-47ed-a3de-3649b2691392"",
+                    ""path"": ""<Keyboard>/numpad5"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -1059,7 +1114,18 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 {
                     ""name"": """",
                     ""id"": ""f72869ec-1400-40df-9c7d-b8a2ec104de3"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0dacbcca-5280-4c6e-8484-238b07ae99d5"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -1070,7 +1136,18 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 {
                     ""name"": """",
                     ""id"": ""ecfc1c9a-fb62-4f20-9bfb-8b9cf31adcaf"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d54d6314-5cae-4f95-8779-a1c3f2d0645a"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",

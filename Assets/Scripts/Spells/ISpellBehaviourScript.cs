@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public abstract class ISpellBehaviourScript : MonoBehaviour
 {
     [SerializeField] private PlayerStateBehaviourScript playerStateBehaviourScript;
-
+    [SerializeField] private SpellStateBehaviourScript spellStateBehaviourScript;
+    
     [SerializeField] private Sprite sprite;
     
     [SerializeField] private float spellCooldown = 1f;
@@ -17,7 +20,12 @@ public abstract class ISpellBehaviourScript : MonoBehaviour
     
     [SerializeField] private float speed = 10f;
     [SerializeField] private float flyTime = 3f;
-    
+
+    private void Start()
+    {
+        spellTimer = 0f;
+    }
+
     private void Update()
     {
         if (spellTimer <= Time.deltaTime)
@@ -29,10 +37,11 @@ public abstract class ISpellBehaviourScript : MonoBehaviour
             spellTimer -= Time.deltaTime;
         }
     }
-    
+
     private void Awake()
     {
         Debug.Assert(playerStateBehaviourScript != null, gameObject);
+        Debug.Assert(spellStateBehaviourScript != null, gameObject);
     }
     
     public bool CastSpell(GameObject startObj, Vector2 direction)
@@ -61,7 +70,7 @@ public abstract class ISpellBehaviourScript : MonoBehaviour
 
     public void SpawnSpell(GameObject startObj, Vector2 direction)
     {
-        GameObject instBullet = Instantiate(spellPref, startObj.transform.position, Quaternion.Euler(0,0,Mathf.Rad2Deg*Mathf.Atan2(direction.y, direction.x)));
+        GameObject instBullet = Instantiate(spellPref, new Vector3(startObj.transform.position.x, startObj.transform.position.y, -6), Quaternion.Euler(0,0,Mathf.Rad2Deg*Mathf.Atan2(direction.y, direction.x)));
         Rigidbody2D instBulletRB = instBullet.GetComponent<Rigidbody2D>();
                 
         instBulletRB.AddForce(direction * speed, ForceMode2D.Force);

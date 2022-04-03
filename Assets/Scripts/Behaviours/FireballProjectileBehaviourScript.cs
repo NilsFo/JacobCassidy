@@ -10,15 +10,15 @@ public class FireballProjectileBehaviourScript : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D other)
     {
+        var contact = other.GetContact(0);
+        Instantiate(fireballExplosionPref, new Vector3(contact.point.x,contact.point.y, -6), Quaternion.Euler(0,0,0));
+        
         EnemyBehaviourScript enemyBehaviourScript = other.gameObject.GetComponent<EnemyBehaviourScript>();
         if (enemyBehaviourScript)
         {
-            var contact = other.GetContact(0);
-            Instantiate(fireballExplosionPref, contact.point, Quaternion.Euler(0,0,Mathf.Rad2Deg*Mathf.Atan2(contact.normal.y, contact.normal.x)));
-            
             enemyBehaviourScript.ChangeCurrentHealth(-hitDamage);
         }
+        
         Destroy(gameObject);
-
     }
 }
