@@ -143,7 +143,7 @@ MonoBehaviour:
   myCultist: {fileID: 0}
   enemyBehaviourScript: {fileID: 174576587}
   myMovement: {fileID: 4099262087088168101}
-  playerDetectionDistance: 10
+  playerDetectionDistance: 8
   playerDetectionDistanceHightened: 15
   currentState: 0
   meleeRange: 1.5
@@ -151,6 +151,7 @@ MonoBehaviour:
   knockbackForce: 1500
   attackCollider: {fileID: 4415079156358570968}
   hitbox: {fileID: 7903991639552511152}
+  callAllyDistance: 5
 --- !u!50 &174576583
 Rigidbody2D:
   serializedVersion: 4

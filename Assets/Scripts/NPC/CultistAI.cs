@@ -130,8 +130,13 @@ public class CultistAI : MonoBehaviour
                 _summonTimer -= Time.deltaTime;
                 if (_defenseSummonsLeft > 0 && _summonTimer < 0) {
                     _defenseSummonsLeft -= 1;
-                    var zombie = SummonZombie(false);
-                    zombie.currentState = ZombieAI.ZombieState.GoToLastKnownLocation;
+                    if (NeedsZombie()) {
+                        var zombie = SummonZombie(true);
+                        zombie.currentState = ZombieAI.ZombieState.GoToLastKnownLocation;
+                    } else {
+                        currentState = CultistState.FindNextPointOfInterest;
+                        myMovement.myAnimator.myMovementAnimator.SetBool("Summoning", false);
+                    }
                     _summonTimer = summonTime;
                 }
                 if (_defenseSummonsLeft == 0) {
@@ -305,7 +310,13 @@ public class CultistAI : MonoBehaviour
         CultistPointOfInterest[] holders = FindObjectsOfType<CultistPointOfInterest>();
         foreach (CultistPointOfInterest holder in holders)
         {
-            holder.congregationSize = holder.congregationSize + 2;
+            holder.congregationSize = holder.congregationSize + 1;
+        }
+        
+        // Announce to other cultists to protect themselves better
+        CultistAI[] cultists = FindObjectsOfType<CultistAI>();
+        foreach (var cultistAI in cultists) {
+            cultistAI.congregationSize += 1;
         }
     }
     

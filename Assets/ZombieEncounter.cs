@@ -31,7 +31,7 @@ public class ZombieEncounter : MonoBehaviour
             return;
         }
 
-        if (GetCultistDeathCount() == requiredCultistDeathCount)
+        if (GetCultistDeathCount() != requiredCultistDeathCount)
         {
             // Not enough cultists are dead. Not spawning.
             return;

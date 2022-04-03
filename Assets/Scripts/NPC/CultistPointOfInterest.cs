@@ -28,6 +28,7 @@ public class CultistPointOfInterest : MonoBehaviour
         {
             GameObject newZombie = Instantiate(zombiePrefab, new Vector3(transform.position.x, transform.position.y, 0f), Quaternion.Euler(Vector3.up));
             AddZombie(newZombie);
+            newZombie.GetComponent<ZombieAI>().currentState = ZombieAI.ZombieState.Roaming;
         }
     }
 
