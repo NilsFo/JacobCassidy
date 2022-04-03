@@ -136,9 +136,12 @@ public class PlayerStateBehaviourScript : MonoBehaviour
 
     public void ReloadAmmo()
     {
-        reloadTimer = reloadDelay;
-        reloading = true;
-        onReloadStart.Invoke();
+        if (!reloading)
+        {
+            reloadTimer = reloadDelay;
+            reloading = true;
+            onReloadStart.Invoke();
+        }
     }
     
     public float MAXHealth
