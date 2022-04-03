@@ -60,6 +60,8 @@ public class ConversationUIBehaviourScript : MonoBehaviour
         msgQueue ??= new List<DialogBubble>();
 
         textBuildDelta = 0f;
+
+        PushNextMsg();
     }
 
     private void Update()
