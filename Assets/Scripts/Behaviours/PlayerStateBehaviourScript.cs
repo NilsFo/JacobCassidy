@@ -64,9 +64,10 @@ public class PlayerStateBehaviourScript : MonoBehaviour
 
         if (reloading && reloadTimer <= 0)
         {
-            ChangeCurrentAmmo(maxAmmo);
+            currentAmmo = maxAmmo;
             reloading = false;
             onReloadEnd.Invoke();
+            onCurrentAmmoChange.Invoke();
         }
         else
         {
@@ -84,44 +85,26 @@ public class PlayerStateBehaviourScript : MonoBehaviour
 
     public bool ChangeCurrentHealth(float value)
     {
-        if (value == 0)
-        {
-            return false;
-        }
-        currentHealth += value;
+        var temp = currentHealth + value;
+        if (value == 0) return true;
+        if (!(0 <= temp && temp <= maxHealth)) return false;
+        currentHealth = temp;
         if (currentHealth <= 0)
         {
             currentHealth = 0;
             onPlayerDeath.Invoke();
             return true;
         }
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
-            //Overheal!!
-        }
         onCurrentHealthChange.Invoke();
-        Debug.Log("Health: " + currentHealth);
         return true;
     }
 
     public bool ChangeCurrentSanity(float value)
     {
-        //TODO Umstellen ist Falsch 5/20 -5 Casted nicht
-        if (value == 0)
-        {
-            return false;
-        }
-        if (currentSanity < value)
-        {
-            return false;
-        }
-        currentSanity += value;
-        if (currentSanity > maxSanity)
-        {
-            currentSanity = maxSanity;
-            //OverSanity!!
-        }
+        var temp = currentSanity + value;
+        if (value == 0) return true;
+        if (!(0 <= temp && temp <= maxSanity)) return false;
+        currentSanity = temp;
         if (currentSanity == 0)
         {
             onPlayerMadness.Invoke();
@@ -132,41 +115,21 @@ public class PlayerStateBehaviourScript : MonoBehaviour
     
     public bool ChangeCurrentAmmo(float value)
     {
-        if (value == 0)
-        {
-            return true;
-        }
-        currentAmmo += value;
-        if (currentAmmo < 0)
-        {
-            currentAmmo = 0;
-            return true;
-        }
-        if (currentAmmo > maxAmmo)
-        {
-            currentAmmo = maxAmmo;
-            //OverSanity!!
-        }
+        if(reloading) return false;
+        var temp = currentAmmo + value;
+        if (value == 0) return true;
+        if (!(0 <= temp && temp <= maxAmmo)) return false;
+        currentAmmo = temp;
         onCurrentAmmoChange.Invoke();
         return true;
     }
     
     public bool ChangeCurrentStamina(float value)
     {
-        if (value == 0)
-        {
-            return true;
-        }
-        currentStamina += value;
-        if (currentStamina < 0)
-        {
-            currentStamina = 0;
-            return false;
-        }
-        if (currentStamina > maxStamina)
-        {
-            currentStamina = maxStamina;
-        }
+        var temp = currentStamina + value;
+        if (value == 0) return true;
+        if (!(0 <= temp && temp <= maxStamina)) return false;
+        currentStamina = temp;
         onCurrentStaminaChange.Invoke();
         return true;
     }
