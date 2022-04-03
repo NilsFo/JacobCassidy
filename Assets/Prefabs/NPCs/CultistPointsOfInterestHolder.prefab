@@ -49,8 +49,6 @@ MonoBehaviour:
   pointsOfInterest:
   - {fileID: 2753299093992570192}
   - {fileID: 8342481966671731902}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1001 &3443748729502213376
 PrefabInstance:
   m_ObjectHideFlags: 0

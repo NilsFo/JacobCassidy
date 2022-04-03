@@ -24,9 +24,12 @@ public class EnemyBehaviourScript : MonoBehaviour
     [SerializeField] private float damageOnContact = 1;
 
     public UnityEvent onDeath;
+    public UnityEvent onDamageTaken;
     public delegate void OnDeathDelegate(GameObject self);
+    public delegate void OnDamageDelegate(GameObject self, float damage);
     
     public event OnDeathDelegate OnDeath;
+    public event OnDamageDelegate OnDamageTaken;
     
     // Start is called before the first frame update
     void Start()
@@ -37,6 +40,9 @@ public class EnemyBehaviourScript : MonoBehaviour
         if (onDeath == null)
         {
             onDeath = new UnityEvent();
+        }
+        if (onDamageTaken == null) {
+            onDamageTaken = new UnityEvent();
         }
     }
 
@@ -85,6 +91,10 @@ public class EnemyBehaviourScript : MonoBehaviour
             return true;
         }
         currentHealth += value;
+        if (currentHealth < 0) {
+            onDamageTaken?.Invoke();
+            OnDamageTaken?.Invoke(gameObject, value);
+        }
         if (currentHealth <= 0)
         {
             currentHealth = 0;

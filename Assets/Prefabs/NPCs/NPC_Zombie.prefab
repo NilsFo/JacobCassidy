@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e546cd8c7982d4897f8103f3d1a716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBehaviourScript: {fileID: 174576587}
   myMovement: {fileID: 4099262087088168101}
   playerDetectionDistance: 6
   currentState: 0
@@ -167,6 +168,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6562028763468609610
 MonoBehaviour:
   m_ObjectHideFlags: 0

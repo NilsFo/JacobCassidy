@@ -15,6 +15,7 @@ public class ZombieAI : MonoBehaviour
         Dead
     }
 
+    public EnemyBehaviourScript enemyBehaviourScript;
     public NPCMovementAI myMovement;
     private Vector2 myCreationPoint;
     public float playerDetectionDistance;
@@ -36,6 +37,13 @@ public class ZombieAI : MonoBehaviour
         myMovement.SetMovementStateStasis();
         player = FindObjectOfType<PlayerMovementBehaviour>();
         playerState = FindObjectOfType<PlayerStateBehaviourScript>();
+    }
+
+    private void OnEnable() {
+        enemyBehaviourScript.OnDamageTaken += EnemyBehaviourScriptOnOnDamageTaken;
+    }
+    private void EnemyBehaviourScriptOnOnDamageTaken(GameObject self, float damage) {
+        currentState=ZombieState.GoToPlayer;
     }
 
     // Update is called once per frame
@@ -166,6 +174,10 @@ public class ZombieAI : MonoBehaviour
     public bool IsInMeleeRange()
     {
         return Vector2.Distance(transform.position, player.transform.position) < meleeRange;
+    }
+
+    public void DamageTaken(float damage) {
+        
     }
 
     public void Death() {
