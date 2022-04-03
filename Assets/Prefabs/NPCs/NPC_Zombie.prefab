@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &895317384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 895317385}
+  m_Layer: 8
+  m_Name: dummy
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &895317385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895317384}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.69, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7460788745383287977}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5778056782712197230
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,6 +90,7 @@ MonoBehaviour:
   roamingRadius: 3.5
   nextRoamingTimer: 2.5
   nextRoamingTimerJitter: 3.5
+  stunnedTimer: 0
   nextWaypointDistanceTolerance: 0.35
   reachedPath: 0
   updatePathFrequency: 0.5
@@ -118,6 +150,7 @@ MonoBehaviour:
   canSeePlayer: 0
   knockbackForce: 750
   attackCollider: {fileID: 4415079156358570968}
+  hitbox: {fileID: 7903991639552511152}
 --- !u!50 &174576583
 Rigidbody2D:
   serializedVersion: 4
@@ -244,7 +277,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 895317385}
   m_Father: {fileID: 5778056782712197231}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

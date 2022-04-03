@@ -13,7 +13,8 @@ public class CultistAI : MonoBehaviour
         GoToPointOfInterest,
         SummonZombieSelf,
         SummonZombiePointOfInterest,
-        Summoning
+        Summoning,
+        Dead
     }
 
     public CultistPointOfInterestHolder pointOfInterestHolder;
@@ -133,7 +134,7 @@ public class CultistAI : MonoBehaviour
                 break;
         }
     }
-
+    
     private void SummonZombie(bool self)
     {
         print("New zombie summoned.");
@@ -143,6 +144,8 @@ public class CultistAI : MonoBehaviour
         ZombieAI zombieAI = newZombie.GetComponent<ZombieAI>();
         zombieAI.myCultist = gameObject;
         zombieAI.SetStunTime(2f);
+        zombieAI.hitbox.enabled = false;
+        zombieAI.EnableHitboxIn2s();
         
         if (self)
         {
@@ -226,5 +229,17 @@ public class CultistAI : MonoBehaviour
     {
         GameObject o = myPointsOfInterest[currentPointOfInterestIndex];
         return o.GetComponent<CultistPointOfInterest>();
+    }
+
+    public void Die() {
+        myMovement.myAnimator.myMovementAnimator.SetTrigger("Die");
+        myMovement.SetMovementStateStasis();
+        currentState = CultistState.Dead;
+        var debrisLayer = LayerMask.NameToLayer("Debris");
+        gameObject.layer = debrisLayer;
+        foreach (var componentsInChild in gameObject.GetComponentsInChildren<Collider2D>())
+        {
+            componentsInChild.gameObject.layer = debrisLayer;
+        }
     }
 }

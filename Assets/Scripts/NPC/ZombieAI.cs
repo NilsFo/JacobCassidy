@@ -34,6 +34,7 @@ public class ZombieAI : MonoBehaviour
     public int knockbackForce = 200;
 
     public Collider2D attackCollider;
+    public Collider2D hitbox;
 
     // Start is called before the first frame update
     void Start()
@@ -260,6 +261,13 @@ public class ZombieAI : MonoBehaviour
     public void SetStunTime(float time)
     {
         myMovement.stunnedTimer = time;
+    }
+
+    public void EnableHitboxIn2s() {
+        Invoke(nameof(EnableHitbox), 2f);
+    }
+    public void EnableHitbox() {
+        hitbox.enabled = true;
     }
     
 }

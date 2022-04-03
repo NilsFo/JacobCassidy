@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 158401461}
   - component: {fileID: 7700122346614994764}
   - component: {fileID: 3854553790457625850}
+  - component: {fileID: 6299778478234601305}
   m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2727638938547581279, guid: cb8a3953bd2e51748bafdbba3d267718, type: 3}
-  m_Color: {r: 0.18115665, g: 0.08771802, b: 0.41509432, a: 1}
+  m_Sprite: {fileID: -26338324, guid: b3b252f83aeeefe4c842048d6f22cb2a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -117,6 +118,26 @@ MonoBehaviour:
   zRange: 10
   yOffset: 0.3125
   zFixingEnabled: 1
+--- !u!95 &6299778478234601305
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158401459}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7da158b05767f6e4dafa6e3f3cdbf978, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4058903996095027878
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +153,7 @@ GameObject:
   - component: {fileID: 3227863212620385697}
   - component: {fileID: 2050335018}
   - component: {fileID: 8802906259143886239}
+  - component: {fileID: 2163459264015800651}
   m_Layer: 12
   m_Name: NPC_Cultist
   m_TagString: Untagged
@@ -169,11 +191,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
-  myAnimator: {fileID: 0}
+  myAnimator: {fileID: 2163459264015800651}
   movementSpeed: 1500
   roamingRadius: 3.5
   nextRoamingTimer: 2.5
   nextRoamingTimerJitter: 3.5
+  stunnedTimer: 0
   nextWaypointDistanceTolerance: 0.35
   reachedPath: 0
   updatePathFrequency: 0.5
@@ -252,7 +275,19 @@ MonoBehaviour:
   damageOnContact: 1
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2050335018}
+        m_TargetAssemblyTypeName: CultistAI, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDamageTaken:
     m_PersistentCalls:
       m_Calls: []
@@ -278,6 +313,7 @@ MonoBehaviour:
   currentState: 0
   congregationSize: 1
   congregation: []
+  summonTime: 2
 --- !u!114 &8802906259143886239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +336,25 @@ MonoBehaviour:
   bezierTangentLength: 0.4
   offset: 0.2
   factor: 0.1
+--- !u!114 &2163459264015800651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4058903996095027878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff274b73f9657145bf8f5e2f35cebe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMovementAnimator: {fileID: 6299778478234601305}
+  playing: 1
+  velocity: {x: 0, y: 0}
+  onAnimationEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  spawnDustNextFrame: 0
 --- !u!1 &5075963631476346828
 GameObject:
   m_ObjectHideFlags: 0
