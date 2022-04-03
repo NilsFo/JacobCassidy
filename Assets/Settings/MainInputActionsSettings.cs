@@ -80,6 +80,15 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""05efcebb-4f99-47e8-92e5-bfcb833d1bac"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -311,6 +320,28 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Spell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39ffac13-8e73-4145-a847-9c68a9960d65"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e1fbe3fc-733a-46f8-9fdf-262f50daa2b4"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1229,6 +1260,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Spell = m_Player.FindAction("Spell", throwIfNotFound: true);
+        m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1320,6 +1352,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Spell;
+    private readonly InputAction m_Player_Reload;
     public struct PlayerActions
     {
         private @MainInputActionsSettings m_Wrapper;
@@ -1330,6 +1363,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Spell => m_Wrapper.m_Player_Spell;
+        public InputAction @Reload => m_Wrapper.m_Player_Reload;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1357,6 +1391,9 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 @Spell.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpell;
                 @Spell.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpell;
                 @Spell.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpell;
+                @Reload.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
+                @Reload.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
+                @Reload.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1379,6 +1416,9 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 @Spell.started += instance.OnSpell;
                 @Spell.performed += instance.OnSpell;
                 @Spell.canceled += instance.OnSpell;
+                @Reload.started += instance.OnReload;
+                @Reload.performed += instance.OnReload;
+                @Reload.canceled += instance.OnReload;
             }
         }
     }
@@ -1662,6 +1702,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
         void OnDash(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnSpell(InputAction.CallbackContext context);
+        void OnReload(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
