@@ -25,6 +25,8 @@ public class ZombieAI : MonoBehaviour
     [SerializeField] private bool canSeePlayer;
     public int knockbackForce = 200;
 
+    public Collider2D attackCollider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -117,10 +119,21 @@ public class ZombieAI : MonoBehaviour
     {
         // TODO: Attack animation here
         Debug.LogWarning("ZOMBIE ATTACK!");
-        currentState = ZombieState.GoToSpawn;
+        myMovement.myAnimator.myMovementAnimator.SetTrigger("Attack");
 
-        player.Knockback(transform.position, knockbackForce);
-        playerState.ChangeCurrentHealth(-1);
+    }
+
+    public void MakeAttack() {
+        var player = FindObjectOfType<PlayerMovementBehaviour>();
+        if (attackCollider.IsTouching(player.GetComponent<Collider2D>())) {
+            player.Knockback(transform.position, knockbackForce);
+            playerState.ChangeCurrentHealth(-1);
+        }
+    }
+
+    public void EndAttack() {
+        
+        currentState = ZombieState.GoToSpawn;
     }
 
     public void UpdateCanSeePlayer()

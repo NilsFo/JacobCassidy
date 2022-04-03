@@ -14,8 +14,8 @@ public class FireGunBehaviourScript : MonoBehaviour
     
     public float speed = 10f;
 
-    public float fireDelay = 0.5f;
-    
+    public float fireDelay = 0.2f;
+
     private float fireTime;
 
     private MainInputActionsSettings input;
@@ -47,23 +47,7 @@ public class FireGunBehaviourScript : MonoBehaviour
                 {
                     if (playerStateBehaviourScript.ChangeCurrentAmmo(-1))
                     {
-                        BulletBehaviourScript instBullet = Instantiate(bulletPref, transform.position, Quaternion.Euler(0,0,Mathf.Rad2Deg*Mathf.Atan2(_direction.y, _direction.x)));
-                        Rigidbody2D instBulletRB = instBullet.GetComponent<Rigidbody2D>();
-                    
-                        instBulletRB.AddForce(_direction * speed, ForceMode2D.Force);
-    
-                        Destroy(instBullet, 3f);
-                        fireTime = fireDelay;
-                        
-                        // Knockback
-                        playerMovementBehaviour.Knockback(aimDummy.position,150);
-                        
-                        // Gun Trail
-                        var bulletTrail = Instantiate(bulletTrailPrefab, transform.position, Quaternion.identity);
-                        bulletTrail.bullet = instBullet;
-                        bulletTrail.startPos = transform.position;
-    
-                        //TODO Gun Sound Trigger
+                        Fire(_direction);
                     }
                     else
                     {
@@ -79,5 +63,29 @@ public class FireGunBehaviourScript : MonoBehaviour
         } else {
             fireTime -= Time.deltaTime;
         }
+    }
+    
+    private void Fire(Vector2 direction) {
+
+        BulletBehaviourScript instBullet = Instantiate(bulletPref, transform.position, Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(direction.y, direction.x)));
+        Rigidbody2D instBulletRB = instBullet.GetComponent<Rigidbody2D>();
+
+        instBulletRB.AddForce(direction * speed, ForceMode2D.Force);
+
+        Destroy(instBullet, 3f);
+        fireTime = fireDelay;
+
+        // Knockback
+        playerMovementBehaviour.Knockback(aimDummy.position, 150);
+        
+        // Disable Movement
+        playerMovementBehaviour.movementCooldown = fireDelay;
+
+        // Gun Trail
+        var bulletTrail = Instantiate(bulletTrailPrefab, transform.position, Quaternion.identity);
+        bulletTrail.bullet = instBullet;
+        bulletTrail.startPos = transform.position;
+
+        //TODO Gun Sound Trigger
     }
 }

@@ -99,6 +99,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -712,6 +713,32 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      House-interior_15: 648553063753276598
+      House-interior_4: 901143379334787408
+      House-interior_0: -6494909440146295665
+      House-interior_21: 2548282652756403201
+      House-interior_5: -407215294476759918
+      House-interior_7: -1932511637221889045
+      House-interior_17: -7695836820067001631
+      House-interior_16: -7134205621754927220
+      House-interior_12: 7540919311300799141
+      House-interior_22: 1747581606862163953
+      House-interior_1: 5642894982240058403
+      House-interior_2: 4381530933564486183
+      House-interior_13: -3518669196871020711
+      House-interior_23: -5128259775764102619
+      House-interior_24: -9113870346924989362
+      House-interior_18: 4961907051059819595
+      House-interior_19: -2609420763099236580
+      House-interior_14: 3912541717105426884
+      House-interior_3: 8460759653782571608
+      House-interior_9: 7732738485728538637
+      House-interior_8: -8795801343683065502
+      House-interior_10: 4189627213588075476
+      House-interior_11: 6504805511703429826
+      House-interior_20: -5761706685240169795
+      House-interior_6: 1255994126533290140
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

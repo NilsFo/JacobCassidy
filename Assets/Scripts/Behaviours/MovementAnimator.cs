@@ -80,26 +80,29 @@ public class MovementAnimator : MonoBehaviour
 
     public FacingDirection GetFacing(float angle)
     {
-        if (IsBetweenRange(angle, -135, -44))
-        {
+        if (angle < -150 || angle > 150) {
             return FacingDirection.West;
         }
-        else if (IsBetweenRange(angle, -45, 44))
-        {
+        else if (angle > 120) {
             return FacingDirection.North;
         }
-        else if (IsBetweenRange(angle, 45, 134))
-        {
-            return FacingDirection.East;
-        }
-        else if (IsBetweenRange(angle, -134, -180) || IsBetweenRange(angle, 135, 180))
-        {
+        else if (angle < -120) {
             return FacingDirection.South;
         }
-        else
-        {
-            Debug.LogWarning("Warning: Unknown entity orientation detected at: " + angle + "°!", gameObject);
-            return FacingDirection.Unknown;
+        else if (angle > 60) {
+            return FacingDirection.North;
+        }
+        else if (angle < -60) {
+            return FacingDirection.South;
+        }
+        else if (angle > 30) {
+            return FacingDirection.North;
+        }
+        else if (angle < -30) {
+            return FacingDirection.South;
+        }
+        else {
+            return FacingDirection.East;
         }
     }
 
@@ -138,8 +141,12 @@ public class MovementAnimator : MonoBehaviour
     public void SetFacing(Transform targetToLookAt)
     {
         Vector2 oneDirection = targetToLookAt.position - transform.position;
-        oneDirection = oneDirection.normalized;
-        float angle = Mathf.Atan2(oneDirection.x, oneDirection.y) * Mathf.Rad2Deg;
+        SetFacing(oneDirection);
+    }
+    public void SetFacing(Vector2 lookDirection)
+    {
+        lookDirection = lookDirection.normalized;
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         FacingDirection direction = GetFacing(angle);
         SetFacing(direction);
     }
