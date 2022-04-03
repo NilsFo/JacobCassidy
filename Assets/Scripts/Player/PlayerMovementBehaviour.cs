@@ -115,4 +115,21 @@ public class PlayerMovementBehaviour : MonoBehaviour
         angle = angle.normalized;
         myRgidbody2D.AddForce(angle * force);
     }
+    public void TakeDamage() {
+        var sprite = movementAnimator.GetComponent<SpriteRenderer>();
+        if (sprite != null) {
+            sprite.color = new Color(.5f,.25f,.25f);
+            Invoke(nameof(TakeDamageEnd), 0.2f);    
+        }
+        
+    }
+
+    public void TakeDamageEnd() {
+        
+        var sprite = movementAnimator.GetComponent<SpriteRenderer>();
+
+        if (sprite != null) {
+            sprite.color = Color.white;
+        }
+    }
 }

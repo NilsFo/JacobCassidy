@@ -7,13 +7,19 @@ public class GameStateBehaviourScript : MonoBehaviour
     
     //Events 
     public UnityEvent onResetGameState;
+    public UnityEvent onCultistsDeath;
+    
     public MainInputActionsSettings mainInputActions;
 
     //Refs
     [SerializeField] private PlayerStateBehaviourScript playerStateBehaviourScript;
     [SerializeField] private EnemieStateBehaviourScript enemieStateBehaviourScript;
     [SerializeField] private SpellStateBehaviourScript spellStateBehaviourScript;
-    
+
+    [SerializeField] private int numberOfDeadCultists = 0;
+
+    public int NumberOfDeadCultists => numberOfDeadCultists;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +31,7 @@ public class GameStateBehaviourScript : MonoBehaviour
     private void OnEnable()
     {
         onResetGameState ??= new UnityEvent();
+        onCultistsDeath ??= new UnityEvent();
         mainInputActions = new MainInputActionsSettings();
         mainInputActions.Player.Enable();
         mainInputActions.Toolbar.Enable();
@@ -58,4 +65,11 @@ public class GameStateBehaviourScript : MonoBehaviour
     public EnemieStateBehaviourScript EnemieStateBehaviourScript => enemieStateBehaviourScript;
 
     public SpellStateBehaviourScript SpellStateBehaviourScript => spellStateBehaviourScript;
+
+    public void AddCultistsDeath()
+    {
+        numberOfDeadCultists++;
+        onCultistsDeath.Invoke();
+    }
+    
 }

@@ -9,9 +9,9 @@ public class SpellBookBehaviourScript : MonoBehaviour
     [Header("0 Fireball, 1 Stonewall, 2 Zap, 3 Ice, 4 Knock")]
     [SerializeField] private int spellId;
     
-    private void Awake()
+    private void Start()
     {
-        Debug.Assert(spellStateBehaviourScript != null, gameObject);
+        spellStateBehaviourScript = FindObjectOfType<SpellStateBehaviourScript>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

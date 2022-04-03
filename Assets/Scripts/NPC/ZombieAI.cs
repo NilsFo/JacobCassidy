@@ -36,6 +36,9 @@ public class ZombieAI : MonoBehaviour
     public Collider2D attackCollider;
     public Collider2D hitbox;
 
+    private Rigidbody2D rb;
+    public float callAllyDistance = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +46,7 @@ public class ZombieAI : MonoBehaviour
         myMovement.SetMovementStateStasis();
         player = FindObjectOfType<PlayerMovementBehaviour>();
         playerState = FindObjectOfType<PlayerStateBehaviourScript>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable()
@@ -55,6 +59,7 @@ public class ZombieAI : MonoBehaviour
     private void EnemyBehaviourScriptOnOnDamageTaken(GameObject self, float damage)
     {
         currentState = ZombieState.GoToLastKnownLocation;
+        CallAllies();
     }
 
     // Update is called once per frame
@@ -92,6 +97,10 @@ public class ZombieAI : MonoBehaviour
                 }
 
                 break;
+            case ZombieState.Attacking:
+                var movementForce = (player.transform.position - transform.position).normalized * GetComponentInChildren<ZombieAnimationEvent>().attackMovementForce * Time.deltaTime;
+                rb.AddForce(movementForce);
+                break;
         }
 
         // Checking if Should detect player
@@ -99,9 +108,11 @@ public class ZombieAI : MonoBehaviour
             currentState == ZombieState.Roaming || currentState == ZombieState.FollowCultist ||
             currentState == ZombieState.GoToLastKnownLocation)
         {
-            if (canSeePlayer)
-            {
+            if (canSeePlayer) {
                 currentState = ZombieState.ChasePlayer;
+
+                CallAllies();
+
             }
         }
 
@@ -110,6 +121,17 @@ public class ZombieAI : MonoBehaviour
             if (!canSeePlayer)
             {
                 currentState = ZombieState.GoToLastKnownLocation;
+            }
+        }
+    }
+    public void CallAllies() {
+        // Call close Zombies
+        var zombies = FindObjectsOfType<ZombieAI>();
+        foreach (var zombieAI in zombies) {
+            if ((zombieAI.transform.position - transform.position).magnitude < callAllyDistance &&
+                (zombieAI.currentState == ZombieState.Waiting || zombieAI.currentState == ZombieState.GoToSpawn ||
+                    zombieAI.currentState == ZombieState.Roaming || zombieAI.currentState == ZombieState.FollowCultist)) {
+                zombieAI.currentState = ZombieState.ChasePlayer;
             }
         }
     }
@@ -169,7 +191,6 @@ public class ZombieAI : MonoBehaviour
 
     public void BeginAttack()
     {
-        Debug.LogWarning("ZOMBIE ATTACK!");
         myMovement.myAnimator.myMovementAnimator.SetTrigger("Attack");
         myMovement.SetMovementStateWaitHere();
 
@@ -177,6 +198,7 @@ public class ZombieAI : MonoBehaviour
         Vector3 playerTarget = FindObjectOfType<PlayerMovementBehaviour>().transform.position;
         var dir = playerTarget - transform.position;
         attackCollider.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90f);
+        myMovement.paused = true;
     }
 
     public void MakeAttack()
@@ -185,6 +207,8 @@ public class ZombieAI : MonoBehaviour
         if (attackCollider.IsTouching(player.GetComponent<Collider2D>()))
         {
             player.Knockback(transform.position, knockbackForce);
+            player.TakeDamage();
+            Debug.Log("Fishman hits player for 1 damage", this);
             playerState.ChangeCurrentHealth(-1);
         }
     }
@@ -192,6 +216,8 @@ public class ZombieAI : MonoBehaviour
     public void EndAttack()
     {
         currentState = ZombieState.Roaming;
+        myMovement.ForceUpdatePath();
+        myMovement.paused = false;
     }
 
     public void UpdateCanSeePlayer()

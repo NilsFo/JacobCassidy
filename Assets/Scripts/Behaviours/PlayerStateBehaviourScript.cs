@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 public class PlayerStateBehaviourScript : MonoBehaviour
@@ -39,6 +41,8 @@ public class PlayerStateBehaviourScript : MonoBehaviour
     private float reloadTimer = 0F;
     private bool reloading = false;
     
+    private MainInputActionsSettings input;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -52,8 +56,17 @@ public class PlayerStateBehaviourScript : MonoBehaviour
 
         onReloadStart ??= new UnityEvent();
         onReloadEnd ??= new UnityEvent();
-        
+
         reloadTimer = 0f;
+        
+        input = FindObjectOfType<GameStateBehaviourScript>().mainInputActions;
+        
+        input.Player.Reload.performed += ReloadOnPerformed;
+    }
+
+    private void OnDisable()
+    {
+        input.Player.Reload.performed -= ReloadOnPerformed;
     }
 
     // Update is called once per frame
@@ -136,9 +149,12 @@ public class PlayerStateBehaviourScript : MonoBehaviour
 
     public void ReloadAmmo()
     {
-        reloadTimer = reloadDelay;
-        reloading = true;
-        onReloadStart.Invoke();
+        if (!reloading)
+        {
+            reloadTimer = reloadDelay;
+            reloading = true;
+            onReloadStart.Invoke();
+        }
     }
     
     public float MAXHealth
@@ -172,4 +188,9 @@ public class PlayerStateBehaviourScript : MonoBehaviour
     public float CurrentAmmo => currentAmmo;
 
     public float CurrentStamina => currentStamina;
+    
+    private void ReloadOnPerformed(InputAction.CallbackContext obj)
+    {
+        ReloadAmmo();
+    }
 }

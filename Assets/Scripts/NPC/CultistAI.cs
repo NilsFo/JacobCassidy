@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,7 +15,9 @@ public class CultistAI : MonoBehaviour
         SummonZombieSelf,
         SummonZombiePointOfInterest,
         Summoning,
-        Dead
+        Dead,
+        FleeFromPlayer,
+        SummonDefense
     }
 
     public CultistPointOfInterestHolder pointOfInterestHolder;
@@ -39,6 +42,9 @@ public class CultistAI : MonoBehaviour
     public float summonTime = 2f;
     private float _summonTimer;
 
+    public int defenseSummons = 3;
+    private int _defenseSummonsLeft;
+
     private void Awake()
     {
         congregation = new List<GameObject>();
@@ -62,18 +68,25 @@ public class CultistAI : MonoBehaviour
     {
         UpdateState();
 
+
         switch (currentState)
         {
             case CultistState.FindNextPointOfInterest:
                 FindNextPointOfInterest();
                 break;
             case CultistState.SummonZombieSelf:
+                currentState = CultistState.Summoning;
                 SummonZombie(true);
                 break;
             case CultistState.SummonZombiePointOfInterest:
+                currentState = CultistState.Summoning;
                 SummonZombie(false);
                 break;
             case CultistState.GoToPointOfInterest:
+                if (canSeePlayer) {
+                    FleeFromPlayer();
+                    break;
+                }
                 if (NeedsZombie())
                 {
                     currentState = CultistState.SummonZombieSelf;
@@ -104,7 +117,41 @@ public class CultistAI : MonoBehaviour
                 }
 
                 break;
+            case CultistState.FleeFromPlayer:
+                if (myMovement.ReachedPath) {
+                    currentState = CultistState.SummonDefense;
+                    _defenseSummonsLeft = defenseSummons;
+                    myMovement.myAnimator.myMovementAnimator.SetBool("Summoning", true);
+                    myMovement.SetMovementStateWaitHere();
+                    myMovement.movementSpeed /= 2;
+                }
+                break;
+            case CultistState.SummonDefense:
+                _summonTimer -= Time.deltaTime;
+                if (_defenseSummonsLeft > 0 && _summonTimer < 0) {
+                    _defenseSummonsLeft -= 1;
+                    var zombie = SummonZombie(false);
+                    zombie.currentState = ZombieAI.ZombieState.GoToLastKnownLocation;
+                    _summonTimer = summonTime;
+                }
+                if (_defenseSummonsLeft == 0) {
+                    currentState = CultistState.FindNextPointOfInterest;
+                    myMovement.myAnimator.myMovementAnimator.SetBool("Summoning", false);
+                }
+                break;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+#if UNITY_EDITOR
+        if (Application.isPlaying)
+        {
+            //Debug.DrawLine(sourceNPC.transform.position, roamingOrigin);
+            Vector3 wireOrigin = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
+            Handles.Label(transform.position, "State: " + currentState);
+        }
+#endif
     }
 
     public void UpdateState()
@@ -135,8 +182,8 @@ public class CultistAI : MonoBehaviour
                 break;
         }
     }
-
-    private void SummonZombie(bool self)
+    
+    private ZombieAI SummonZombie(bool self)
     {
         print("New zombie summoned.");
         GameObject newZombie = Instantiate(zombiePrefab, new Vector3(transform.position.x, transform.position.y, 0),
@@ -164,8 +211,8 @@ public class CultistAI : MonoBehaviour
 
 
         _summonTimer = summonTime;
-        currentState = CultistState.Summoning;
         myMovement.myAnimator.myMovementAnimator.SetBool("Summoning", true);
+        return zombieAI;
     }
 
     private void OnCongregationZombieDeath(GameObject deadZombie)
@@ -258,5 +305,23 @@ public class CultistAI : MonoBehaviour
         {
             holder.congregationSize = holder.congregationSize + 2;
         }
+    }
+    
+    private void FleeFromPlayer() {
+        currentState = CultistState.FleeFromPlayer;
+
+
+        float maxDist = 0;
+        GameObject gotopoi = null;
+        // Find point of interest furthest away from player
+        foreach (var poi in myPointsOfInterest) {
+            var dist = (poi.transform.position - player.transform.position).magnitude;
+            if (dist > maxDist) {
+                gotopoi = poi;
+                maxDist = dist;
+            }
+        }
+        myMovement.movementSpeed *= 2;
+        myMovement.SetMovementStateMoveTo(gotopoi);
     }
 }
