@@ -1,0 +1,448 @@
+fileFormatVersion: 2
+guid: c18bc7107ce8db7438e12fcdb10ff814
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Gates_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 3, y: -17}
+        - {x: 1, y: -24}
+        - {x: -2, y: -24}
+        - {x: -4, y: -17}
+        - {x: -4, y: -10}
+        - {x: 3, y: -10}
+        - {x: 8, y: -13}
+        - {x: 8, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ee4666a0467b6d40b4d275634d6b0b6
+      internalID: 568090003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gates_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 56
+        width: 32
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -20}
+        - {x: -16, y: -17}
+        - {x: 16, y: -17}
+        - {x: 16, y: -20}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9e0f0de32a77e849b1b423bf95e7ad8
+      internalID: 1635413095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gates_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 56
+        width: 32
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 12, y: -20}
+        - {x: 12, y: -17}
+        - {x: 16, y: -17}
+        - {x: 16, y: -20}
+      - - {x: -16, y: -20}
+        - {x: -16, y: -17}
+        - {x: -12, y: -17}
+        - {x: -12, y: -20}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c940ecda0cd30b74d9c2039311ed0c53
+      internalID: 1298388924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gates_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 16
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 2, y: -24}
+        - {x: -1, y: -24}
+        - {x: -3, y: -17}
+        - {x: -8, y: -16}
+        - {x: -8, y: -13}
+        - {x: -3, y: -9}
+        - {x: 4, y: -9}
+        - {x: 4, y: -17}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41d613eb277d47b44899ec88e88593f8
+      internalID: 1519449532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gates_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -24}
+        - {x: -2, y: 24}
+        - {x: 1, y: 24}
+        - {x: 3, y: -17}
+        - {x: 8, y: -20}
+        - {x: 8, y: -23}
+        - {x: 3, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d281cc5c90760949b06da6011d38501
+      internalID: 46192074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gates_19
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 40
+        width: 3
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd96b42f35387c4c8dd8122eb160178
+      internalID: -154111134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gates_20
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1
+        width: 3
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee5e9e36bbc266c47a0d39aa0bdb09bd
+      internalID: -201402714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gates_21
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 5
+        width: 3
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 658b3ae7dba0e9646970b42d08c18c0f
+      internalID: -708566947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gates_23
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -13, y: -15}
+        - {x: -13, y: -11}
+        - {x: 11, y: -11}
+        - {x: 11, y: -15}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 093d204af8c93484891b50388a71ffd8
+      internalID: -804830745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gates_26
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 0
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12, y: -15}
+        - {x: -12, y: -12}
+        - {x: 13, y: -12}
+        - {x: 13, y: -15}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7523faa80703b1449dc64c28f58d5e1
+      internalID: -190885674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gates_27
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: -23}
+        - {x: -8, y: -20}
+        - {x: -3, y: -17}
+        - {x: -1, y: 24}
+        - {x: 2, y: 24}
+        - {x: 4, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e98585f5a7bdd7749ab504cad287a3de
+      internalID: -1160430580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Gates_9: 111636185
+      Gates_18: 46192074
+      Gates_19: -154111134
+      Gates_21: -708566947
+      Gates_23: -804830745
+      Gates_14: 1192966019
+      Gates_17: 104472438
+      Gates_24: -1915879208
+      Gates_33: 968733086
+      Gates_20: -201402714
+      Gates_10: -379680152
+      Gates_25: -747746886
+      Gates_28: -1245643221
+      Gates_11: 976428105
+      Gates_30: -904529498
+      Gates_4: -1058754192
+      Gates_31: 813654812
+      Gates_1: 1635413095
+      Gates_27: -1160430580
+      Gates_6: 657564737
+      Gates_16: -1136723120
+      Gates_22: 1177618744
+      Gates_13: 298541949
+      Gates_26: -190885674
+      Gates_15: -1281866185
+      Gates_29: -1583051521
+      Gates_32: 1406350855
+      Gates_0: 568090003
+      Gates_5: 1519449532
+      Gates_8: -227068991
+      Gates_3: 1298388924
+      Gates_2: 201870797
+      Gates_12: 791144386
+      Gates_7: 609268836
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
