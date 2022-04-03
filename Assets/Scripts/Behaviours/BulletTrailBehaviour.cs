@@ -31,7 +31,6 @@ public class BulletTrailBehaviour : MonoBehaviour {
         _life += Time.deltaTime;
         if (_life * speed < _length) {
             lineRenderer.SetPosition(1, startPos + (hitPos-startPos).normalized * (_life * speed));
-            Debug.Log(_life*speed);
         }
         var alpha = 1 - (_life / lifeTime);
         alpha *= alpha;

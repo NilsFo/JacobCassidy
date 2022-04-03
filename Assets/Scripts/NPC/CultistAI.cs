@@ -12,7 +12,8 @@ public class CultistAI : MonoBehaviour
         FindNextPointOfInterest,
         GoToPointOfInterest,
         SummonZombieSelf,
-        SummonZombiePointOfInterest
+        SummonZombiePointOfInterest,
+        Summoning
     }
 
     public CultistPointOfInterestHolder pointOfInterestHolder;
@@ -33,6 +34,9 @@ public class CultistAI : MonoBehaviour
     // My own zombies
     public int congregationSize = 3;
     public List<GameObject> congregation;
+
+    public float summonTime = 2f;
+    private float _summonTimer;
 
     private void Awake()
     {
@@ -90,6 +94,14 @@ public class CultistAI : MonoBehaviour
                 }
 
                 break;
+            case CultistState.Summoning:
+                _summonTimer -= Time.deltaTime;
+                if (_summonTimer < 0) {
+                    
+                    currentState = CultistState.GoToPointOfInterest;
+                    myMovement.myAnimator.myMovementAnimator.SetBool("Summoning", false);
+                }
+                break;
         }
     }
 
@@ -116,6 +128,9 @@ public class CultistAI : MonoBehaviour
             case CultistState.SummonZombiePointOfInterest:
                 myMovement.SetMovementStateWaitHere();
                 break;
+            case CultistState.Summoning:
+                myMovement.SetMovementStateWaitHere();
+                break;
         }
     }
 
@@ -123,6 +138,7 @@ public class CultistAI : MonoBehaviour
     {
         print("New zombie summoned.");
         GameObject newZombie = Instantiate(zombiePrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+        newZombie.GetComponent<MovementAnimator>().myMovementAnimator.SetTrigger("Spawn");
 
         if (self)
         {
@@ -135,7 +151,10 @@ public class CultistAI : MonoBehaviour
             GetCurrentPointOfInterest().AddZombie(newZombie);
         }
 
-        currentState = CultistState.FindNextPointOfInterest;
+
+        _summonTimer = summonTime;
+        currentState = CultistState.Summoning;
+        myMovement.myAnimator.myMovementAnimator.SetBool("Summoning", true);
     }
 
     private void OnCongregationZombieDeath(GameObject deadZombie)
