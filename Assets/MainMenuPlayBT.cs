@@ -39,6 +39,7 @@ public class MainMenuPlayBT : MonoBehaviour
     public void TaskOnClick()
     {
         Debug.Log("You have clicked the button!");
+        SceneManager.LoadScene("GameplayLevel");
     }
 
     // Update is called once per frame
@@ -74,7 +75,6 @@ public class MainMenuPlayBT : MonoBehaviour
 
     private void MouseUp()
     {
-        SceneManager.LoadScene("Scenes/MainGameScene");
     }
 
     public void MouseEnter()
