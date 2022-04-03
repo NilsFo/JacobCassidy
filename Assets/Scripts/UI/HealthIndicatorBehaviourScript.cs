@@ -1,26 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthIndicatorBehaviourScript : MonoBehaviour
 {
     
-    [SerializeField] private PlayerStateBehaviourScript _playerStateBehaviourScript;
+    PlayerStateBehaviourScript _playerStateBehaviourScript;
     
-    [SerializeField] private TextMeshProUGUI goText;
+    [SerializeField] private Slider slider;
     
     private void Awake()
     {
-        Debug.Assert(_playerStateBehaviourScript != null, gameObject);
-        Debug.Assert(goText != null, gameObject);
+        Debug.Assert(slider != null, gameObject);
     }
     
     // Start is called before the first frame update
     void Start()
     {
+        _playerStateBehaviourScript = FindObjectOfType<PlayerStateBehaviourScript>();
+        
         _playerStateBehaviourScript.onCurrentHealthChange.AddListener(UpdateHealthText);
+
+        UpdateHealthText();
     }
 
     private void OnDisable()
@@ -30,6 +30,8 @@ public class HealthIndicatorBehaviourScript : MonoBehaviour
 
     public void UpdateHealthText()
     {
-        goText.SetText(_playerStateBehaviourScript.CurrentHealth + "/" + _playerStateBehaviourScript.MAXHealth);
+        slider.value = _playerStateBehaviourScript.CurrentHealth;
+        slider.maxValue = _playerStateBehaviourScript.MAXHealth;
+        slider.minValue = 0;
     }
 }
