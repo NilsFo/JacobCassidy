@@ -86,7 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paused: 0
   myAnimator: {fileID: 6562028763468609610}
-  movementSpeed: 1500
+  movementSpeed: 2500
   roamingRadius: 3.5
   nextRoamingTimer: 2.5
   nextRoamingTimerJitter: 3.5
@@ -143,12 +143,12 @@ MonoBehaviour:
   myCultist: {fileID: 0}
   enemyBehaviourScript: {fileID: 174576587}
   myMovement: {fileID: 4099262087088168101}
-  playerDetectionDistance: 6
-  playerDetectionDistanceHightened: 9.5
+  playerDetectionDistance: 10
+  playerDetectionDistanceHightened: 15
   currentState: 0
-  meleeRange: 1.3
+  meleeRange: 1.5
   canSeePlayer: 0
-  knockbackForce: 750
+  knockbackForce: 1500
   attackCollider: {fileID: 4415079156358570968}
   hitbox: {fileID: 7903991639552511152}
 --- !u!50 &174576583
@@ -409,8 +409,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03960085, y: 0.30940098}
-  m_Size: {x: 0.6683836, y: 0.78718483}
+  m_Offset: {x: -0.034324408, y: 0.32914615}
+  m_Size: {x: 0.51009226, y: 0.51009226}
   m_Direction: 0
 --- !u!114 &3864300169355532681
 MonoBehaviour:
@@ -460,6 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myZombie: {fileID: 4932246754495482904}
+  attackMovementForce: 0
 --- !u!1 &8522699932194988768
 GameObject:
   m_ObjectHideFlags: 0

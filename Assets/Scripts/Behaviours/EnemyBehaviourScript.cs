@@ -97,6 +97,7 @@ public class EnemyBehaviourScript : MonoBehaviour
         if (value < 0) {
             onDamageTaken?.Invoke();
             OnDamageTaken?.Invoke(gameObject, value);
+            TakeDamage();
         }
         if (currentHealth <= 0)
         {
@@ -118,5 +119,20 @@ public class EnemyBehaviourScript : MonoBehaviour
         {
             playerBehaviourScript.PlayerStateBehaviourScript.ChangeCurrentHealth(-damageOnContact);
         }
+    }
+    
+    public void TakeDamage() {
+        var sprite = GetComponentInChildren<SpriteRenderer>();
+        if (sprite != null) {
+            sprite.color = new Color(.5f, .25f, .25f);
+            Invoke(nameof(TakeDamageEnd), 0.2f);
+        }
+    }
+
+    public void TakeDamageEnd() {
+        
+        var sprite = GetComponentInChildren<SpriteRenderer>();
+        if(sprite != null)
+            sprite.color = Color.white;
     }
 }
