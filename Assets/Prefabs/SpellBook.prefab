@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4265042875799574271}
   - component: {fileID: 3927325318197264103}
   - component: {fileID: 8512236626845917028}
+  - component: {fileID: 6692156341465787716}
   m_Layer: 0
   m_Name: SpellBook
   m_TagString: Untagged
@@ -124,3 +125,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51811a587d136d9428ed41edc16dbc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellStateBehaviourScript: {fileID: 0}
+  spellId: 0
+--- !u!114 &6692156341465787716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2255579858110099628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 785cb1ea38ee9ba4799cccc2efbd6514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zRange: 10
+  yOffset: 0
+  zFixingEnabled: 1
