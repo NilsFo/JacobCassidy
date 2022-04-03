@@ -14971,6 +14971,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 215937123591553685, guid: d56a5e60563ca6849ac959327c9d31b3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 215937123591553685, guid: d56a5e60563ca6849ac959327c9d31b3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1094495366268235429, guid: d56a5e60563ca6849ac959327c9d31b3, type: 3}
       propertyPath: _playerStateBehaviourScript
       value: 
@@ -15075,6 +15083,14 @@ PrefabInstance:
       propertyPath: _playerStateBehaviourScript
       value: 
       objectReference: {fileID: 515225244}
+    - target: {fileID: 1838537596907939698, guid: d56a5e60563ca6849ac959327c9d31b3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838537596907939698, guid: d56a5e60563ca6849ac959327c9d31b3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2447855617598002458, guid: d56a5e60563ca6849ac959327c9d31b3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

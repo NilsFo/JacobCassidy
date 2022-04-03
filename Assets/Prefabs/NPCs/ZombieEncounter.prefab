@@ -54,6 +54,7 @@ MonoBehaviour:
   myCultist: {fileID: 0}
   requiredCultistDeathCount: 0
   chaser: 0
+  mySprite: {fileID: 0}
 --- !u!1 &7228076046126061742
 GameObject:
   m_ObjectHideFlags: 0

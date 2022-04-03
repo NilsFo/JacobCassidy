@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8035902443803457132}
   - component: {fileID: 8035902443803457133}
   - component: {fileID: 8035902443803457134}
-  - component: {fileID: 2708903627063442557}
   m_Layer: 6
   m_Name: Door
   m_TagString: Untagged
@@ -141,17 +140,3 @@ MonoBehaviour:
       m_Calls: []
   maxHealth: 4
   currentHealth: 4
---- !u!114 &2708903627063442557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8035902443803457135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 289ac76e29bb1bf4f823aaa2def917a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zRange: 10
-  pixelsPerUnit: 16
