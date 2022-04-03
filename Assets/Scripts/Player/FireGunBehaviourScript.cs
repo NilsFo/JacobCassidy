@@ -75,13 +75,18 @@ public class FireGunBehaviourScript : MonoBehaviour
 
         Vector3 hitPos = Vector3.zero;
         if (hit.collider != null) {
-            var enemy = hit.collider.transform.parent.GetComponent<EnemyBehaviourScript>();
+            var enemy = hit.collider.transform.GetComponentInParent<EnemyBehaviourScript>();
             if (enemy != null) {
                 enemy.ChangeCurrentHealth(-1);
             }
             hitPos = hit.point;
             hitPos.z = -10;
-            // TODO hit objects etc
+            // TODO More hit objects etc
+            var objectHit = hit.collider.transform.GetComponentInParent<DoorBehaviourScript>();
+            if (objectHit != null)
+            {
+                objectHit.DamageHealth(1);
+            }
         } else {
             hitPos = new Vector3(transform.position.x + direction.normalized.x * maxRaycastDist, transform.position.y + direction.normalized.y * maxRaycastDist, -5f);
         }
