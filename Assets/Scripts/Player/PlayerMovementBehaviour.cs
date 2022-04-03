@@ -21,11 +21,15 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
     public Transform aimDummy;
 
-    private Vector2 _velocity;
+    Vector2 _velocity;
 
-    private Vector2 _lookDirection = new Vector2(1,0);
-    
+    Vector2 _lookDirection = new Vector2(1,0);
+    public Vector2 lookDirection => _lookDirection;
+    public Vector2 velocity => _velocity;
+
     private float _dashTime;
+    
+    public float movementCooldown = 0;
 
     private void Awake()
     {
@@ -60,8 +64,18 @@ public class PlayerMovementBehaviour : MonoBehaviour
         {
             modSpeed *= dashMod;
         }
+
+        bool movementBlocked = false;
+        // Check if movement is on cooldown
+        if (movementCooldown > 0) {
+            movementBlocked = true;
+            movementCooldown -= Time.deltaTime;
+        }
         
         var moveInput = input.Player.Move.ReadValue<Vector2>();
+        if (movementBlocked) {
+            moveInput = Vector2.zero;
+        }
 
         _velocity = moveInput;
         _velocity = _velocity.normalized;
@@ -86,6 +100,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
         if (lookInput.magnitude > 0.1f) {
             _lookDirection = lookInput.normalized;
             aimDummy.localPosition = _lookDirection;
+            movementAnimator.SetFacing(_lookDirection);
         }
     }
 

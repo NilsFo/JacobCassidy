@@ -12,6 +12,7 @@ public class GameStateBehaviourScript : MonoBehaviour
     //Refs
     [SerializeField] private PlayerStateBehaviourScript playerStateBehaviourScript;
     [SerializeField] private EnemieStateBehaviourScript enemieStateBehaviourScript;
+    [SerializeField] private SpellStateBehaviourScript spellStateBehaviourScript;
     
     // Start is called before the first frame update
     void Start()
@@ -52,4 +53,8 @@ public class GameStateBehaviourScript : MonoBehaviour
     }
     
     public PlayerStateBehaviourScript PlayerStateBehaviourScript => playerStateBehaviourScript;
+
+    public EnemieStateBehaviourScript EnemieStateBehaviourScript => enemieStateBehaviourScript;
+
+    public SpellStateBehaviourScript SpellStateBehaviourScript => spellStateBehaviourScript;
 }

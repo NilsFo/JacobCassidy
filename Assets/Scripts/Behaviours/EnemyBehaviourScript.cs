@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum EnemyState {
     Spawned,
@@ -21,12 +22,22 @@ public class EnemyBehaviourScript : MonoBehaviour
     [SerializeField] private EnemyState enemyState;
     
     [SerializeField] private float damageOnContact = 1;
+
+    public UnityEvent onDeath;
+    public delegate void OnDeathDelegate(GameObject self);
+    
+    public event OnDeathDelegate OnDeath;
     
     // Start is called before the first frame update
     void Start()
     {
         ResetEnemy();
         EnemieStateBehaviourScript.AddEnemy(gameObject);
+        
+        if (onDeath == null)
+        {
+            onDeath = new UnityEvent();
+        }
     }
 
     private void OnDisable()
@@ -45,6 +56,8 @@ public class EnemyBehaviourScript : MonoBehaviour
             if (deathTimer < 0)
             {
                 Destroy(gameObject);
+                onDeath.Invoke();
+                OnDeath?.Invoke(gameObject);
             }
             else
             {

@@ -84,6 +84,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -592,6 +593,27 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      House-background_18: 6684914819446372612
+      House-background_10: -5442240504436536194
+      House-background_8: 8369348062510079550
+      House-background_5: -1297368297193904594
+      House-background_16: 6792026484603406639
+      House-background_0: -5414256240418513013
+      House-background_3: -559196457148273500
+      House-background_12: -3915698919476774007
+      House-background_17: -5744895562496067025
+      House-background_4: -6805519747952317287
+      House-background_1: -2612759782352026914
+      House-background_9: 8156311374587540546
+      House-background_14: -7012826773298303373
+      House-background_6: 8692170415261027985
+      House-background_15: -3247521446308513379
+      House-background_2: -1603425171740149306
+      House-background_13: -1497470810445333480
+      House-background_19: -1735808203733891577
+      House-background_7: -984257669630329733
+      House-background_11: -7692869841697657051
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
