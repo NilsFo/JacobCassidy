@@ -71,6 +71,15 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Spell"",
+                    ""type"": ""Button"",
+                    ""id"": ""6aeef05a-0a10-43b9-a7b6-7c0aa412b9f0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -280,6 +289,28 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b95a336-a955-4c82-9b05-3c664e1f4d48"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Spell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""54548a97-81c8-4048-8649-a4c556de0baf"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Spell"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -811,7 +842,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""id"": ""c53f2f30-8d7a-4680-a8e6-669694c90a95"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -820,7 +851,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""id"": ""f9d530d8-473b-4b45-bb61-16e47fc7b035"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -829,7 +860,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""id"": ""ab0b24ca-e454-45b7-988b-82569df2cb2a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -838,7 +869,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""id"": ""350baa78-368c-4a31-91bc-0cd967c86188"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -847,7 +878,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""id"": ""af4b321e-7969-41e4-83c2-87e5aada6115"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -901,7 +932,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""id"": ""ff44fb7a-6fcf-45ee-b732-07de320d95a3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -910,7 +941,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""id"": ""dc533e5d-5bca-400a-996e-87939f58133a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -919,6 +950,17 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""name"": """",
                     ""id"": ""39bb7fb4-11fc-45d0-a6a2-dbb88754d2bb"",
                     ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Slot1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91455345-8140-4b9a-8141-9e46da36261b"",
+                    ""path"": ""<Keyboard>/numpad1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -939,8 +981,30 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 },
                 {
                     ""name"": """",
+                    ""id"": ""4ea521ce-ec50-4415-a215-28ca35e1a0df"",
+                    ""path"": ""<Keyboard>/numpad2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slot2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""fbe10dd1-a55d-42cb-910b-c5c58149abce"",
                     ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Slot3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c2d0e6e4-b75e-4ccc-abd9-67f42ddd77b2"",
+                    ""path"": ""<Keyboard>/numpad3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -961,8 +1025,30 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 },
                 {
                     ""name"": """",
+                    ""id"": ""941bc93f-7678-4241-bf94-55f9356b65c9"",
+                    ""path"": ""<Keyboard>/numpad4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Slot4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""7fda1f2a-5589-4b20-89a5-86dc58a76f4f"",
                     ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Slot5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""10310fea-3795-47ed-a3de-3649b2691392"",
+                    ""path"": ""<Keyboard>/numpad5"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -1028,7 +1114,18 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 {
                     ""name"": """",
                     ""id"": ""f72869ec-1400-40df-9c7d-b8a2ec104de3"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0dacbcca-5280-4c6e-8484-238b07ae99d5"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -1039,7 +1136,18 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 {
                     ""name"": """",
                     ""id"": ""ecfc1c9a-fb62-4f20-9bfb-8b9cf31adcaf"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d54d6314-5cae-4f95-8779-a1c3f2d0645a"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -1120,6 +1228,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_Spell = m_Player.FindAction("Spell", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1210,6 +1319,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_Spell;
     public struct PlayerActions
     {
         private @MainInputActionsSettings m_Wrapper;
@@ -1219,6 +1329,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @Spell => m_Wrapper.m_Player_Spell;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1243,6 +1354,9 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @Spell.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpell;
+                @Spell.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpell;
+                @Spell.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpell;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1262,6 +1376,9 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
+                @Spell.started += instance.OnSpell;
+                @Spell.performed += instance.OnSpell;
+                @Spell.canceled += instance.OnSpell;
             }
         }
     }
@@ -1544,6 +1661,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
         void OnFire(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnSpell(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -5,14 +5,14 @@ using UnityEngine;
 public class FireGunBehaviourScript : MonoBehaviour
 {
 
-    [SerializeField] private PlayerStateBehaviourScript _playerStateBehaviourScript;
+    [SerializeField] private PlayerStateBehaviourScript playerStateBehaviourScript;
+    [SerializeField] private SpellStateBehaviourScript spellStateBehaviourScript;
     
     public BulletBehaviourScript bulletPref;
     public BulletTrailBehaviour bulletTrailPrefab;
     public Transform aimDummy;
     
     public float fireDelay = 0.2f;
-
 
     private float fireTime;
 
@@ -39,15 +39,23 @@ public class FireGunBehaviourScript : MonoBehaviour
             var _direction = new Vector2(horizontal2Input, vertical2Input);
             _direction = _direction.normalized;
 
-            if (input.Player.Fire.triggered && _direction.magnitude > 0)
+            if (_direction.magnitude > 0)
             {
-                if (_playerStateBehaviourScript.ChangeCurrentAmmo(-1)) {
-                    Fire(_direction);
-                }
-                else
+                if (input.Player.Fire.triggered)
                 {
-                    //TODO Click Sound Trigger
-                    _playerStateBehaviourScript.ReloadAmmo();
+                    if (playerStateBehaviourScript.ChangeCurrentAmmo(-1))
+                    {
+                        Fire(_direction);
+                    }
+                    else
+                    {
+                        //TODO Click Sound Trigger
+                        playerStateBehaviourScript.ReloadAmmo();
+                    }
+                }
+                else if (input.Player.Spell.triggered)
+                {
+                    spellStateBehaviourScript.CastSpell(gameObject, _direction);
                 }
             }   
         } else {

@@ -27,6 +27,7 @@ public class GameStateBehaviourScript : MonoBehaviour
         onResetGameState ??= new UnityEvent();
         mainInputActions = new MainInputActionsSettings();
         mainInputActions.Player.Enable();
+        mainInputActions.Toolbar.Enable();
     }
 
     private void OnDisable()
