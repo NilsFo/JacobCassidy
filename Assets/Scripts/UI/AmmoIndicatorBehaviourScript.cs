@@ -1,23 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AmmoIndicatorBehaviourScript : MonoBehaviour
 {
     
-    [SerializeField] private PlayerStateBehaviourScript _playerStateBehaviourScript;
+    private PlayerStateBehaviourScript _playerStateBehaviourScript;
 
-    [SerializeField] private List<GameObject> ammoImgs;
+    [SerializeField] private List<Sprite> ammoImgsList;
+
+    [SerializeField] private Image img;
     
-    private void Awake()
-    {
-        Debug.Assert(_playerStateBehaviourScript != null, gameObject);
-    }
-
     // Start is called before the first frame update
     void Start()
     {
-        ammoImgs ??= new List<GameObject>();
+        _playerStateBehaviourScript = FindObjectOfType<PlayerStateBehaviourScript>();
+        
+        ammoImgsList ??= new List<Sprite>();
         
         _playerStateBehaviourScript.onCurrentAmmoChange.AddListener(UpdateAmmoIndicator);
     }
@@ -27,26 +27,9 @@ public class AmmoIndicatorBehaviourScript : MonoBehaviour
         _playerStateBehaviourScript.onCurrentAmmoChange.RemoveListener(UpdateAmmoIndicator);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     public void UpdateAmmoIndicator()
     {
         var numberOfAmmo = _playerStateBehaviourScript.CurrentAmmo;
-        for (int i = 0; i < ammoImgs.Count; i++)
-        {
-            var imgOb = ammoImgs[i];
-            if (i < numberOfAmmo)
-            {
-                imgOb.SetActive(true);
-            }
-            else
-            {
-                imgOb.SetActive(false);
-            }
-        }
+        img.sprite = ammoImgsList[(int)numberOfAmmo];
     }
 }

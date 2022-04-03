@@ -56,9 +56,13 @@ MonoBehaviour:
   onResetGameState:
     m_PersistentCalls:
       m_Calls: []
+  onCultistsDeath:
+    m_PersistentCalls:
+      m_Calls: []
   playerStateBehaviourScript: {fileID: 7802783470283271111}
   enemieStateBehaviourScript: {fileID: 3191035166800469499}
   spellStateBehaviourScript: {fileID: 1809202575865811791}
+  numberOfDeadCultists: 0
 --- !u!114 &7802783470283271111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStateBehaviourScript: {fileID: 7802783470283271111}
   spellStateBehaviourScript: {fileID: 1809202575865811791}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: e7e094a6134c9ef47a9d691b268222d4, type: 3}
   spellCooldown: 1
   spellTimer: 0
   spellCost: 5
