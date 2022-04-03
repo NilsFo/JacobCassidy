@@ -35,7 +35,6 @@ public class AmmoIndicatorBehaviourScript : MonoBehaviour
     
     public void UpdateAmmoIndicator()
     {
-        Debug.Log("Render Ammo!");
         var numberOfAmmo = _playerStateBehaviourScript.CurrentAmmo;
         for (int i = 0; i < ammoImgs.Count; i++)
         {
