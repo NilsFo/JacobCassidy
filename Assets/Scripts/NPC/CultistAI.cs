@@ -110,11 +110,12 @@ public class CultistAI : MonoBehaviour
                 break;
             case CultistState.Summoning:
                 _summonTimer -= Time.deltaTime;
-                if (_summonTimer < 0) {
-                    
+                if (_summonTimer < 0)
+                {
                     currentState = CultistState.GoToPointOfInterest;
                     myMovement.myAnimator.myMovementAnimator.SetBool("Summoning", false);
                 }
+
                 break;
             case CultistState.FleeFromPlayer:
                 if (myMovement.ReachedPath) {
@@ -185,7 +186,8 @@ public class CultistAI : MonoBehaviour
     private ZombieAI SummonZombie(bool self)
     {
         print("New zombie summoned.");
-        GameObject newZombie = Instantiate(zombiePrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+        GameObject newZombie = Instantiate(zombiePrefab, new Vector3(transform.position.x, transform.position.y, 0),
+            Quaternion.identity);
         newZombie.GetComponent<MovementAnimator>().myMovementAnimator.SetTrigger("Spawn");
 
         ZombieAI zombieAI = newZombie.GetComponent<ZombieAI>();
@@ -193,7 +195,7 @@ public class CultistAI : MonoBehaviour
         zombieAI.SetStunTime(2f);
         zombieAI.hitbox.enabled = false;
         zombieAI.EnableHitboxIn2s();
-        
+
         if (self)
         {
             EnemyBehaviourScript script = newZombie.GetComponent<EnemyBehaviourScript>();
@@ -278,7 +280,8 @@ public class CultistAI : MonoBehaviour
         return o.GetComponent<CultistPointOfInterest>();
     }
 
-    public void Die() {
+    public void Die()
+    {
         myMovement.myAnimator.myMovementAnimator.SetTrigger("Die");
         myMovement.SetMovementStateStasis();
         currentState = CultistState.Dead;
@@ -287,6 +290,20 @@ public class CultistAI : MonoBehaviour
         foreach (var componentsInChild in gameObject.GetComponentsInChildren<Collider2D>())
         {
             componentsInChild.gameObject.layer = debrisLayer;
+        }
+
+        // Announce to the world that I have died
+        ZombieEncounter[] encounters = FindObjectsOfType<ZombieEncounter>();
+        foreach (ZombieEncounter encounter in encounters)
+        {
+            encounter.TrySpawn();
+        }
+
+        // Announce to the points of interest that more zombies are needed
+        CultistPointOfInterest[] holders = FindObjectsOfType<CultistPointOfInterest>();
+        foreach (CultistPointOfInterest holder in holders)
+        {
+            holder.congregationSize = holder.congregationSize + 2;
         }
     }
     

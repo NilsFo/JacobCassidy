@@ -37,6 +37,7 @@ public class ZombieAI : MonoBehaviour
     public Collider2D hitbox;
 
     private Rigidbody2D rb;
+    public float callAllyDistance = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -127,7 +128,7 @@ public class ZombieAI : MonoBehaviour
         // Call close Zombies
         var zombies = FindObjectsOfType<ZombieAI>();
         foreach (var zombieAI in zombies) {
-            if ((zombieAI.transform.position - transform.position).magnitude < 10f &&
+            if ((zombieAI.transform.position - transform.position).magnitude < callAllyDistance &&
                 (zombieAI.currentState == ZombieState.Waiting || zombieAI.currentState == ZombieState.GoToSpawn ||
                     zombieAI.currentState == ZombieState.Roaming || zombieAI.currentState == ZombieState.FollowCultist)) {
                 zombieAI.currentState = ZombieState.ChasePlayer;
