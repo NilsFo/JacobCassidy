@@ -73,6 +73,8 @@ public class NPCMovementAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        
         reachedPathEventFired = false;
         player = FindObjectOfType<PlayerMovementBehaviour>();
         pathsCalculatedCount = 0;

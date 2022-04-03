@@ -26,9 +26,8 @@ public class CultistPointOfInterest : MonoBehaviour
     {
         while (NeedsZombie())
         {
-            GameObject newZombie = Instantiate(zombiePrefab, transform.position, Quaternion.Euler(Vector3.up));
+            GameObject newZombie = Instantiate(zombiePrefab, new Vector3(transform.position.x, transform.position.y, 0f), Quaternion.Euler(Vector3.up));
             AddZombie(newZombie);
-            newZombie.transform.position = transform.position;
         }
     }
 

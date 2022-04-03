@@ -144,6 +144,10 @@ public class ZombieAI : MonoBehaviour
         }
 
         _lastState = currentState;
+        if (_lastState == ZombieState.Dead) {
+            myMovement.SetMovementStateStasis();
+            return;
+        }
         switch (currentState)
         {
             case ZombieState.Waiting:
@@ -215,7 +219,8 @@ public class ZombieAI : MonoBehaviour
 
     public void EndAttack()
     {
-        currentState = ZombieState.Roaming;
+        if(currentState != ZombieState.Dead)
+            currentState = ZombieState.Roaming;
         myMovement.ForceUpdatePath();
         myMovement.paused = false;
     }
@@ -253,6 +258,7 @@ public class ZombieAI : MonoBehaviour
         {
             componentsInChild.gameObject.layer = debrisLayer;
         }
+        Invoke(nameof(DespawnAfterDeath), 2.0f);
     }
 
     public void DespawnAfterDeath()

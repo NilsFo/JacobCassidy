@@ -4,36 +4,43 @@ using UnityEngine;
 
 public class KnockbackProjectileBehaviourScript : MonoBehaviour
 {
-    [SerializeField] private float knockbackForce = 200f;
-    
-    [SerializeField] private float projectileFlyDuration = 0.5f;
-    [SerializeField] private float projectileFlyTimer = 0f;
+    [SerializeField] private float knockbackForce = 2000f;
 
-    void Start()
-    {
-        projectileFlyTimer = projectileFlyDuration;
+    private bool knockback;
+    private float lifetime = 1.5f;
+
+    void Start() {
+        knockback = true;
     }
     
     void Update()
     {
-        if (projectileFlyTimer < Time.deltaTime)
-        {
+        if (knockback) {
+            knockback = false;
+            List<Collider2D> colliders = new List<Collider2D>();
+            ContactFilter2D contactFilter2D = new ContactFilter2D();
+            contactFilter2D.layerMask = LayerMask.GetMask(new []{"EnemyHitbox"});
+            contactFilter2D.useLayerMask = true;
+            var c = GetComponent<Collider2D>();
+            c.OverlapCollider(contactFilter2D, colliders);
+
+            Debug.Log("Knocking back " + colliders.Count + " enemies");
+            
+            var player = FindObjectOfType<PlayerMovementBehaviour>();
+            foreach (var col in colliders) {
+                var rb = col.GetComponentInParent<Rigidbody2D>();
+                if (rb != null) {
+                    Vector2 dir = (col.transform.position - player.transform.position);
+                    rb.AddForce(dir.normalized * knockbackForce * (1-dir.magnitude/5f));
+                }
+
+                col.GetComponentInParent<ZombieAI>()?.SetStunTime(0.5f);
+            }
+        }
+
+        lifetime -= Time.deltaTime;
+        if (lifetime < 0) {
             Destroy(gameObject);
         }
-        else
-        {
-            projectileFlyTimer -= Time.deltaTime;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        EnemyBehaviourScript enemyBehaviourScript = other.gameObject.GetComponent<EnemyBehaviourScript>();
-        if (enemyBehaviourScript)
-        {
-            //enemyBehaviourScript.Add
-            //TODO Knockback
-        }
-        Destroy(gameObject);
     }
 }
