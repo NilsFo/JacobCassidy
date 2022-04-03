@@ -31,6 +31,9 @@ public class EnemyBehaviourScript : MonoBehaviour
     public event OnDeathDelegate OnDeath;
     public event OnDamageDelegate OnDamageTaken;
     
+
+    public EnemyState EnemyState => enemyState;
+
     // Start is called before the first frame update
     void Start()
     {

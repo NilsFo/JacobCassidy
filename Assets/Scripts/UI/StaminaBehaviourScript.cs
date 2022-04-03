@@ -18,6 +18,7 @@ public class StaminaBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        UpdateStaminaText();
         _playerStateBehaviourScript.onCurrentStaminaChange.AddListener(UpdateStaminaText);
     }
 

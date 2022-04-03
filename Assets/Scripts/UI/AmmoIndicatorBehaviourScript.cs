@@ -19,12 +19,12 @@ public class AmmoIndicatorBehaviourScript : MonoBehaviour
     {
         ammoImgs ??= new List<GameObject>();
         
-        _playerStateBehaviourScript.onCurrentStaminaChange.AddListener(UpdateAmmoIndicator);
+        _playerStateBehaviourScript.onCurrentAmmoChange.AddListener(UpdateAmmoIndicator);
     }
 
     private void OnDisable()
     {
-        _playerStateBehaviourScript.onCurrentStaminaChange.RemoveListener(UpdateAmmoIndicator);
+        _playerStateBehaviourScript.onCurrentAmmoChange.RemoveListener(UpdateAmmoIndicator);
     }
 
     // Update is called once per frame
@@ -35,6 +35,7 @@ public class AmmoIndicatorBehaviourScript : MonoBehaviour
     
     public void UpdateAmmoIndicator()
     {
+        Debug.Log("Render Ammo!");
         var numberOfAmmo = _playerStateBehaviourScript.CurrentAmmo;
         for (int i = 0; i < ammoImgs.Count; i++)
         {
