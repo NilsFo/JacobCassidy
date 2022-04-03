@@ -12296,6 +12296,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
+--- !u!114 &1773049235 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1809202575865811791, guid: 44ac8dbb9090af14cae83c2e3a5b5837, type: 3}
+  m_PrefabInstance: {fileID: 1639680744}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a66d72918fb7646b7ce20330a35de4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1850120120
 GameObject:
   m_ObjectHideFlags: 0
@@ -13607,6 +13618,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3768054599223721321, guid: d56a5e60563ca6849ac959327c9d31b3, type: 3}
+      propertyPath: spellStateBehaviourScript
+      value: 
+      objectReference: {fileID: 1773049235}
     - target: {fileID: 6061652378115935966, guid: d56a5e60563ca6849ac959327c9d31b3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -14144,6 +14159,14 @@ PrefabInstance:
       objectReference: {fileID: 1269443418}
     - target: {fileID: 2810526851853326435, guid: 45ac861d2fed5c04980722909b013cfd, type: 3}
       propertyPath: _playerStateBehaviourScript
+      value: 
+      objectReference: {fileID: 515225244}
+    - target: {fileID: 3317967261752876488, guid: 45ac861d2fed5c04980722909b013cfd, type: 3}
+      propertyPath: spellStateBehaviourScript
+      value: 
+      objectReference: {fileID: 1773049235}
+    - target: {fileID: 3317967261752876488, guid: 45ac861d2fed5c04980722909b013cfd, type: 3}
+      propertyPath: playerStateBehaviourScript
       value: 
       objectReference: {fileID: 515225244}
     - target: {fileID: 3317967261752876488, guid: 45ac861d2fed5c04980722909b013cfd, type: 3}
