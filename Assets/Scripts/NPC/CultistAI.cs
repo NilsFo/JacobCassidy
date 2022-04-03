@@ -293,6 +293,8 @@ public class CultistAI : MonoBehaviour
         }
 
         // Announce to the world that I have died
+        FindObjectOfType<GameStateBehaviourScript>().AddCultistsDeath();
+        
         ZombieEncounter[] encounters = FindObjectsOfType<ZombieEncounter>();
         foreach (ZombieEncounter encounter in encounters)
         {
