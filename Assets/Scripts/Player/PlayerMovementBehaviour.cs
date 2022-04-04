@@ -60,7 +60,6 @@ public class PlayerMovementBehaviour : MonoBehaviour
             _dashTime = 0;
         }
 
-
         var modSpeed = speed;
         if (_dashTime > 0)
         {
@@ -96,8 +95,6 @@ public class PlayerMovementBehaviour : MonoBehaviour
             var worldPos = Camera.main.ScreenToWorldPoint(mousePos);
             lookInput = worldPos -transform.position;
         }
-        
-
         
         if (lookInput.magnitude > 0.1f) {
             _lookDirection = lookInput.normalized;

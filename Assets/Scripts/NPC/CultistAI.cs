@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
@@ -25,6 +26,8 @@ public class CultistAI : MonoBehaviour
     private List<GameObject> myPointsOfInterest;
     [SerializeField] private int currentPointOfInterestIndex;
     public NPCMovementAI myMovement;
+    private GameStateBehaviourScript gameStateBehaviourScript;
+    public TMP_Text text;
 
     [SerializeField] private bool canSeePlayer;
     public float playerDetectionDistance;
@@ -54,6 +57,8 @@ public class CultistAI : MonoBehaviour
     void Start()
     {
         myPointsOfInterest = pointOfInterestHolder.pointsOfInterest;
+        gameStateBehaviourScript = FindObjectOfType<GameStateBehaviourScript>();
+        UpdateQuestLog();
 
         _lastState = currentState;
         myMovement.SetMovementStateStasis();
@@ -66,9 +71,12 @@ public class CultistAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (myMovement.IsGameOver())
+        {
+            return;
+        }
+        
         UpdateState();
-
-
         switch (currentState)
         {
             case CultistState.FindNextPointOfInterest:
@@ -255,6 +263,11 @@ public class CultistAI : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (myMovement.IsGameOver())
+        {
+            return;
+        }
+        
         UpdateCanSeePlayer();
     }
 
@@ -320,6 +333,14 @@ public class CultistAI : MonoBehaviour
         foreach (var cultistAI in cultists) {
             cultistAI.congregationSize += 1;
         }
+        
+        UpdateQuestLog();
+    }
+
+    public void UpdateQuestLog()
+    {
+        int c = gameStateBehaviourScript.NumberOfDeadCultists;
+        text.text = "Cultists interrogated: " + c + " / 5";
     }
     
     private void FleeFromPlayer() {

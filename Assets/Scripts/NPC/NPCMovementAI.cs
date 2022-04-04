@@ -158,10 +158,21 @@ public class NPCMovementAI : MonoBehaviour
             }
         }
     }
-
+    
+    public bool IsGameOver()
+    {
+        // TODO check gamestate
+        return true;
+    }
+    
     // Update is called once per frame
     void Update()
     {
+        if (IsGameOver())
+        {
+            return;
+        }
+        
         stunnedTimer = stunnedTimer - Time.deltaTime;
         if (!currentMovementState.ShouldMove())
             currentPathToTarget = null;
@@ -210,6 +221,10 @@ public class NPCMovementAI : MonoBehaviour
         {
             return;
         }
+        if (IsGameOver())
+        {
+            return;
+        }
         
         if (currentWaypointIndexToTarget >= currentPathToTarget.vectorPath.Count)
         {
@@ -237,7 +252,7 @@ public class NPCMovementAI : MonoBehaviour
 
         float velocity = movementSpeed * velocityModifier;
         if (slow) {
-            velocity *= 0.5f;
+            velocity *= 0.25f;
             slowTimer -= Time.fixedDeltaTime;
             if (slowTimer < 0) {
                 slow = false;

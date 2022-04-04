@@ -68,8 +68,12 @@ public class ZombieAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateState();
+        if (myMovement.IsGameOver())
+        {
+            return;
+        }
 
+        UpdateState();
         switch (currentState)
         {
             case ZombieState.GoToSpawn:
@@ -101,7 +105,8 @@ public class ZombieAI : MonoBehaviour
 
                 break;
             case ZombieState.Attacking:
-                var movementForce = (player.transform.position - transform.position).normalized * GetComponentInChildren<ZombieAnimationEvent>().attackMovementForce * Time.deltaTime;
+                var movementForce = (player.transform.position - transform.position).normalized *
+                                    GetComponentInChildren<ZombieAnimationEvent>().attackMovementForce * Time.deltaTime;
                 rb.AddForce(movementForce);
                 break;
         }
@@ -111,11 +116,11 @@ public class ZombieAI : MonoBehaviour
             currentState == ZombieState.Roaming || currentState == ZombieState.FollowCultist ||
             currentState == ZombieState.GoToLastKnownLocation)
         {
-            if (canSeePlayer) {
+            if (canSeePlayer)
+            {
                 currentState = ZombieState.ChasePlayer;
 
                 CallAllies();
-
             }
         }
 
@@ -127,21 +132,27 @@ public class ZombieAI : MonoBehaviour
             }
         }
     }
-    public void CallAllies() {
+
+    public void CallAllies()
+    {
         // Call close Zombies
         var zombies = FindObjectsOfType<ZombieAI>();
-        foreach (var zombieAI in zombies) {
+        foreach (var zombieAI in zombies)
+        {
             if ((zombieAI.transform.position - transform.position).magnitude < callAllyDistance &&
                 (zombieAI.currentState == ZombieState.Waiting || zombieAI.currentState == ZombieState.GoToSpawn ||
-                    zombieAI.currentState == ZombieState.Roaming || zombieAI.currentState == ZombieState.FollowCultist)) {
+                 zombieAI.currentState == ZombieState.Roaming || zombieAI.currentState == ZombieState.FollowCultist))
+            {
                 zombieAI.currentState = ZombieState.ChasePlayer;
             }
         }
-        
-        if (alertSound != null) {
-            if (!alertSound.isPlaying) {
+
+        if (alertSound != null)
+        {
+            if (!alertSound.isPlaying)
+            {
                 alertSound.pitch = Random.Range(0.8f, 1.2f);
-                alertSound.Play();   
+                alertSound.Play();
             }
         }
     }
@@ -154,10 +165,12 @@ public class ZombieAI : MonoBehaviour
         }
 
         _lastState = currentState;
-        if (_lastState == ZombieState.Dead) {
+        if (_lastState == ZombieState.Dead)
+        {
             myMovement.SetMovementStateStasis();
             return;
         }
+
         switch (currentState)
         {
             case ZombieState.Waiting:
@@ -200,6 +213,11 @@ public class ZombieAI : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (myMovement.IsGameOver())
+        {
+            return;
+        }
+
         UpdateCanSeePlayer();
     }
 
@@ -214,7 +232,8 @@ public class ZombieAI : MonoBehaviour
         attackCollider.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90f);
         myMovement.paused = true;
 
-        if (attackSound != null) {
+        if (attackSound != null)
+        {
             attackSound.pitch = Random.Range(0.8f, 1.2f);
             attackSound.Play();
         }
@@ -234,7 +253,7 @@ public class ZombieAI : MonoBehaviour
 
     public void EndAttack()
     {
-        if(currentState != ZombieState.Dead)
+        if (currentState != ZombieState.Dead)
             currentState = ZombieState.Roaming;
         myMovement.ForceUpdatePath();
         myMovement.paused = false;
@@ -273,6 +292,7 @@ public class ZombieAI : MonoBehaviour
         {
             componentsInChild.gameObject.layer = debrisLayer;
         }
+
         Invoke(nameof(DespawnAfterDeath), 2.0f);
     }
 
@@ -310,11 +330,13 @@ public class ZombieAI : MonoBehaviour
         myMovement.stunnedTimer = time;
     }
 
-    public void EnableHitboxIn2s() {
+    public void EnableHitboxIn2s()
+    {
         Invoke(nameof(EnableHitbox), 2f);
     }
-    public void EnableHitbox() {
+
+    public void EnableHitbox()
+    {
         hitbox.enabled = true;
     }
-    
 }

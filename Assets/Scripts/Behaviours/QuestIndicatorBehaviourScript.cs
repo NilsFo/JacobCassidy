@@ -55,15 +55,12 @@ public class QuestIndicatorBehaviourScript : MonoBehaviour
                 if (dist < lastdist)
                 {
                     chosen = cultistAI;
-                    Debug.Log("Chosen !!!");
                 }
             }
         }
         
-
         if (chosen != null)
         {
-            Debug.Log("Rotation!");
             var direction = chosen.gameObject.transform.position - player.transform.position;
             var rotaion = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f);
 
