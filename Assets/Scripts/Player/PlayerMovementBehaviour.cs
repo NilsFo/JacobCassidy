@@ -7,9 +7,12 @@ public class PlayerMovementBehaviour : MonoBehaviour
 {
     [Header("Dependency")] [SerializeField]
     private Rigidbody2D myRgidbody2D;
+
     public GameStateBehaviourScript gameState;
     MainInputActionsSettings input;
     private PlayerInput _playerInput;
+    public ParticleSystem rainParticleSystem;
+    public List<Vector2Int> rainParticlesPerCultist;
 
     [SerializeField] PlayerStateBehaviourScript _playerStateBehaviourScript;
 
@@ -23,22 +26,41 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
     Vector2 _velocity;
 
-    Vector2 _lookDirection = new Vector2(1,0);
+    Vector2 _lookDirection = new Vector2(1, 0);
     public Vector2 lookDirection => _lookDirection;
     public Vector2 velocity => _velocity;
 
     private float _dashTime;
-    
+
     public float movementCooldown = 0;
 
     public AudioSource playerHurtSound;
+    private GameStateBehaviourScript gameStateBehaviourScript;
 
     private void Awake()
     {
+        gameStateBehaviourScript = FindObjectOfType<GameStateBehaviourScript>();
+        gameStateBehaviourScript.onCultistsDeath.AddListener(OnCultistDeath);
         Debug.Assert(myRgidbody2D != null, gameObject);
     }
 
-    private void Start() {
+    private void OnDisable()
+    {
+        gameStateBehaviourScript.onCultistsDeath.RemoveListener(OnCultistDeath);
+    }
+
+    private void OnCultistDeath()
+    {
+        int cultistsDead = gameStateBehaviourScript.NumberOfCultists;
+
+        var emission = rainParticleSystem.emission;
+        int min = rainParticlesPerCultist[cultistsDead].x;
+        int max = rainParticlesPerCultist[cultistsDead].y;
+        emission.rateOverTime = new ParticleSystem.MinMaxCurve(min, max);
+    }
+
+    private void Start()
+    {
         input = gameState.mainInputActions;
         _playerInput = FindObjectOfType<PlayerInput>();
         _playerInput.actions = input.asset;
@@ -68,35 +90,41 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
         bool movementBlocked = false;
         // Check if movement is on cooldown
-        if (movementCooldown > 0) {
+        if (movementCooldown > 0)
+        {
             movementBlocked = true;
             movementCooldown -= Time.deltaTime;
         }
-        
+
         var moveInput = input.Player.Move.ReadValue<Vector2>();
-        if (movementBlocked) {
+        if (movementBlocked)
+        {
             moveInput = Vector2.zero;
         }
 
         _velocity = moveInput;
         _velocity = _velocity.normalized;
-        
+
         _velocity *= modSpeed;
-        
+
         movementAnimator.velocity = _velocity;
-        
+
         // Look direction
         Vector2 lookInput = Vector2.zero;
 
-        if (_playerInput.currentControlScheme.Equals("Gamepad")) {
+        if (_playerInput.currentControlScheme.Equals("Gamepad"))
+        {
             lookInput = input.Player.Look.ReadValue<Vector2>();
-        } else if (_playerInput.currentControlScheme.Equals("Keyboard&Mouse")) {
+        }
+        else if (_playerInput.currentControlScheme.Equals("Keyboard&Mouse"))
+        {
             var mousePos = Mouse.current.position.ReadValue();
             var worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-            lookInput = worldPos -transform.position;
+            lookInput = worldPos - transform.position;
         }
-        
-        if (lookInput.magnitude > 0.1f) {
+
+        if (lookInput.magnitude > 0.1f)
+        {
             _lookDirection = lookInput.normalized;
             aimDummy.localPosition = _lookDirection;
             movementAnimator.SetFacing(_lookDirection);
@@ -110,24 +138,29 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
     public void Knockback(Vector2 sourcePosition, float force)
     {
-        Vector2 angle = (Vector2)transform.position - sourcePosition;
+        Vector2 angle = (Vector2) transform.position - sourcePosition;
         angle = angle.normalized;
         myRgidbody2D.AddForce(angle * force);
     }
-    public void TakeDamage() {
+
+    public void TakeDamage()
+    {
         var sprite = movementAnimator.GetComponent<SpriteRenderer>();
-        if (sprite != null) {
-            sprite.color = new Color(.5f,.25f,.25f);
-            Invoke(nameof(TakeDamageEnd), 0.2f);    
+        if (sprite != null)
+        {
+            sprite.color = new Color(.5f, .25f, .25f);
+            Invoke(nameof(TakeDamageEnd), 0.2f);
         }
+
         playerHurtSound.Play();
     }
 
-    public void TakeDamageEnd() {
-        
+    public void TakeDamageEnd()
+    {
         var sprite = movementAnimator.GetComponent<SpriteRenderer>();
 
-        if (sprite != null) {
+        if (sprite != null)
+        {
             sprite.color = Color.white;
         }
     }

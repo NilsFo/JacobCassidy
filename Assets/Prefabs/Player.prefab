@@ -302,6 +302,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRgidbody2D: {fileID: 7361821399617534478}
   gameState: {fileID: 0}
+  rainParticleSystem: {fileID: 6981185270119805543}
+  rainParticlesPerCultist:
+  - {x: 2, y: 5}
+  - {x: 10, y: 15}
+  - {x: 12, y: 17}
+  - {x: 20, y: 25}
+  - {x: 20, y: 35}
+  - {x: 20, y: 20}
   _playerStateBehaviourScript: {fileID: 0}
   speed: 5
   dashMod: 5
@@ -365,6 +373,7 @@ MonoBehaviour:
   bulletTrailPrefab: {fileID: 327700467025700830, guid: 040da5ca1b046944693857abaec42b19, type: 3}
   aimDummy: {fileID: 1250300201869196862}
   fireDelay: 0.5
+  spellDelay: 0.2
   playerMovementBehaviour: {fileID: 2810526851853326435}
   revolverSound: {fileID: 8319216357705474672}
 --- !u!114 &4333264208361521933
@@ -1653,5 +1662,10 @@ PrefabInstance:
 --- !u!4 &1700465022751670034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4538186267569932041, guid: db4c4d94bf4196d458885c7ad3cd7df3, type: 3}
+  m_PrefabInstance: {fileID: 2982407356456450075}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6981185270119805543 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5296660543677336188, guid: db4c4d94bf4196d458885c7ad3cd7df3, type: 3}
   m_PrefabInstance: {fileID: 2982407356456450075}
   m_PrefabAsset: {fileID: 0}

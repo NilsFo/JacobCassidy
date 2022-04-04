@@ -42,6 +42,7 @@ public class NPCMovementAI : MonoBehaviour
     private float updatePathFrequencyCurrent = 0;
     public Seeker movementTargetSeeker;
     [SerializeField] private int nodeSkippingCount = 3;
+    private GameStateBehaviourScript gameStateBehaviourScript;
 
     [Header("In-Game Config")] public MovementState initialMovementState = MovementState.Waiting;
     private NPCMovementStateBase currentMovementState;
@@ -78,7 +79,7 @@ public class NPCMovementAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameStateBehaviourScript = FindObjectOfType<GameStateBehaviourScript>();
         
         reachedPathEventFired = false;
         player = FindObjectOfType<PlayerMovementBehaviour>();
@@ -163,8 +164,9 @@ public class NPCMovementAI : MonoBehaviour
     
     public bool IsGameOver()
     {
-        // TODO check gamestate
-        return false;
+        gameStateBehaviourScript = FindObjectOfType<GameStateBehaviourScript>();
+        bool b = gameStateBehaviourScript.IsGameOver();
+        return b;
     }
     
     // Update is called once per frame
@@ -263,7 +265,6 @@ public class NPCMovementAI : MonoBehaviour
         float velocity = movementSpeed * velocityModifier;
         if (Slowed) {
             velocity *= 0.35f;
-            print("slowed");
         }
         Vector2 force = direction * velocity * Time.fixedDeltaTime;
 
@@ -275,7 +276,6 @@ public class NPCMovementAI : MonoBehaviour
         {
             currentWaypointIndexToTarget++;
         }
-
     }
 
     public void Slow(float duration) {
