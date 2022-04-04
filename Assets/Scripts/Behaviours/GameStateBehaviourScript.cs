@@ -1,23 +1,24 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameStateBehaviourScript : MonoBehaviour
 {
-    
     //Events 
     public UnityEvent onResetGameState;
     public UnityEvent onCultistsDeath;
-    
+
     public UnityEvent onWinGame;
     public UnityEvent onLoseGame;
-    
+
     public UnityEvent onGamePause;
     public UnityEvent onGameResume;
-    
+
     public UnityEvent onGameEnd;
-    
+
     public MainInputActionsSettings mainInputActions;
+    public TMP_Text questLogText;
 
     //Refs
     [SerializeField] private PlayerStateBehaviourScript playerStateBehaviourScript;
@@ -33,9 +34,9 @@ public class GameStateBehaviourScript : MonoBehaviour
     void Start()
     {
         ResetGameState();
-        
+
         playerStateBehaviourScript.onPlayerDeath.AddListener(LoseGame);
-        
+
         Play();
     }
 
@@ -43,13 +44,13 @@ public class GameStateBehaviourScript : MonoBehaviour
     {
         onResetGameState ??= new UnityEvent();
         onCultistsDeath ??= new UnityEvent();
-        
+
         onGamePause ??= new UnityEvent();
         onGameResume ??= new UnityEvent();
-        
+
         onLoseGame ??= new UnityEvent();
         onWinGame ??= new UnityEvent();
-        
+
         onGameEnd ??= new UnityEvent();
 
         mainInputActions = new MainInputActionsSettings();
@@ -63,13 +64,22 @@ public class GameStateBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateQuestLog();
+    }
+
+    public void UpdateQuestLog()
+    {
+        int c = NumberOfDeadCultists;
+        if (c > 0)
+        {
+            questLogText.text = "Cultists interrogated: " + c + " / 5";
+        }
     }
 
     private void ResetGameState()
     {
         playerStateBehaviourScript.ResetState();
-        
+
         onResetGameState.Invoke();
     }
 
@@ -77,7 +87,7 @@ public class GameStateBehaviourScript : MonoBehaviour
     {
         onGameEnd.Invoke();
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void WinGame()
@@ -105,7 +115,7 @@ public class GameStateBehaviourScript : MonoBehaviour
         mainInputActions.Player.Disable();
         onGamePause.Invoke();
     }
-    
+
     public PlayerStateBehaviourScript PlayerStateBehaviourScript => playerStateBehaviourScript;
 
     public EnemieStateBehaviourScript EnemieStateBehaviourScript => enemieStateBehaviourScript;
@@ -122,5 +132,4 @@ public class GameStateBehaviourScript : MonoBehaviour
             WinGame();
         }
     }
-    
 }

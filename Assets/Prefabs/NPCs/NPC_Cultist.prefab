@@ -207,6 +207,8 @@ MonoBehaviour:
   onPathCompleted:
     m_PersistentCalls:
       m_Calls: []
+  mySprite: {fileID: 158401461}
+  slowColor: {r: 0.28627452, g: 0.2784314, b: 0.6313726, a: 1}
 --- !u!114 &3227863212620385699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +277,7 @@ MonoBehaviour:
   enemyState: 0
   damageOnContact: 1
   hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
   bloodSystem: {fileID: 7926888685040934203}
   onDeath:
     m_PersistentCalls:
@@ -359,6 +362,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   spawnDustNextFrame: 0
+  footsteps: []
+  footstepPlayer: {fileID: 0}
 --- !u!1 &5075963631476346828
 GameObject:
   m_ObjectHideFlags: 0

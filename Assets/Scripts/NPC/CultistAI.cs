@@ -26,8 +26,6 @@ public class CultistAI : MonoBehaviour
     private List<GameObject> myPointsOfInterest;
     [SerializeField] private int currentPointOfInterestIndex;
     public NPCMovementAI myMovement;
-    private GameStateBehaviourScript gameStateBehaviourScript;
-    public TMP_Text text;
 
     [SerializeField] private bool canSeePlayer;
     public float playerDetectionDistance;
@@ -57,8 +55,6 @@ public class CultistAI : MonoBehaviour
     void Start()
     {
         myPointsOfInterest = pointOfInterestHolder.pointsOfInterest;
-        gameStateBehaviourScript = FindObjectOfType<GameStateBehaviourScript>();
-        UpdateQuestLog();
 
         _lastState = currentState;
         myMovement.SetMovementStateStasis();
@@ -75,7 +71,7 @@ public class CultistAI : MonoBehaviour
         {
             return;
         }
-        
+
         UpdateState();
         switch (currentState)
         {
@@ -91,10 +87,12 @@ public class CultistAI : MonoBehaviour
                 SummonZombie(false);
                 break;
             case CultistState.GoToPointOfInterest:
-                if (canSeePlayer) {
+                if (canSeePlayer)
+                {
                     FleeFromPlayer();
                     break;
                 }
+
                 if (NeedsZombie())
                 {
                     currentState = CultistState.SummonZombieSelf;
@@ -126,31 +124,41 @@ public class CultistAI : MonoBehaviour
 
                 break;
             case CultistState.FleeFromPlayer:
-                if (myMovement.ReachedPath) {
+                if (myMovement.ReachedPath)
+                {
                     currentState = CultistState.SummonDefense;
                     _defenseSummonsLeft = defenseSummons;
                     myMovement.myAnimator.myMovementAnimator.SetBool("Summoning", true);
                     myMovement.SetMovementStateWaitHere();
                     myMovement.movementSpeed /= 2;
                 }
+
                 break;
             case CultistState.SummonDefense:
                 _summonTimer -= Time.deltaTime;
-                if (_defenseSummonsLeft > 0 && _summonTimer < 0) {
+                if (_defenseSummonsLeft > 0 && _summonTimer < 0)
+                {
                     _defenseSummonsLeft -= 1;
-                    if (NeedsZombie()) {
+                    if (NeedsZombie())
+                    {
                         var zombie = SummonZombie(true);
                         zombie.currentState = ZombieAI.ZombieState.GoToLastKnownLocation;
-                    } else {
+                    }
+                    else
+                    {
                         currentState = CultistState.FindNextPointOfInterest;
                         myMovement.myAnimator.myMovementAnimator.SetBool("Summoning", false);
                     }
+
                     _summonTimer = summonTime;
                 }
-                if (_defenseSummonsLeft == 0) {
+
+                if (_defenseSummonsLeft == 0)
+                {
                     currentState = CultistState.FindNextPointOfInterest;
                     myMovement.myAnimator.myMovementAnimator.SetBool("Summoning", false);
                 }
+
                 break;
         }
     }
@@ -194,7 +202,7 @@ public class CultistAI : MonoBehaviour
                 break;
         }
     }
-    
+
     private ZombieAI SummonZombie(bool self)
     {
         //print("New zombie summoned.");
@@ -267,7 +275,7 @@ public class CultistAI : MonoBehaviour
         {
             return;
         }
-        
+
         UpdateCanSeePlayer();
     }
 
@@ -314,7 +322,7 @@ public class CultistAI : MonoBehaviour
 
         // Announce to the world that I have died
         FindObjectOfType<GameStateBehaviourScript>().AddCultistsDeath();
-        
+
         ZombieEncounter[] encounters = FindObjectsOfType<ZombieEncounter>();
         foreach (ZombieEncounter encounter in encounters)
         {
@@ -327,36 +335,33 @@ public class CultistAI : MonoBehaviour
         {
             holder.congregationSize = holder.congregationSize + 1;
         }
-        
+
         // Announce to other cultists to protect themselves better
         CultistAI[] cultists = FindObjectsOfType<CultistAI>();
-        foreach (var cultistAI in cultists) {
+        foreach (var cultistAI in cultists)
+        {
             cultistAI.congregationSize += 1;
         }
-        
-        UpdateQuestLog();
     }
 
-    public void UpdateQuestLog()
+    private void FleeFromPlayer()
     {
-        int c = gameStateBehaviourScript.NumberOfDeadCultists;
-        text.text = "Cultists interrogated: " + c + " / 5";
-    }
-    
-    private void FleeFromPlayer() {
         currentState = CultistState.FleeFromPlayer;
 
 
         float maxDist = 0;
         GameObject gotopoi = null;
         // Find point of interest furthest away from player
-        foreach (var poi in myPointsOfInterest) {
+        foreach (var poi in myPointsOfInterest)
+        {
             var dist = (poi.transform.position - player.transform.position).magnitude;
-            if (dist > maxDist) {
+            if (dist > maxDist)
+            {
                 gotopoi = poi;
                 maxDist = dist;
             }
         }
+
         myMovement.movementSpeed *= 2;
         myMovement.SetMovementStateMoveTo(gotopoi);
     }
