@@ -78,7 +78,12 @@ public class QuestIndicatorBehaviourScript : MonoBehaviour
             renderer.enabled = false;
             return;
         }
-        if (scanTimer < 0)
+        if (chosen != null && chosen.currentState == CultistAI.CultistState.Dead)
+        {
+            chosen = null;
+        }
+        
+        if (scanTimer < 0 && chosen == null)
         {
             var result = FindObjectsOfType<CultistAI>();
             list = new List<CultistAI>(result);
@@ -87,7 +92,7 @@ public class QuestIndicatorBehaviourScript : MonoBehaviour
             foreach (var cultistAI in list)
             {
                 float dist = Vector2.Distance(cultistAI.gameObject.transform.position, player.transform.position);
-                if (dist < lastdist)
+                if (dist < lastdist && cultistAI.currentState != CultistAI.CultistState.Dead)
                 {
                     chosen = cultistAI;
                 }
