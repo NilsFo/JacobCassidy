@@ -100,8 +100,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.016681194, y: 0.299829}
-  m_Size: {x: 0.599658, y: 0.599658}
+  m_Offset: {x: 0.00447464, y: 0.23635745}
+  m_Size: {x: 0.4445114, y: 0.4727149}
   m_Direction: 0
 --- !u!114 &3854553790457625850
 MonoBehaviour:
@@ -389,8 +389,6 @@ MonoBehaviour:
   - {fileID: 6247094683571033523}
   - {fileID: 1065109383173225670}
   - {fileID: 9216999568309604593}
-  deathQuote: 
-  deathQuoteSprite: {fileID: 2727638938547581279, guid: cb8a3953bd2e51748bafdbba3d267718, type: 3}
 --- !u!114 &8802906259143886239
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -276,15 +276,12 @@ public class CultistAI : MonoBehaviour
 
         if (POIsInNeed.Count > 0)
         {
-            if (POIsInNeed.Capacity < 0)
-            {
-                int j = Random.Range(0, POIsInNeed.Capacity - 1);
-                currentPointOfInterestIndex = POIsInNeed[j];
-            }
+            int j = Random.Range(0, POIsInNeed.Count);
+            currentPointOfInterestIndex = POIsInNeed[j];
         }
         else
         {
-            currentPointOfInterestIndex = Random.Range(0, myPointsOfInterest.Capacity);
+            currentPointOfInterestIndex = Random.Range(0, myPointsOfInterest.Count);
         }
 
         currentState = CultistState.GoToPointOfInterest;
