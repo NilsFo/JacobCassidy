@@ -9,23 +9,26 @@ public class QuestIndicatorBehaviourScript : MonoBehaviour
     public GameObject player;
     
     private List<CultistAI> list;
+    private CultistAI chosen = null;
     
     [SerializeField] private float scanDelay = 2f;
     [SerializeField] private float scanTimer = 0f;
+
+    private bool isAktie = true;
     
     // Start is called before the first frame update
     void Start()
     {
-        var result = FindObjectsOfType<CultistAI>();
-        list = new List<CultistAI>(result);
+        scanTimer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (scanTimer < 0)
+        FindClosed();
+        if (scanTimer <= 0)
         {
-            FindClosed();
+            scanTimer = scanDelay;
         }
         else
         {
@@ -35,25 +38,34 @@ public class QuestIndicatorBehaviourScript : MonoBehaviour
 
     private void FindClosed()
     {
-        var result = FindObjectsOfType<CultistAI>();
-        list = new List<CultistAI>(result);
-
-        CultistAI chosen = null;
-        float lastdist = 0;
-        
-        foreach (var cultistAI in list)
+        if (!isAktie)
         {
-            float dist = Vector2.Distance(cultistAI.gameObject.transform.position, player.transform.position);
-            if (dist < lastdist)
+            renderer.enabled = false;
+            return;
+        }
+        if (scanTimer < 0)
+        {
+            var result = FindObjectsOfType<CultistAI>();
+            list = new List<CultistAI>(result);
+
+            float lastdist = 999999999;
+            foreach (var cultistAI in list)
             {
-                chosen = cultistAI;
+                float dist = Vector2.Distance(cultistAI.gameObject.transform.position, player.transform.position);
+                if (dist < lastdist)
+                {
+                    chosen = cultistAI;
+                    Debug.Log("Chosen !!!");
+                }
             }
         }
+        
 
         if (chosen != null)
         {
+            Debug.Log("Rotation!");
             var direction = chosen.gameObject.transform.position - player.transform.position;
-            var rotaion = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f);
+            var rotaion = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f);
 
             transform.rotation = rotaion;
             renderer.enabled = true;
@@ -62,7 +74,5 @@ public class QuestIndicatorBehaviourScript : MonoBehaviour
         {
             renderer.enabled = false;
         }
-
-        scanTimer = scanDelay;
     }
 }

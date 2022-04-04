@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 3442944272272621291}
   - component: {fileID: 423680944834614492}
   - component: {fileID: -313822477929665161}
+  - component: {fileID: 8110708666616273637}
   m_Layer: 0
   m_Name: SanityPotion
   m_TagString: Untagged
@@ -229,6 +230,20 @@ MonoBehaviour:
   zRange: 10
   yOffset: 0
   zFixingEnabled: 1
+--- !u!114 &8110708666616273637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4692018908141964389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403743e36334b6b47965d3730bcc3d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStateBehaviourScript: {fileID: 0}
+  amountToHeal: 5
 --- !u!1 &5361695197943350756
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5055153991650017952}
-  - component: {fileID: 827623072052451583}
   m_Layer: 9
   m_Name: FireballExplosion
   m_TagString: Untagged
@@ -34,24 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &827623072052451583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326620631728038352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bc7355c41969014aa215ceefadb36d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionDamage: 3
-  explosionDelay: 0.35
-  explosionTimer: 0
-  delayedRemover: {fileID: 1386177502197590695}
-  particleSystem: {fileID: 883840190946977589}
-  particleBurstCount: 95
 --- !u!1 &2053663737953400396
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,17 +142,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2053663737953400396}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7bc7355c41969014aa215ceefadb36d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosionDamage: 3
-  explosionDelay: 1
+  stayDelay: 1
+  explosionDelay: 0.1
   explosionTimer: 0
-  delayedRemover: {fileID: 1386177502197590695}
+  delayedRemover: {fileID: 0}
   particleSystem: {fileID: 883840190946977589}
   particleBurstCount: 95
+  parent: {fileID: 326620631728038352}
 --- !u!1 &7364567512577808828
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +166,6 @@ GameObject:
   - component: {fileID: 401097644743495836}
   - component: {fileID: 883840190946977589}
   - component: {fileID: 713903984485433397}
-  - component: {fileID: 1386177502197590695}
   m_Layer: 9
   m_Name: ParticleEmitter
   m_TagString: Untagged
@@ -1035,7 +1017,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
   EmissionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
     rateOverTime:
       serializedVersion: 2
@@ -5043,16 +5025,3 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &1386177502197590695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7364567512577808828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c15256371af6ae54b8d0404054c20355, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  removerTimer: 1

@@ -7,7 +7,8 @@ public class FireballExplosionBehaviourScript : MonoBehaviour
 {
 
     [SerializeField] private float explosionDamage = 1f;
-    
+
+    [SerializeField] private float stayDelay = 1f;
     [SerializeField] private float explosionDelay = 1f;
     [SerializeField] private float explosionTimer = 0f;
 
@@ -16,14 +17,15 @@ public class FireballExplosionBehaviourScript : MonoBehaviour
     public int particleBurstCount = 95;
 
     private List<EnemyBehaviourScript> _list;
+
+    public GameObject parent;
     
     // Start is called before the first frame update
     void Start()
     {
         explosionTimer = explosionDelay;
         particleSystem.Emit(particleBurstCount);
-        delayedRemover.Remove(10);
-        _list = new List<EnemyBehaviourScript>();
+        _list ??= new List<EnemyBehaviourScript>();
     }
 
     private void Update()
@@ -35,7 +37,7 @@ public class FireballExplosionBehaviourScript : MonoBehaviour
                 var enemy = _list[i];
                 enemy.ChangeCurrentHealth(-explosionDamage);
             }
-            Destroy(this.gameObject);
+            Destroy(parent, stayDelay);
         }
         else
         {
@@ -49,6 +51,7 @@ public class FireballExplosionBehaviourScript : MonoBehaviour
         EnemyBehaviourScript enemyBehaviourScript = other.gameObject.GetComponentInParent<EnemyBehaviourScript>();
         if (enemyBehaviourScript)
         {
+            _list ??= new List<EnemyBehaviourScript>();
             _list.Add(enemyBehaviourScript);
         }
     }
@@ -58,6 +61,7 @@ public class FireballExplosionBehaviourScript : MonoBehaviour
         EnemyBehaviourScript enemyBehaviourScript = other.gameObject.GetComponentInParent<EnemyBehaviourScript>();
         if (enemyBehaviourScript)
         {
+            _list ??= new List<EnemyBehaviourScript>();
             _list.Remove(enemyBehaviourScript);
         }
     }
