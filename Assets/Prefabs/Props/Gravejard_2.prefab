@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 561241543232893501}
   - component: {fileID: 561241543232893500}
-  - component: {fileID: 561241543232893503}
+  - component: {fileID: 161890888018891258}
   m_Layer: 0
   m_Name: Gravejard_2
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &561241543232893503
+--- !u!60 &161890888018891258
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,7 +101,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.8125, y: 1}
     newSize: {x: 0.8125, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -110,7 +110,7 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.34375, y: -0.375}
-      - {x: -0.34375, y: -0.25}
-      - {x: 0.34375, y: -0.25}
-      - {x: 0.34375, y: -0.375}
+    - - {x: -0.34375, y: 0.125}
+      - {x: -0.34375, y: 0.25}
+      - {x: 0.34375, y: 0.25}
+      - {x: 0.34375, y: 0.125}
