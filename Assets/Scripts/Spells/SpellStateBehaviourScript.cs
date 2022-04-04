@@ -160,11 +160,13 @@ public class SpellStateBehaviourScript : MonoBehaviour
         }
         return false;
     }
-    
+    private int spellLevel = 0;
     public bool AddSpell(int index)
     {
         knownSpellList ??= new List<ISpellBehaviourScript>();
-        if (spellList != null && spellList.Count >= index && index > -1)
+        index = spellLevel;
+        spellLevel += 1;
+        if (spellList != null && spellList.Count >= spellLevel && index > -1)
         {
             knownSpellList.Add(spellList[index]);
             onSpellStateChange.Invoke();

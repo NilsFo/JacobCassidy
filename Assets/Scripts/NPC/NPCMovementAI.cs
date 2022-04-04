@@ -59,6 +59,9 @@ public class NPCMovementAI : MonoBehaviour
     private Queue<Vector2> velocityHistory;
     private Vector2 _lastFramePosition;
 
+    public bool slow;
+    private float slowTimer;
+
     private void Awake()
     {
         stunnedTimer = 0;
@@ -233,6 +236,13 @@ public class NPCMovementAI : MonoBehaviour
         float velocityModifier = CurrentMovementState.GetVelocityModifier();
 
         float velocity = movementSpeed * velocityModifier;
+        if (slow) {
+            velocity *= 0.5f;
+            slowTimer -= Time.fixedDeltaTime;
+            if (slowTimer < 0) {
+                slow = false;
+            }
+        }
         Vector2 force = direction * velocity * Time.fixedDeltaTime;
 
         // Adding force to move the entity
@@ -243,8 +253,13 @@ public class NPCMovementAI : MonoBehaviour
         {
             currentWaypointIndexToTarget++;
         }
+
     }
 
+    public void Slow(float duration) {
+        slowTimer = Mathf.Max(duration, slowTimer);
+    }
+    
     public float GetDistanceToNextWaypoint()
     {
         if (paused)
