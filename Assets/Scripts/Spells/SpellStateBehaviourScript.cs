@@ -40,12 +40,28 @@ public class SpellStateBehaviourScript : MonoBehaviour
         input.Toolbar.Slot3.performed += Slot3ThreeOnPerformed;
         input.Toolbar.Slot4.performed += SlotFourOnPerformed;
         input.Toolbar.Slot5.performed += SlotFiveOnpPerformed;
+        
+        //input.Toolbar.Scroll.performed += ScrollOnPerformed;
+    }
+
+    private void ScrollOnPerformed(InputAction.CallbackContext context)
+    {
+        var result = context.ReadValue<Vector2>();
+        Debug.Log(result);
     }
 
     private void OnDisable()
     {
         input.Toolbar.Right.performed -= RightOnPerformed;
         input.Toolbar.Left.performed -= LeftOnPerformed;
+        
+        input.Toolbar.Slot1.performed -= SlotOneOnPerformed;
+        input.Toolbar.Slot2.performed -= SlotTwoOnPerformed;
+        input.Toolbar.Slot3.performed -= Slot3ThreeOnPerformed;
+        input.Toolbar.Slot4.performed -= SlotFourOnPerformed;
+        input.Toolbar.Slot5.performed -= SlotFiveOnpPerformed;
+        
+        //input.Toolbar.Scroll.performed -= ScrollOnPerformed;
     }
 
     public void ResetSpellState()
@@ -67,6 +83,7 @@ public class SpellStateBehaviourScript : MonoBehaviour
 
     private void Update()
     {
+        Vector2 vec = Mouse.current.scroll.ReadValue();
         if (swapTime <= Time.deltaTime)
         {
             swapTime = 0;
@@ -74,6 +91,18 @@ public class SpellStateBehaviourScript : MonoBehaviour
         else
         {
             swapTime -= Time.deltaTime;
+        }
+
+        if (swapTime == 0 && vec.magnitude != 0)
+        {
+            if (vec.y == 120)
+            {
+                NextSpell();
+            }
+            else
+            {
+                PreviousSpell();
+            }
         }
     }
 
