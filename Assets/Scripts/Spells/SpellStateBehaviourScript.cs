@@ -26,7 +26,10 @@ public class SpellStateBehaviourScript : MonoBehaviour
     private float swapTime;
     
     public Sprite cassDialogueSprite;
-    public string[] spellCollectQuote; 
+    public string[] spellCollectQuote;
+
+    public AudioSource audioPlayer;
+    public List<AudioClip> spellAudio;
     
     // Start is called before the first frame update
     void Start()
@@ -190,7 +193,13 @@ public class SpellStateBehaviourScript : MonoBehaviour
         var spell = knownSpellList[currentIndex];
         if (spell)
         {
-            return spell.CastSpell(startObj, direction);
+            var success = spell.CastSpell(startObj, direction);
+            if (success) {
+                audioPlayer.clip = spellAudio [currentIndex];
+                if(audioPlayer.clip != null)
+                    audioPlayer.Play();
+            }
+            return success;
         }
         return false;
     }

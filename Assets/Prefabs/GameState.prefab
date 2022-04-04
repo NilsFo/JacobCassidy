@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1182842812073921434}
   - component: {fileID: 318111148256976481}
   - component: {fileID: 1588181202046067130}
+  - component: {fileID: 1269443434}
   m_Layer: 0
   m_Name: GameState
   m_TagString: Untagged
@@ -194,7 +195,7 @@ MonoBehaviour:
   - {fileID: 1182842812073921434}
   placeHold: {fileID: 1352714986146920249}
   currentIndex: 0
-  learnAll: 0
+  learnAll: 1
   swapDelay: 0.2
   cassDialogueSprite: {fileID: 2727638938547581279, guid: cb8a3953bd2e51748bafdbba3d267718, type: 3}
   spellCollectQuote:
@@ -203,6 +204,13 @@ MonoBehaviour:
   - 'This eldritch knowledge goes down like a fine whiskey. [Fireball spell learned] '
   - 'Line them up, knock them down! [Stonewall spell learned] '
   - 'Tremble before me, you hoodlums! [Lightning spell learned] '
+  audioPlayer: {fileID: 1269443434}
+  spellAudio:
+  - {fileID: 8300000, guid: ea0c15715c45d5e46a6c2866d474baf8, type: 3}
+  - {fileID: 8300000, guid: a757538f4a8fefd41b6373f1586bcf08, type: 3}
+  - {fileID: 8300000, guid: 29d9bc3144eb390449883a2e64c2fade, type: 3}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 93681777e66f2644ebfe68f800449812, type: 3}
 --- !u!114 &1352714986146920249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,3 +331,99 @@ MonoBehaviour:
   spellCost: 2
   spellPref: {fileID: 6505627646986575845, guid: 1cc7c08516b799c4fa8c3a291ff84faf, type: 3}
   speed: 500
+--- !u!82 &1269443434
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802783470283271108}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a757538f4a8fefd41b6373f1586bcf08, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

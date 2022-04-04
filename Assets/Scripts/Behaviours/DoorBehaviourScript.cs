@@ -20,6 +20,8 @@ public class DoorBehaviourScript : MonoBehaviour
     
     private AstarPath path;
     private Bounds bounds;
+
+    public AudioSource hitSound;
     
     void Start()
     {
@@ -53,6 +55,10 @@ public class DoorBehaviourScript : MonoBehaviour
             onDeath.Invoke();
         }
         onDamageTaken.Invoke();
+        
+        hitSound.pitch = Random.Range(0.8f, 1.2f);
+        hitSound.Play();
+        
         return true;
     }
     
