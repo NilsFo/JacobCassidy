@@ -11,12 +11,18 @@ public class FireballExplosionBehaviourScript : MonoBehaviour
     [SerializeField] private float explosionDelay = 1f;
     [SerializeField] private float explosionTimer = 0f;
 
+    public ParticleDelayedRemover delayedRemover;
+    public ParticleSystem particleSystem;
+    public int particleBurstCount = 95;
+
     private List<EnemyBehaviourScript> _list;
     
     // Start is called before the first frame update
     void Start()
     {
         explosionTimer = explosionDelay;
+        particleSystem.Emit(particleBurstCount);
+        delayedRemover.Remove(10);
         _list = new List<EnemyBehaviourScript>();
     }
 
@@ -29,7 +35,7 @@ public class FireballExplosionBehaviourScript : MonoBehaviour
                 var enemy = _list[i];
                 enemy.ChangeCurrentHealth(-explosionDamage);
             }
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
         else
         {

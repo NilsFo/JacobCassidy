@@ -166,7 +166,6 @@ public class CultistAI : MonoBehaviour
             return;
         }
 
-        print("The cultist state has changed from " + _lastState + " to " + currentState);
         _lastState = currentState;
         switch (currentState)
         {
@@ -242,6 +241,7 @@ public class CultistAI : MonoBehaviour
         {
             int j = Random.Range(0, POIsInNeed.Capacity);
             currentPointOfInterestIndex = POIsInNeed[j];
+            // TODO fix this?
         }
         else
         {
