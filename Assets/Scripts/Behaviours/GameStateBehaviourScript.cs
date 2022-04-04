@@ -74,7 +74,11 @@ public class GameStateBehaviourScript : MonoBehaviour
         int c = NumberOfDeadCultists;
         if (c > 0)
         {
-            questLogText.text = "Cultists interrogated: " + c + " / " + NumberOfCultists;
+            questLogText.text = "Task: Interrogate Cultists: " + c + " / " + NumberOfCultists;
+        }
+        else
+        {
+            questLogText.text = "Task: Investigate the town.";
         }
     }
 

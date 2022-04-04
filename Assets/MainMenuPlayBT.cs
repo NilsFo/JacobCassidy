@@ -27,7 +27,7 @@ public class MainMenuPlayBT : MonoBehaviour
     private float crimsonValue;
     public float crimsonValueChangeRate;
     public float crimsonValueTarget;
-    
+
     void Start()
     {
         crimsonValue = 0;
@@ -57,15 +57,15 @@ public class MainMenuPlayBT : MonoBehaviour
 
         if (rotating)
         {
-            drumImg.transform.Rotate(0, rotationSpeed*Time.deltaTime, 0, Space.Self);
-            crimsonValue = crimsonValue + Time.deltaTime*crimsonValueChangeRate;
+            drumImg.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime, Space.Self);
+            crimsonValue = crimsonValue + Time.deltaTime * crimsonValueChangeRate;
         }
         else
         {
             drumImg.transform.rotation = Quaternion.Euler(Vector3.zero);
-            crimsonValue = crimsonValue - Time.deltaTime*crimsonValueChangeRate;
+            crimsonValue = crimsonValue - Time.deltaTime * crimsonValueChangeRate;
         }
-        
+
         crimsonValue = MathF.Min(crimsonValue, crimsonValueTarget);
         crimsonValue = MathF.Max(crimsonValue, 0f);
         c = uiOverlay.color;

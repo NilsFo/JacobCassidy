@@ -85,7 +85,6 @@ public class NPCMovementAI : MonoBehaviour
         player = FindObjectOfType<PlayerMovementBehaviour>();
         pathsCalculatedCount = 0;
 
-
         // Handling initial movement state
         switch (initialMovementState)
         {

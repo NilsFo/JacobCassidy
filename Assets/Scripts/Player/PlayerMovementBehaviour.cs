@@ -51,7 +51,12 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
     private void OnCultistDeath()
     {
-        int cultistsDead = gameStateBehaviourScript.NumberOfCultists;
+        UpdateWeather();
+    }
+
+    public void UpdateWeather()
+    {
+        int cultistsDead = gameStateBehaviourScript.NumberOfDeadCultists;
 
         var emission = rainParticleSystem.emission;
         int min = rainParticlesPerCultist[cultistsDead].x;
@@ -64,6 +69,8 @@ public class PlayerMovementBehaviour : MonoBehaviour
         input = gameState.mainInputActions;
         _playerInput = FindObjectOfType<PlayerInput>();
         _playerInput.actions = input.asset;
+
+        UpdateWeather();
     }
 
     private void Update()
@@ -117,7 +124,9 @@ public class PlayerMovementBehaviour : MonoBehaviour
             lookInput = input.Player.Look.ReadValue<Vector2>();
             if (lookInput.magnitude > 0.1f)
                 lookInput = lookInput.normalized * 5f;
-        } else if (_playerInput.currentControlScheme.Equals("Keyboard&Mouse")) {
+        }
+        else if (_playerInput.currentControlScheme.Equals("Keyboard&Mouse"))
+        {
             var mousePos = Mouse.current.position.ReadValue();
             var worldPos = Camera.main.ScreenToWorldPoint(mousePos);
             lookInput = worldPos - transform.position;
