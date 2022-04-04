@@ -46,7 +46,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (input.Player.Dash.triggered && _playerStateBehaviourScript.ChangeCurrentStamina(-1))
+        /*if (input.Player.Dash.triggered && _playerStateBehaviourScript.ChangeCurrentStamina(-1))
         {
             _dashTime = dashDuration;
         }
@@ -58,7 +58,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
         else
         {
             _dashTime = 0;
-        }
+        }*/
 
         var modSpeed = speed;
         if (_dashTime > 0)
@@ -90,15 +90,17 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
         if (_playerInput.currentControlScheme.Equals("Gamepad")) {
             lookInput = input.Player.Look.ReadValue<Vector2>();
+            if (lookInput.magnitude > 0.1f)
+                lookInput = lookInput.normalized * 5f;
         } else if (_playerInput.currentControlScheme.Equals("Keyboard&Mouse")) {
             var mousePos = Mouse.current.position.ReadValue();
             var worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-            lookInput = worldPos -transform.position;
+            lookInput = worldPos - transform.position;
         }
         
         if (lookInput.magnitude > 0.1f) {
             _lookDirection = lookInput.normalized;
-            aimDummy.localPosition = _lookDirection;
+            aimDummy.localPosition = lookInput;
             movementAnimator.SetFacing(_lookDirection);
         }
     }

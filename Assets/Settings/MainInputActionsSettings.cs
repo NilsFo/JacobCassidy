@@ -55,15 +55,6 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Dash"",
-                    ""type"": ""Button"",
-                    ""id"": ""37263396-14ac-4ad1-b239-c65dd297ae49"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Look"",
                     ""type"": ""Value"",
                     ""id"": ""94ab5b97-33e6-4f26-abf6-cb2a0583680b"",
@@ -279,28 +270,6 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 },
                 {
                     ""name"": """",
-                    ""id"": ""279efa0e-38e6-43fe-97ee-81ea17a0e606"",
-                    ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""942d3c2e-d88a-4cf6-ab1f-93403b77e442"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""9e6cd574-ae70-4e7d-89dc-66b2e5e0358c"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
@@ -361,6 +330,17 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Quest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ca82a3a-a895-44e4-9bd7-fd8cf5a78ba6"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Quest"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1297,7 +1277,6 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_ContextAction = m_Player.FindAction("ContextAction", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
-        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Spell = m_Player.FindAction("Spell", throwIfNotFound: true);
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
@@ -1391,7 +1370,6 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_ContextAction;
     private readonly InputAction m_Player_Fire;
-    private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Spell;
     private readonly InputAction m_Player_Reload;
@@ -1403,7 +1381,6 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @ContextAction => m_Wrapper.m_Player_ContextAction;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
-        public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Spell => m_Wrapper.m_Player_Spell;
         public InputAction @Reload => m_Wrapper.m_Player_Reload;
@@ -1426,9 +1403,6 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
@@ -1454,9 +1428,6 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
-                @Dash.started += instance.OnDash;
-                @Dash.performed += instance.OnDash;
-                @Dash.canceled += instance.OnDash;
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
@@ -1757,7 +1728,6 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
         void OnMove(InputAction.CallbackContext context);
         void OnContextAction(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
-        void OnDash(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnSpell(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
