@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public enum EnemyState {
     Spawned,
@@ -22,15 +23,18 @@ public class EnemyBehaviourScript : MonoBehaviour
     [SerializeField] private EnemyState enemyState;
     
     [SerializeField] private float damageOnContact = 1;
+    
+    public AudioSource hitSound;
 
     public UnityEvent onDeath;
     public UnityEvent onDamageTaken;
     public delegate void OnDeathDelegate(GameObject self);
     public delegate void OnDamageDelegate(GameObject self, float damage);
-    
+
     public event OnDeathDelegate OnDeath;
     public event OnDamageDelegate OnDamageTaken;
-    
+
+
 
     public EnemyState EnemyState => enemyState;
 
@@ -97,7 +101,7 @@ public class EnemyBehaviourScript : MonoBehaviour
         if (value < 0) {
             onDamageTaken?.Invoke();
             OnDamageTaken?.Invoke(gameObject, value);
-            TakeDamage();
+            TakeDamageVisuals();
         }
         if (currentHealth <= 0)
         {
@@ -121,8 +125,12 @@ public class EnemyBehaviourScript : MonoBehaviour
         }
     }
     
-    public void TakeDamage() {
+    public void TakeDamageVisuals() {
         var sprite = GetComponentInChildren<SpriteRenderer>();
+        if (hitSound != null) {
+            hitSound.pitch = Random.Range(0.8f, 1.2f);
+            hitSound.Play();
+        }
         if (sprite != null) {
             sprite.color = new Color(.5f, .25f, .25f);
             Invoke(nameof(TakeDamageEnd), 0.2f);
