@@ -44,7 +44,7 @@ public class IceAreaOfEffectBehaviourScript : MonoBehaviour
 
     private void LateUpdate()
     {
-        Ice();
+        if(!fired) Ice();
     }
 
     private void Ice()
@@ -74,7 +74,8 @@ public class IceAreaOfEffectBehaviourScript : MonoBehaviour
         // Spawning particles
         int count = Random.Range(65, 75);
         particles.Emit(count);
-        Destroy(gameObject.transform.parent.gameObject);
+        Destroy(gameObject.transform.parent.gameObject, 2f);
+        fired = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
