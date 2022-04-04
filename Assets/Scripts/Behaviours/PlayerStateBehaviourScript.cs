@@ -42,10 +42,12 @@ public class PlayerStateBehaviourScript : MonoBehaviour
     private bool reloading = false;
     
     private MainInputActionsSettings input;
+    private GameStateBehaviourScript gameStateBehaviourScript;
     
     // Start is called before the first frame update
     void Start()
     {
+        gameStateBehaviourScript = FindObjectOfType<GameStateBehaviourScript>();
         onCurrentHealthChange ??= new UnityEvent();
         onCurrentSanityChange ??= new UnityEvent();
         onCurrentAmmoChange ??= new UnityEvent();
@@ -98,6 +100,11 @@ public class PlayerStateBehaviourScript : MonoBehaviour
 
     public bool ChangeCurrentHealth(float value)
     {
+        if (gameStateBehaviourScript.isGameOver)
+        {
+            return false;
+        }
+        
         var temp = currentHealth + value;
         if (value == 0) return true;
         if (temp > maxHealth)

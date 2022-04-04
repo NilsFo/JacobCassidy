@@ -7,8 +7,8 @@ public class GameStateBehaviourScript : MonoBehaviour
 {
     //Events 
     public Sprite cassDialogueSprite;
-    public string[] cultistDeathQuotes; 
-    
+    public string[] cultistDeathQuotes;
+
     public UnityEvent onResetGameState;
     public UnityEvent onCultistsDeath;
 
@@ -23,6 +23,7 @@ public class GameStateBehaviourScript : MonoBehaviour
     public MainInputActionsSettings mainInputActions;
     public TMP_Text questLogText;
     public bool isGameOver = false;
+    public GameOver gameOver;
 
     //Refs
     [SerializeField] private PlayerStateBehaviourScript playerStateBehaviourScript;
@@ -93,20 +94,21 @@ public class GameStateBehaviourScript : MonoBehaviour
         onResetGameState.Invoke();
     }
 
-    public void RestartLevel()
-    {
-        onGameEnd.Invoke();
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     public void WinGame()
     {
         onWinGame.Invoke();
         onGameEnd.Invoke();
         Pause();
         isGameOver = true;
-        ShowWinScreen();
+
+        ZombieAI[] zombies = FindObjectsOfType<ZombieAI>();
+        foreach (ZombieAI zombieAI in zombies)
+        {
+            zombieAI.myMovement.paused = true;
+            zombieAI.Death();
+        }
+
+        gameOver.ShowWinScreen();
     }
 
     public void LoseGame()
@@ -115,7 +117,7 @@ public class GameStateBehaviourScript : MonoBehaviour
         onGameEnd.Invoke();
         Pause();
         isGameOver = true;
-        ShowLooseScreen();
+        gameOver.ShowLooseScreen();
     }
 
     public void Play()
@@ -140,7 +142,8 @@ public class GameStateBehaviourScript : MonoBehaviour
 
     public void AddCultistsDeath()
     {
-        FindObjectOfType<ConversationUIBehaviourScript>().AddMsg(cassDialogueSprite, cultistDeathQuotes[numberOfDeadCultists]);
+        FindObjectOfType<ConversationUIBehaviourScript>()
+            .AddMsg(cassDialogueSprite, cultistDeathQuotes[numberOfDeadCultists]);
         numberOfDeadCultists++;
         onCultistsDeath.Invoke();
 
@@ -148,21 +151,10 @@ public class GameStateBehaviourScript : MonoBehaviour
         {
             WinGame();
         }
-
     }
 
     public bool IsGameOver()
     {
         return isGameOver;
-    }
-
-    public void ShowWinScreen()
-    {
-        Debug.LogWarning("A WINNER IS YOU");
-    }
-
-    public void ShowLooseScreen()
-    {
-        Debug.LogWarning("LOST THE GAME");
     }
 }
