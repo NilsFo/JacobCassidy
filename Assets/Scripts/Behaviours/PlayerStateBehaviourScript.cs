@@ -100,7 +100,10 @@ public class PlayerStateBehaviourScript : MonoBehaviour
     {
         var temp = currentHealth + value;
         if (value == 0) return true;
-        if (!(0 <= temp && temp <= maxHealth)) return false;
+        if (temp > maxHealth)
+        {
+            temp = maxHealth;
+        }
         currentHealth = temp;
         if (currentHealth <= 0)
         {
@@ -116,7 +119,10 @@ public class PlayerStateBehaviourScript : MonoBehaviour
     {
         var temp = currentSanity + value;
         if (value == 0) return true;
-        if (!(0 <= temp && temp <= maxSanity)) return false;
+        if (temp > maxSanity)
+        {
+            temp = maxSanity;
+        }
         currentSanity = temp;
         if (currentSanity == 0)
         {
