@@ -1059,6 +1059,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95b02384955de5949a3a86bcceb3135e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderer: {fileID: 4106426210380971056}
+  player: {fileID: 424963430642395798}
+  scanDelay: 2
+  scanTimer: 0
 --- !u!1 &8435631809864276719
 GameObject:
   m_ObjectHideFlags: 0

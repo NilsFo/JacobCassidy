@@ -5,6 +5,7 @@ using UnityEngine;
 public class QuestIndicatorBehaviourScript : MonoBehaviour
 {
 
+    public SpriteRenderer renderer;
     public GameObject player;
     
     private List<CultistAI> list;
@@ -55,6 +56,11 @@ public class QuestIndicatorBehaviourScript : MonoBehaviour
             var rotaion = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f);
 
             transform.rotation = rotaion;
+            renderer.enabled = true;
+        }
+        else
+        {
+            renderer.enabled = false;
         }
 
         scanTimer = scanDelay;
