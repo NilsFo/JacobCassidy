@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1079571310503560874}
   - component: {fileID: 1079571310503560853}
   - component: {fileID: 1079571310503560852}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sawmill_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
