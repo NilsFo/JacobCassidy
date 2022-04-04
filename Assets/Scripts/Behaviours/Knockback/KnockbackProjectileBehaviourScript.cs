@@ -8,6 +8,7 @@ public class KnockbackProjectileBehaviourScript : MonoBehaviour
 
     private bool knockback;
     private float lifetime = 1.5f;
+    public ParticleSystem particles;
 
     void Start() {
         knockback = true;
@@ -23,6 +24,10 @@ public class KnockbackProjectileBehaviourScript : MonoBehaviour
             contactFilter2D.useLayerMask = true;
             var c = GetComponent<Collider2D>();
             c.OverlapCollider(contactFilter2D, colliders);
+            
+            // Displaying particles
+            int count = Random.Range(25, 30);
+            particles.Emit(count: count);
 
             Debug.Log("Knocking back " + colliders.Count + " enemies");
             
