@@ -90,6 +90,7 @@ public class GameStateBehaviourScript : MonoBehaviour
     {
         onLoseGame.Invoke();
         onGameEnd.Invoke();
+        RestartLevel();
     }
 
     public void Play()
