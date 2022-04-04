@@ -15,6 +15,8 @@ public class IceAreaOfEffectBehaviourScript : MonoBehaviour
     public float slowDuration = 5.69f;
     public ParticleSystem particles;
     private List<EnemyBehaviourScript> _list;
+
+    public bool fired = false;
     
     void Start()
     {
@@ -22,18 +24,23 @@ public class IceAreaOfEffectBehaviourScript : MonoBehaviour
         listOfCutOut ??= new List<CutOutBehaviourScript>();
 
         iceTimer = iceDelay;
+        fired = false;
     }
 
     private void Update()
     {
-        if (iceTimer < Time.deltaTime)
+        if (!fired)
         {
-            Ice();
+            if (iceTimer < Time.deltaTime)
+            {
+                Ice();
+            }
+            else
+            {
+                iceTimer -= Time.deltaTime;
+            }
         }
-        else
-        {
-            iceTimer -= Time.deltaTime;
-        }
+        
     }
 
     private void Ice()
@@ -58,11 +65,11 @@ public class IceAreaOfEffectBehaviourScript : MonoBehaviour
             NPCMovementAI npcMovementAI = enemy.GetComponent<NPCMovementAI>();
             if (npcMovementAI != null)
             {
+                Debug.Log(tempList[i].name + "Slow !!!");
                 npcMovementAI.Slow(slowDuration);
             }
         }
         
-        print("particles");
         int count = Random.Range(65, 75);
         particles.Emit(count);
         Destroy(gameObject.transform.parent.gameObject);
@@ -71,7 +78,7 @@ public class IceAreaOfEffectBehaviourScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         EnemyBehaviourScript enemyBehaviourScript = other.gameObject.GetComponentInParent<EnemyBehaviourScript>();
-        if (enemyBehaviourScript)
+        if (enemyBehaviourScript && !_list.Contains(enemyBehaviourScript))
         {
             _list.Add(enemyBehaviourScript);
         }
