@@ -19,6 +19,7 @@ public class GameStateBehaviourScript : MonoBehaviour
 
     public MainInputActionsSettings mainInputActions;
     public TMP_Text questLogText;
+    public bool isGameOver = false;
 
     //Refs
     [SerializeField] private PlayerStateBehaviourScript playerStateBehaviourScript;
@@ -29,6 +30,7 @@ public class GameStateBehaviourScript : MonoBehaviour
     [SerializeField] private int numberOfDeadCultists = 0;
 
     public int NumberOfDeadCultists => numberOfDeadCultists;
+    public int NumberOfCultists => numberOfCultists;
 
     // Start is called before the first frame update
     void Start()
@@ -72,7 +74,7 @@ public class GameStateBehaviourScript : MonoBehaviour
         int c = NumberOfDeadCultists;
         if (c > 0)
         {
-            questLogText.text = "Cultists interrogated: " + c + " / 5";
+            questLogText.text = "Cultists interrogated: " + c + " / " + NumberOfCultists;
         }
     }
 
@@ -94,13 +96,18 @@ public class GameStateBehaviourScript : MonoBehaviour
     {
         onWinGame.Invoke();
         onGameEnd.Invoke();
+        Pause();
+        isGameOver = true;
+        ShowWinScreen();
     }
 
     public void LoseGame()
     {
         onLoseGame.Invoke();
         onGameEnd.Invoke();
-        RestartLevel();
+        Pause();
+        isGameOver = true;
+        ShowLooseScreen();
     }
 
     public void Play()
@@ -132,5 +139,20 @@ public class GameStateBehaviourScript : MonoBehaviour
         {
             WinGame();
         }
+    }
+
+    public bool IsGameOver()
+    {
+        return isGameOver;
+    }
+
+    public void ShowWinScreen()
+    {
+        Debug.LogWarning("A WINNER IS YOU");
+    }
+
+    public void ShowLooseScreen()
+    {
+        Debug.LogWarning("LOST THE GAME");
     }
 }
