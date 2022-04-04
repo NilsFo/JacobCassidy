@@ -9,8 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5263722079456385184}
+  - component: {fileID: 6775750353064390220}
   - component: {fileID: 5263722079456385185}
   - component: {fileID: 5263722079456385186}
+  - component: {fileID: 1583270405353897970}
   m_Layer: 6
   m_Name: PropBarrel
   m_TagString: Untagged
@@ -33,6 +35,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6775750353064390220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5263722079456385187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63d8a445576535428b698074c984727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explotion: {fileID: 326620631728038352, guid: a6281cb540e1c21439605ff856bbbefa, type: 3}
+  renderer: {fileID: 5263722079456385185}
+  polygonCollider2D: {fileID: 5263722079456385186}
 --- !u!212 &5263722079456385185
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -119,3 +136,30 @@ PolygonCollider2D:
       - {x: 0.4375, y: -0.1875}
       - {x: 0.6875, y: -0.4375}
       - {x: 0.625, y: -0.6875}
+--- !u!114 &1583270405353897970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5263722079456385187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0edc5bb72bbb56c44879a22830d5ab89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  currentHealth: 1
+  deathDelay: 0.1
+  deathTimer: 0
+  enemyState: 0
+  damageOnContact: 0
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  bloodSystem: {fileID: 0}
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  onDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
