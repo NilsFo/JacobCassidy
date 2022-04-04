@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 379789246220664681}
   - component: {fileID: 379789246220664680}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gravejard_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}

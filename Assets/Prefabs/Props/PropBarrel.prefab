@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5263722079456385184}
   - component: {fileID: 5263722079456385185}
   - component: {fileID: 5263722079456385186}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PropBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

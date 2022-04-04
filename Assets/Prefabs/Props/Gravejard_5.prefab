@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4058552695365350585}
   - component: {fileID: 4058552695365350584}
   - component: {fileID: 4058552695365350591}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gravejard_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}

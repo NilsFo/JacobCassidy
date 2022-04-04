@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class IceAreaOfEffectBehaviourScript : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class IceAreaOfEffectBehaviourScript : MonoBehaviour
     
     [SerializeField] private float iceDelay = 0.5f;
     [SerializeField] private float iceTimer = 0f;
-   
+    public float slowDuration = 5.69f;
+    public ParticleSystem particles;
     private List<EnemyBehaviourScript> _list;
     
     void Start()
@@ -52,11 +54,17 @@ public class IceAreaOfEffectBehaviourScript : MonoBehaviour
         }
         for (int i = 0; i < tempList.Count; i++)
         {
-            var enemy = tempList[i];
-            enemy.ChangeCurrentHealth(-iceDamage);
+            var enemy = tempList[i].gameObject;
+            NPCMovementAI npcMovementAI = enemy.GetComponent<NPCMovementAI>();
+            if (npcMovementAI != null)
+            {
+                npcMovementAI.Slow(slowDuration);
+            }
         }
         
-        //TODO Render Area
+        print("particles");
+        int count = Random.Range(65, 75);
+        particles.Emit(count);
         Destroy(gameObject.transform.parent.gameObject);
     }
 

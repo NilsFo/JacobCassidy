@@ -267,7 +267,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 2fb56185bd79a3646b7180cdcbfab1cc, type: 3}
   spellCooldown: 3
   spellTimer: 0
-  spellCost: 20
+  spellCost: 4
   spellPref: {fileID: 6154429769362283141, guid: a21779166396660408363751e886af88, type: 3}
   speed: 1
 --- !u!114 &1588181202046067130

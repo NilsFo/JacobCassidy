@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1102654946969453262}
   - component: {fileID: 1102654946969453261}
   - component: {fileID: 8788131088848359951}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gates_26
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1.625, y: 2}
     newSize: {x: 1.625, y: 2}
     adaptiveTilingThreshold: 0.5

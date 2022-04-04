@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2302426973869245401}
   - component: {fileID: 2302426973869245400}
   - component: {fileID: 2302426973869245407}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: objects_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.75, y: 0.9375}
+    oldSize: {x: 0.75, y: 1}
     newSize: {x: 0.75, y: 0.9375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

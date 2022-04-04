@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1152277894916676538}
   - component: {fileID: 1152277894916676539}
   - component: {fileID: 384750972757821712}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gates_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}

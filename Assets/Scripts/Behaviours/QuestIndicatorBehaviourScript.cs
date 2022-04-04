@@ -94,7 +94,6 @@ public class QuestIndicatorBehaviourScript : MonoBehaviour
             }
         }
         
-
         if (chosen != null)
         {
             var direction = chosen.gameObject.transform.position - player.transform.position;
