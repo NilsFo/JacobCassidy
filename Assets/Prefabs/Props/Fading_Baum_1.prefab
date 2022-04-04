@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1987484870415958118}
   - component: {fileID: 1987484870415958117}
   - component: {fileID: 1987484870415958116}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Fading_Baum_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

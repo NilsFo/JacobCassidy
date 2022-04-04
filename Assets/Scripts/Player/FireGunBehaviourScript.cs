@@ -15,6 +15,9 @@ public class FireGunBehaviourScript : MonoBehaviour
     public float fireDelay = 0.2f;
 
     private float fireTime;
+    public float spellDelay = 0.2f;
+
+    private float spellTime;
 
     private MainInputActionsSettings input;
     
