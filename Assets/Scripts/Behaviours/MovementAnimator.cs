@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 
 public class MovementAnimator : MonoBehaviour
@@ -27,6 +28,9 @@ public class MovementAnimator : MonoBehaviour
 
     //[Header("Moving Dust Particle")] public List<DustParticleSpawnBehavior> dustSpawnOrigins;
     public bool spawnDustNextFrame;
+
+    public List<AudioClip> footsteps;
+    public AudioSource footstepPlayer;
 
     private void Awake()
     {
@@ -175,6 +179,15 @@ public class MovementAnimator : MonoBehaviour
             // print("SPAWNING DUST");
             spawner.Spawn();
         }*/
+    }
+
+    public void PlayRandomFootstep() {
+        if (footstepPlayer != null) {
+            var footindex = Random.Range(0, footsteps.Count);
+            footstepPlayer.clip = footsteps [footindex];
+            footstepPlayer.pitch = Random.Range(0.8f, 1.2f);
+            footstepPlayer.Play();
+        }
     }
 
     public delegate void OnCustomAnimationEvent(string eventID);

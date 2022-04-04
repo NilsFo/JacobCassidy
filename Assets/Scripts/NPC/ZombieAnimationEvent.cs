@@ -15,6 +15,6 @@ public class ZombieAnimationEvent : MonoBehaviour {
     }
 
     public void FishmanDespawn() {
-        myZombie.DespawnAfterDeath();
+        //myZombie.DespawnAfterDeath();
     }
 }

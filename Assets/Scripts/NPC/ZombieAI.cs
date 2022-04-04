@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ZombieAI : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class ZombieAI : MonoBehaviour
 
     private Rigidbody2D rb;
     public float callAllyDistance = 5f;
+
+    public AudioSource alertSound, attackSound;
 
     // Start is called before the first frame update
     void Start()
@@ -134,6 +137,13 @@ public class ZombieAI : MonoBehaviour
                 zombieAI.currentState = ZombieState.ChasePlayer;
             }
         }
+        
+        if (alertSound != null) {
+            if (!alertSound.isPlaying) {
+                alertSound.pitch = Random.Range(0.8f, 1.2f);
+                alertSound.Play();   
+            }
+        }
     }
 
     public void UpdateState()
@@ -203,6 +213,11 @@ public class ZombieAI : MonoBehaviour
         var dir = playerTarget - transform.position;
         attackCollider.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90f);
         myMovement.paused = true;
+
+        if (attackSound != null) {
+            attackSound.pitch = Random.Range(0.8f, 1.2f);
+            attackSound.Play();
+        }
     }
 
     public void MakeAttack()

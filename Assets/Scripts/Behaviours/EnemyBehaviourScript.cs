@@ -25,6 +25,7 @@ public class EnemyBehaviourScript : MonoBehaviour
     [SerializeField] private float damageOnContact = 1;
     
     public AudioSource hitSound;
+    public AudioSource deathSound;
 
     public UnityEvent onDeath;
     public UnityEvent onDamageTaken;
@@ -89,6 +90,11 @@ public class EnemyBehaviourScript : MonoBehaviour
         deathTimer = deathDelay;
         onDeath.Invoke();
         OnDeath?.Invoke(gameObject);
+        
+        if (deathSound != null) {
+            deathSound.pitch = Random.Range(0.8f, 1.2f);
+            deathSound.Play();
+        }
     }
     
     public bool ChangeCurrentHealth(float value)

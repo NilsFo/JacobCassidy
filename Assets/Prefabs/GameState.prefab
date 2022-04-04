@@ -99,13 +99,37 @@ MonoBehaviour:
       m_Calls: []
   onPlayerDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPlayerMadness:
     m_PersistentCalls:
       m_Calls: []
   onReloadStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onReloadEnd:
     m_PersistentCalls:
       m_Calls: []
@@ -144,7 +168,7 @@ MonoBehaviour:
   - {fileID: 1588181202046067130}
   placeHold: {fileID: 1352714986146920249}
   currentIndex: 0
-  learnAll: 1
+  learnAll: 0
   swapDelay: 0.2
 --- !u!114 &1352714986146920249
 MonoBehaviour:

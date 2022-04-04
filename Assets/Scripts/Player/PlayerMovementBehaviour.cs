@@ -31,6 +31,8 @@ public class PlayerMovementBehaviour : MonoBehaviour
     
     public float movementCooldown = 0;
 
+    public AudioSource playerHurtSound;
+
     private void Awake()
     {
         Debug.Assert(myRgidbody2D != null, gameObject);
@@ -121,7 +123,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
             sprite.color = new Color(.5f,.25f,.25f);
             Invoke(nameof(TakeDamageEnd), 0.2f);    
         }
-        
+        playerHurtSound.Play();
     }
 
     public void TakeDamageEnd() {
