@@ -308,7 +308,7 @@ MonoBehaviour:
   currentPointOfInterestIndex: 0
   myMovement: {fileID: 3227863212620385700}
   canSeePlayer: 0
-  playerDetectionDistance: 2
+  playerDetectionDistance: 10
   playerSpotted: 0
   currentState: 0
   congregationSize: 1

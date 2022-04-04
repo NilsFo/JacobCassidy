@@ -19,6 +19,8 @@ public class FireGunBehaviourScript : MonoBehaviour
     private MainInputActionsSettings input;
     
     public PlayerMovementBehaviour playerMovementBehaviour;
+
+    public AudioSource revolverSound;
     
     // Start is called before the first frame update
     void Start()
@@ -105,6 +107,7 @@ public class FireGunBehaviourScript : MonoBehaviour
         bulletTrail.hitPos = hitPos;
         bulletTrail.startPos = transform.position;
 
-        //TODO Gun Sound Trigger
+        revolverSound.pitch = Random.Range(0.8f, 1.2f);
+        revolverSound.Play();
     }
 }

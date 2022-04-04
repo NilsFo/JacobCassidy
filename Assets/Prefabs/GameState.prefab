@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeStaminaPerSec: 0.5
-  reloadDelay: 0.5
+  reloadDelay: 1.5
   maxHealth: 20
   currentHealth: 20
   maxSanity: 20

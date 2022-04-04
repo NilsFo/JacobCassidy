@@ -50,6 +50,7 @@ public abstract class ISpellBehaviourScript : MonoBehaviour
             if (playerStateBehaviourScript.ChangeCurrentSanity(-spellCost))
             {
                 SpawnSpell(startObj, direction);
+                spellTimer = spellCooldown;
                 return true;
             }
         }
@@ -71,7 +72,8 @@ public abstract class ISpellBehaviourScript : MonoBehaviour
     {
         GameObject instBullet = Instantiate(spellPref, new Vector3(startObj.transform.position.x, startObj.transform.position.y, -6), Quaternion.Euler(0,0,Mathf.Rad2Deg*Mathf.Atan2(direction.y, direction.x)));
         Rigidbody2D instBulletRB = instBullet.GetComponent<Rigidbody2D>();
-        instBulletRB.AddForce(direction * speed, ForceMode2D.Force);
+        if(instBulletRB != null)
+            instBulletRB.AddForce(direction * speed, ForceMode2D.Force);
     }
     
     public abstract string GetName();
