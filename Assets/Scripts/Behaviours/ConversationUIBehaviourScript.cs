@@ -66,7 +66,7 @@ public class ConversationUIBehaviourScript : MonoBehaviour
 
     private void Update()
     {
-        if (msgTimer <= Time.deltaTime)
+        if (msgTimer <= 0)
         {
             msgTimer = 0;
             PushNextMsg();
@@ -118,6 +118,7 @@ public class ConversationUIBehaviourScript : MonoBehaviour
             {
                 textfeld.text = msg.MyText;
                 textfeld.gameObject.SetActive(true);
+                textfeld.maxVisibleCharacters = 0;
             }
             else
             {

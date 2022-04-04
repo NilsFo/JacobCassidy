@@ -30,13 +30,13 @@ public class BuildingVisibilityTrigger : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.GetComponent<PlayerMovementBehaviour>()) {
-            Debug.Log("Showing inside buildings");
+            //Debug.Log("Showing inside buildings");
             showBuildings = false;
         }
     }
     private void OnTriggerExit2D(Collider2D other) {
         if (other.GetComponent<PlayerMovementBehaviour>()) {
-            Debug.Log("Hiding inside buildings");
+            //Debug.Log("Hiding inside buildings");
             showBuildings = true;
         }
     }
