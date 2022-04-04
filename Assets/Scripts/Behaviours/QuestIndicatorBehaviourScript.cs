@@ -40,6 +40,7 @@ public class QuestIndicatorBehaviourScript : MonoBehaviour
         {
             isAktie = true;
             aktiveTimer = aktiveDuration;
+            FindClosed();
         }
     }
 
@@ -49,53 +50,29 @@ public class QuestIndicatorBehaviourScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        FindClosed();
-        if (scanTimer <= 0)
-        {
-            scanTimer = scanDelay;
-        }
-        else
-        {
-            scanTimer -= Time.deltaTime;
-        }
-        if (aktiveTimer <= 0)
-        {
-            isAktie = false;
-            aktiveTimer = 0;
-        }
-        else
-        {
+    void Update() {
+        if (aktiveTimer >= 0) {
             aktiveTimer -= Time.deltaTime;
+            if (aktiveTimer < 0) {
+                renderer.enabled = false;
+                isAktie = false;
+            }
         }
     }
 
     private void FindClosed()
     {
-        if (!isAktie)
-        {
-            renderer.enabled = false;
-            return;
-        }
-        if (chosen != null && chosen.currentState == CultistAI.CultistState.Dead)
-        {
-            chosen = null;
-        }
-        
-        if (scanTimer < 0 && chosen == null)
-        {
-            var result = FindObjectsOfType<CultistAI>();
-            list = new List<CultistAI>(result);
+        var result = FindObjectsOfType<CultistAI>();
+        list = new List<CultistAI>(result);
 
-            float lastdist = 999999999;
-            foreach (var cultistAI in list)
+        float lastdist = 999999999;
+        foreach (var cultistAI in list)
+        {
+            float dist = Vector2.Distance(cultistAI.gameObject.transform.position, player.transform.position);
+            if (dist < lastdist && cultistAI.currentState != CultistAI.CultistState.Dead)
             {
-                float dist = Vector2.Distance(cultistAI.gameObject.transform.position, player.transform.position);
-                if (dist < lastdist && cultistAI.currentState != CultistAI.CultistState.Dead)
-                {
-                    chosen = cultistAI;
-                }
+                chosen = cultistAI;
+                lastdist = dist;
             }
         }
         
