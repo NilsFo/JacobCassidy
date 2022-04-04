@@ -25,6 +25,9 @@ public class SpellStateBehaviourScript : MonoBehaviour
     public float swapDelay = 0.2f;
     private float swapTime;
     
+    public Sprite cassDialogueSprite;
+    public string[] spellCollectQuote; 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -194,6 +197,8 @@ public class SpellStateBehaviourScript : MonoBehaviour
     private int spellLevel = 0;
     public bool AddSpell(int index)
     {
+        FindObjectOfType<ConversationUIBehaviourScript>().AddMsg(cassDialogueSprite, spellCollectQuote[spellLevel]);
+
         knownSpellList ??= new List<ISpellBehaviourScript>();
         index = spellLevel;
         spellLevel += 1;

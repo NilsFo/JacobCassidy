@@ -51,7 +51,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
     private void OnCultistDeath()
     {
-        int cultistsDead = gameStateBehaviourScript.NumberOfCultists;
+        int cultistsDead = gameStateBehaviourScript.NumberOfDeadCultists;
 
         var emission = rainParticleSystem.emission;
         int min = rainParticlesPerCultist[cultistsDead].x;

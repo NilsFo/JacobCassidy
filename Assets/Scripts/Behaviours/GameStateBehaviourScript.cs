@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameStateBehaviourScript : MonoBehaviour
 {
     //Events 
+    public Sprite cassDialogueSprite;
+    public string[] cultistDeathQuotes; 
+    
     public UnityEvent onResetGameState;
     public UnityEvent onCultistsDeath;
 
@@ -31,6 +34,7 @@ public class GameStateBehaviourScript : MonoBehaviour
 
     public int NumberOfDeadCultists => numberOfDeadCultists;
     public int NumberOfCultists => numberOfCultists;
+
 
     // Start is called before the first frame update
     void Start()
@@ -132,6 +136,7 @@ public class GameStateBehaviourScript : MonoBehaviour
 
     public void AddCultistsDeath()
     {
+        FindObjectOfType<ConversationUIBehaviourScript>().AddMsg(cassDialogueSprite, cultistDeathQuotes[numberOfDeadCultists]);
         numberOfDeadCultists++;
         onCultistsDeath.Invoke();
 
@@ -139,6 +144,7 @@ public class GameStateBehaviourScript : MonoBehaviour
         {
             WinGame();
         }
+
     }
 
     public bool IsGameOver()

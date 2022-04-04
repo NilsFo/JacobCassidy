@@ -389,6 +389,8 @@ MonoBehaviour:
   - {fileID: 6247094683571033523}
   - {fileID: 1065109383173225670}
   - {fileID: 9216999568309604593}
+  deathQuote: 
+  deathQuoteSprite: {fileID: 2727638938547581279, guid: cb8a3953bd2e51748bafdbba3d267718, type: 3}
 --- !u!114 &8802906259143886239
 MonoBehaviour:
   m_ObjectHideFlags: 0
