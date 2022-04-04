@@ -94,8 +94,9 @@ public class EnemyBehaviourScript : MonoBehaviour
         deathTimer = deathDelay;
         onDeath.Invoke();
         OnDeath?.Invoke(gameObject);
-        
-        if (deathSound != null) {
+
+        if (deathSound != null)
+        {
             deathSound.pitch = Random.Range(0.8f, 1.2f);
             deathSound.Play();
         }
@@ -164,8 +165,14 @@ public class EnemyBehaviourScript : MonoBehaviour
 
     public void TakeDamageEnd()
     {
-        var sprite = GetComponentInChildren<SpriteRenderer>();
-        if (sprite != null)
+        SpriteRenderer sprite = GetComponentInChildren<SpriteRenderer>();
+
+        NPCMovementAI movementAI = GetComponent<NPCMovementAI>();
+        bool slowed = movementAI != null && movementAI.Slowed;
+
+        if (sprite != null && !slowed)
+        {
             sprite.color = Color.white;
+        }
     }
 }

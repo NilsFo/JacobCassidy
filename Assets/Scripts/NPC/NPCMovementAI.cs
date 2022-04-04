@@ -59,8 +59,10 @@ public class NPCMovementAI : MonoBehaviour
     private Queue<Vector2> velocityHistory;
     private Vector2 _lastFramePosition;
 
-    public bool slow;
     private float slowTimer;
+    public bool Slowed => slowTimer > 0;
+    public SpriteRenderer mySprite;
+    public Color slowColor;
 
     private void Awake()
     {
@@ -172,6 +174,12 @@ public class NPCMovementAI : MonoBehaviour
         {
             return;
         }
+
+        // mySprite.color = Color.white;
+        // if (Slowed)
+        // {
+        //     mySprite.color = slowColor;
+        // }
         
         stunnedTimer = stunnedTimer - Time.deltaTime;
         if (!currentMovementState.ShouldMove())
@@ -189,6 +197,8 @@ public class NPCMovementAI : MonoBehaviour
             updatePathFrequencyCurrent = updatePathFrequency;
             UpdatePath();
         }
+
+        slowTimer -= Time.deltaTime;
 
         // Updating the movement state
         currentMovementState.Update(Time.deltaTime);
@@ -251,12 +261,9 @@ public class NPCMovementAI : MonoBehaviour
         float velocityModifier = CurrentMovementState.GetVelocityModifier();
 
         float velocity = movementSpeed * velocityModifier;
-        if (slow) {
-            velocity *= 0.25f;
-            slowTimer -= Time.fixedDeltaTime;
-            if (slowTimer < 0) {
-                slow = false;
-            }
+        if (Slowed) {
+            velocity *= 0.35f;
+            print("slowed");
         }
         Vector2 force = direction * velocity * Time.fixedDeltaTime;
 
@@ -273,6 +280,7 @@ public class NPCMovementAI : MonoBehaviour
 
     public void Slow(float duration) {
         slowTimer = Mathf.Max(duration, slowTimer);
+        slowTimer = Mathf.Max(duration, 0);
     }
     
     public float GetDistanceToNextWaypoint()

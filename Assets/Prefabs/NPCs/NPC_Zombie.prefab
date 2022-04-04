@@ -105,7 +105,8 @@ MonoBehaviour:
   onPathCompleted:
     m_PersistentCalls:
       m_Calls: []
-  slow: 0
+  mySprite: {fileID: 3235440292474752536}
+  slowColor: {r: 0.16470589, g: 0.2784314, b: 0.4627451, a: 1}
 --- !u!114 &1613943380298144929
 MonoBehaviour:
   m_ObjectHideFlags: 0
