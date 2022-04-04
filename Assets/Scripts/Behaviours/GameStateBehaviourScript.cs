@@ -9,6 +9,14 @@ public class GameStateBehaviourScript : MonoBehaviour
     public UnityEvent onResetGameState;
     public UnityEvent onCultistsDeath;
     
+    public UnityEvent onWinGame;
+    public UnityEvent onLoseGame;
+    
+    public UnityEvent onGamePause;
+    public UnityEvent onGameResume;
+    
+    public UnityEvent onGameEnd;
+    
     public MainInputActionsSettings mainInputActions;
 
     //Refs
@@ -16,6 +24,7 @@ public class GameStateBehaviourScript : MonoBehaviour
     [SerializeField] private EnemieStateBehaviourScript enemieStateBehaviourScript;
     [SerializeField] private SpellStateBehaviourScript spellStateBehaviourScript;
 
+    [SerializeField] private int numberOfCultists = 6;
     [SerializeField] private int numberOfDeadCultists = 0;
 
     public int NumberOfDeadCultists => numberOfDeadCultists;
@@ -25,21 +34,30 @@ public class GameStateBehaviourScript : MonoBehaviour
     {
         ResetGameState();
         
-        playerStateBehaviourScript.onPlayerDeath.AddListener(RestartLevel);
+        playerStateBehaviourScript.onPlayerDeath.AddListener(LoseGame);
+        
+        Play();
     }
 
     private void OnEnable()
     {
         onResetGameState ??= new UnityEvent();
         onCultistsDeath ??= new UnityEvent();
+        
+        onGamePause ??= new UnityEvent();
+        onGameResume ??= new UnityEvent();
+        
+        onLoseGame ??= new UnityEvent();
+        onWinGame ??= new UnityEvent();
+        
+        onGameEnd ??= new UnityEvent();
+
         mainInputActions = new MainInputActionsSettings();
-        mainInputActions.Player.Enable();
-        mainInputActions.Toolbar.Enable();
     }
 
     private void OnDisable()
     {
-        playerStateBehaviourScript.onPlayerDeath.RemoveListener(RestartLevel);
+        playerStateBehaviourScript.onPlayerDeath.RemoveListener(LoseGame);
     }
 
     // Update is called once per frame
@@ -55,9 +73,37 @@ public class GameStateBehaviourScript : MonoBehaviour
         onResetGameState.Invoke();
     }
 
-    private void RestartLevel()
+    public void RestartLevel()
     {
+        onGameEnd.Invoke();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+    }
+
+    public void WinGame()
+    {
+        onWinGame.Invoke();
+        onGameEnd.Invoke();
+    }
+
+    public void LoseGame()
+    {
+        onLoseGame.Invoke();
+        onGameEnd.Invoke();
+    }
+
+    public void Play()
+    {
+        mainInputActions.Toolbar.Enable();
+        mainInputActions.Player.Enable();
+        onGameResume.Invoke();
+    }
+
+    public void Pause()
+    {
+        mainInputActions.Toolbar.Disable();
+        mainInputActions.Player.Disable();
+        onGamePause.Invoke();
     }
     
     public PlayerStateBehaviourScript PlayerStateBehaviourScript => playerStateBehaviourScript;
@@ -70,6 +116,11 @@ public class GameStateBehaviourScript : MonoBehaviour
     {
         numberOfDeadCultists++;
         onCultistsDeath.Invoke();
+
+        if (numberOfDeadCultists >= numberOfCultists)
+        {
+            WinGame();
+        }
     }
     
 }
