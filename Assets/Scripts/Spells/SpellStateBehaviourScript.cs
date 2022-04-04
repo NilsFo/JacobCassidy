@@ -106,6 +106,7 @@ public class SpellStateBehaviourScript : MonoBehaviour
         if(knownSpellList == null) return placeHold;
         if (knownSpellList.Count <= 0) return placeHold;
         var tempNextIndex = GetFixedIndex(currentIndex + 1);
+        if (tempNextIndex == GetFixedIndex(currentIndex)) return placeHold;
         var spell = knownSpellList[tempNextIndex];
         if (spell)
         {
@@ -119,6 +120,7 @@ public class SpellStateBehaviourScript : MonoBehaviour
         if(knownSpellList == null) return placeHold;
         if (knownSpellList.Count <= 0) return placeHold;
         var tempNextIndex = GetFixedIndex(currentIndex - 1);
+        if (tempNextIndex == GetFixedIndex(currentIndex)) return placeHold;
         var spell = knownSpellList[tempNextIndex];
         if (spell)
         {

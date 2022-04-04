@@ -6,6 +6,6 @@ public class SpellPlaceholderBehaviourScript : ISpellBehaviourScript
 {
     public override string GetName()
     {
-        return "No Spells!";
+        return "";
     }
 }

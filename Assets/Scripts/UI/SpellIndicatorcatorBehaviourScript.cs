@@ -24,12 +24,12 @@ public class SpellIndicatorcatorBehaviourScript : MonoBehaviour
         Debug.Assert(previousImage != null, gameObject);
         
         Debug.Assert(text != null, gameObject);
-        
-        Debug.Assert(spellStateBehaviourScript != null, gameObject);
     }
 
     void Start()
     {
+        spellStateBehaviourScript = FindObjectOfType<SpellStateBehaviourScript>();
+        
         spellStateBehaviourScript.onSpellStateChange.AddListener(UpdateSpellIndicatorcator);
         UpdateSpellIndicatorcator();
     }
@@ -42,7 +42,7 @@ public class SpellIndicatorcatorBehaviourScript : MonoBehaviour
     public void UpdateSpellIndicatorcator()
     {
         ISpellBehaviourScript next = spellStateBehaviourScript.GetNexSpell();
-        if (next != null)
+        if (next != null && !(next is SpellPlaceholderBehaviourScript))
         {
             nextImage.sprite = next.GetSprite();
             nextImage.gameObject.SetActive(true);
@@ -52,7 +52,7 @@ public class SpellIndicatorcatorBehaviourScript : MonoBehaviour
             nextImage.gameObject.SetActive(false);
         }
         ISpellBehaviourScript current = spellStateBehaviourScript.GetCurrentSpell();
-        if (current != null)
+        if (current != null && !(current is SpellPlaceholderBehaviourScript))
         {
             currentImage.sprite = current.GetSprite();
             currentImage.gameObject.SetActive(true);
@@ -65,7 +65,7 @@ public class SpellIndicatorcatorBehaviourScript : MonoBehaviour
             text.gameObject.SetActive(false);
         }
         ISpellBehaviourScript previous = spellStateBehaviourScript.GetPreviousSpell();
-        if (previous != null)
+        if (previous != null && !(previous is SpellPlaceholderBehaviourScript))
         {
             previousImage.sprite = previous.GetSprite();
             previousImage.gameObject.SetActive(true);

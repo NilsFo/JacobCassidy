@@ -166,7 +166,6 @@ public class CultistAI : MonoBehaviour
             return;
         }
 
-        print("The cultist state has changed from " + _lastState + " to " + currentState);
         _lastState = currentState;
         switch (currentState)
         {
@@ -190,7 +189,7 @@ public class CultistAI : MonoBehaviour
     
     private ZombieAI SummonZombie(bool self)
     {
-        print("New zombie summoned.");
+        //print("New zombie summoned.");
         GameObject newZombie = Instantiate(zombiePrefab, new Vector3(transform.position.x, transform.position.y, 0),
             Quaternion.identity);
         newZombie.GetComponent<MovementAnimator>().myMovementAnimator.SetTrigger("Spawn");
@@ -240,8 +239,11 @@ public class CultistAI : MonoBehaviour
 
         if (POIsInNeed.Count > 0)
         {
-            int j = Random.Range(0, POIsInNeed.Capacity);
-            currentPointOfInterestIndex = POIsInNeed[j];
+            if (POIsInNeed.Capacity < 0)
+            {
+                int j = Random.Range(0, POIsInNeed.Capacity - 1);
+                currentPointOfInterestIndex = POIsInNeed[j];
+            }
         }
         else
         {

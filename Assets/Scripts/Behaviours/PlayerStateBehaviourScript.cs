@@ -11,7 +11,7 @@ public class PlayerStateBehaviourScript : MonoBehaviour
     //Settings
     [SerializeField] private float chargeStaminaPerSec = 0.5f;
     [SerializeField] private float reloadDelay = 0.5f;
-    
+
     //Player Data
     [SerializeField] private float maxHealth = 20;
     [SerializeField] private float currentHealth = 20;
@@ -149,7 +149,7 @@ public class PlayerStateBehaviourScript : MonoBehaviour
 
     public void ReloadAmmo()
     {
-        if (!reloading)
+        if (!reloading && (int) currentAmmo != (int) maxAmmo)
         {
             reloadTimer = reloadDelay;
             reloading = true;
@@ -188,6 +188,8 @@ public class PlayerStateBehaviourScript : MonoBehaviour
     public float CurrentAmmo => currentAmmo;
 
     public float CurrentStamina => currentStamina;
+    
+    public float ReloadDelay => reloadDelay;
     
     private void ReloadOnPerformed(InputAction.CallbackContext obj)
     {
