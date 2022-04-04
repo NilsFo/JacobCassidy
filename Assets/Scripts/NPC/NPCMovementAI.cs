@@ -237,7 +237,7 @@ public class NPCMovementAI : MonoBehaviour
 
         float velocity = movementSpeed * velocityModifier;
         if (slow) {
-            velocity *= 0.5f;
+            velocity *= 0.25f;
             slowTimer -= Time.fixedDeltaTime;
             if (slowTimer < 0) {
                 slow = false;
