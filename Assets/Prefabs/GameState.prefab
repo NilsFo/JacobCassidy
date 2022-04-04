@@ -53,6 +53,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c471270ea086015469b9caeb24faaeb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cassDialogueSprite: {fileID: 2727638938547581279, guid: cb8a3953bd2e51748bafdbba3d267718, type: 3}
+  cultistDeathQuotes:
+  - 'Eh, this one didn''t know anything anyways. Probably. '
+  - 'Bullets speak louder than chants. '
+  - 'I cast gun! '
+  - 'My dark magic is black powder. '
+  - 'Fear the great old power of the law! '
+  - 'Good riddance. Another case closed. '
   onResetGameState:
     m_PersistentCalls:
       m_Calls: []
@@ -75,6 +83,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   questLogText: {fileID: 0}
+  isGameOver: 0
   playerStateBehaviourScript: {fileID: 7802783470283271111}
   enemieStateBehaviourScript: {fileID: 3191035166800469499}
   spellStateBehaviourScript: {fileID: 1809202575865811791}
@@ -178,15 +187,22 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   spellList:
+  - {fileID: 1588181202046067130}
+  - {fileID: 318111148256976481}
   - {fileID: 6872647183850292548}
   - {fileID: 3588870202593261240}
   - {fileID: 1182842812073921434}
-  - {fileID: 318111148256976481}
-  - {fileID: 1588181202046067130}
   placeHold: {fileID: 1352714986146920249}
   currentIndex: 0
   learnAll: 0
   swapDelay: 0.2
+  cassDialogueSprite: {fileID: 2727638938547581279, guid: cb8a3953bd2e51748bafdbba3d267718, type: 3}
+  spellCollectQuote:
+  - 'Dark magic, eh? I can make use of this. [Knockback spell learned] '
+  - 'Freeze, perps! [Ice spell learned] '
+  - 'This eldritch knowledge goes down like a fine whiskey. [Fireball spell learned] '
+  - 'Line them up, knock them down! [Stonewall spell learned] '
+  - 'Tremble before me, you hoodlums! [Lightning spell learned] '
 --- !u!114 &1352714986146920249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +240,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 1edba35aef1189e4e9ab55a544f06125, type: 3}
   spellCooldown: 1
   spellTimer: 0
-  spellCost: 5
+  spellCost: 6
   spellPref: {fileID: 8303734707630240663, guid: baa0e0f30334cc44f9e2aa25793197ac, type: 3}
   speed: 500
 --- !u!114 &3588870202593261240
@@ -264,7 +280,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 90a98e09ae6c5df4d915dc29950ab7d2, type: 3}
   spellCooldown: 1
   spellTimer: 0
-  spellCost: 8
+  spellCost: 10
   spellPref: {fileID: 919879169368235554, guid: 54177df2978dd254a91eb8f1d18b2119, type: 3}
   speed: 1
 --- !u!114 &318111148256976481
