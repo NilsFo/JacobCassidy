@@ -144,7 +144,7 @@ MonoBehaviour:
   - {fileID: 1588181202046067130}
   placeHold: {fileID: 1352714986146920249}
   currentIndex: 0
-  learnAll: 1
+  learnAll: 0
   swapDelay: 0.2
 --- !u!114 &1352714986146920249
 MonoBehaviour:

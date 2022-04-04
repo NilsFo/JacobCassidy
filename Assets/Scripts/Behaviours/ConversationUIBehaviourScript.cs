@@ -103,6 +103,7 @@ public class ConversationUIBehaviourScript : MonoBehaviour
             var msg = msgQueue[0];
             msgQueue.Remove(msg);
             _currentMsg = msg;
+            textBuildDelta = 0f;
             if (msg.MySprite != null)
             {
                 imageObj.sprite = msg.MySprite;
@@ -127,6 +128,7 @@ public class ConversationUIBehaviourScript : MonoBehaviour
         {
             main.SetActive(false);
             _currentMsg = null;
+            textBuildDelta = 0f;
         }
     }
 }
