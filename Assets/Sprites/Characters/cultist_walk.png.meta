@@ -955,6 +955,174 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: cultist_walk_40
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 645afd1a46cc95048b7ba66024e07f96
+      internalID: 1814054352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cultist_walk_41
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c50cca088daf504da28125b4c776f6a
+      internalID: -433000864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cultist_walk_42
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeeb33f275c2f304eb496fd60a656226
+      internalID: -1782623773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cultist_walk_43
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03eef0ce259c95a438b7aa95abff0d0c
+      internalID: -1669456417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cultist_walk_44
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b4ff649c4d47ab4a92911c9b7610aac
+      internalID: 2012896381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cultist_walk_45
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e7f247ea83e0c448861bba9e9842c2b
+      internalID: -92682446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cultist_walk_46
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f1f233d21a642b47a5d91fc50321734
+      internalID: 1468012543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cultist_walk_47
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a44e70ad01eb3341be677882f0015a9
+      internalID: -1733014078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -969,41 +1137,49 @@ TextureImporter:
       cultist_walk_15: -1625644217
       cultist_walk_0: -26338324
       cultist_walk_9: -1673493308
-      cultist_walk_29: -1581737092
-      cultist_walk_18: -1287038610
-      cultist_walk_3: 827486095
       cultist_walk_5: -1687949372
-      cultist_walk_17: 1424562337
-      cultist_walk_28: 1908485958
-      cultist_walk_38: 826905549
       cultist_walk_4: -1158386627
-      cultist_walk_16: -1143125364
-      cultist_walk_31: 1321645794
       cultist_walk_36: -1155365426
-      cultist_walk_30: 1547590891
       cultist_walk_1: 1904331322
-      cultist_walk_10: -1167788598
       cultist_walk_13: -1758270843
-      cultist_walk_20: 1977988786
+      cultist_walk_46: 1468012543
+      cultist_walk_44: 2012896381
       cultist_walk_8: 633379321
       cultist_walk_23: -1893633613
-      cultist_walk_34: -1626266389
       cultist_walk_2: -933312933
-      cultist_walk_14: 1819779122
-      cultist_walk_37: 1198489524
       cultist_walk_22: 1190823216
-      cultist_walk_24: 1519234606
-      cultist_walk_27: -1000638452
-      cultist_walk_7: -236753849
+      cultist_walk_42: -1782623773
       cultist_walk_32: 1835786692
+      cultist_walk_47: -1733014078
       cultist_walk_19: -687029194
       cultist_walk_33: -240472017
       cultist_walk_35: 748662852
       cultist_walk_11: 369124822
       cultist_walk_6: 11236797
+      cultist_walk_25: -263716886
+      cultist_walk_18: -1287038610
+      cultist_walk_29: -1581737092
+      cultist_walk_3: 827486095
+      cultist_walk_17: 1424562337
+      cultist_walk_28: 1908485958
+      cultist_walk_38: 826905549
+      cultist_walk_16: -1143125364
+      cultist_walk_31: 1321645794
+      cultist_walk_45: -92682446
+      cultist_walk_30: 1547590891
+      cultist_walk_20: 1977988786
+      cultist_walk_43: -1669456417
+      cultist_walk_10: -1167788598
+      cultist_walk_27: -1000638452
+      cultist_walk_34: -1626266389
+      cultist_walk_37: 1198489524
+      cultist_walk_14: 1819779122
+      cultist_walk_24: 1519234606
+      cultist_walk_40: 1814054352
+      cultist_walk_7: -236753849
+      cultist_walk_41: -433000864
       cultist_walk_12: 388302086
       cultist_walk_26: 142374
-      cultist_walk_25: -263716886
       cultist_walk_39: -481447008
       cultist_walk_21: 1721895144
   spritePackingTag: 
