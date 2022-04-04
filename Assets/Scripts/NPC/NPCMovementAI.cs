@@ -80,7 +80,7 @@ public class NPCMovementAI : MonoBehaviour
     void Start()
     {
         gameStateBehaviourScript = FindObjectOfType<GameStateBehaviourScript>();
-        
+
         reachedPathEventFired = false;
         player = FindObjectOfType<PlayerMovementBehaviour>();
         pathsCalculatedCount = 0;
@@ -164,7 +164,6 @@ public class NPCMovementAI : MonoBehaviour
     
     public bool IsGameOver()
     {
-        gameStateBehaviourScript = FindObjectOfType<GameStateBehaviourScript>();
         bool b = gameStateBehaviourScript.IsGameOver();
         return b;
     }
