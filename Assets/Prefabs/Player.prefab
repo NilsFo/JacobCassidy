@@ -1361,6 +1361,8 @@ MonoBehaviour:
   player: {fileID: 424963430642395798}
   scanDelay: 2
   scanTimer: 0
+  aktiveDuration: 2
+  aktiveTimer: 0
 --- !u!1 &8435631809864276719
 GameObject:
   m_ObjectHideFlags: 0

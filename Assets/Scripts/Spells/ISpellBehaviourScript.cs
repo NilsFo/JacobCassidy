@@ -70,7 +70,9 @@ public abstract class ISpellBehaviourScript : MonoBehaviour
 
     public void SpawnSpell(GameObject startObj, Vector2 direction)
     {
-        GameObject instBullet = Instantiate(spellPref, new Vector3(startObj.transform.position.x, startObj.transform.position.y, -6), Quaternion.Euler(0,0,Mathf.Rad2Deg*Mathf.Atan2(direction.y, direction.x)));
+        var normal = direction.normalized;
+        normal = normal * 0.5f;
+        GameObject instBullet = Instantiate(spellPref, new Vector3(startObj.transform.position.x+normal.x, startObj.transform.position.y+normal.y, -6), Quaternion.Euler(0,0,Mathf.Rad2Deg*Mathf.Atan2(direction.y, direction.x)));
         Rigidbody2D instBulletRB = instBullet.GetComponent<Rigidbody2D>();
         if(instBulletRB != null)
             instBulletRB.AddForce(direction * speed, ForceMode2D.Force);

@@ -89,6 +89,15 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Quest"",
+                    ""type"": ""Button"",
+                    ""id"": ""314fe4e9-1c6a-4ee0-b356-1821f0112971"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -342,6 +351,17 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b4c6792-59c9-4675-af04-c417eb0a7cb4"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Quest"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -974,6 +994,15 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Scroll"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""2b7607b7-a2ae-4f61-b36e-43633fdd30ed"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1185,6 +1214,17 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                     ""action"": ""Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ebc450bc-0c52-4197-86c7-e9ecf171acf6"",
+                    ""path"": ""<Mouse>/scroll/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1261,6 +1301,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Spell = m_Player.FindAction("Spell", throwIfNotFound: true);
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
+        m_Player_Quest = m_Player.FindAction("Quest", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1287,6 +1328,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
         m_Toolbar_Slot10 = m_Toolbar.FindAction("Slot10", throwIfNotFound: true);
         m_Toolbar_Left = m_Toolbar.FindAction("Left", throwIfNotFound: true);
         m_Toolbar_Right = m_Toolbar.FindAction("Right", throwIfNotFound: true);
+        m_Toolbar_Scroll = m_Toolbar.FindAction("Scroll", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1353,6 +1395,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Spell;
     private readonly InputAction m_Player_Reload;
+    private readonly InputAction m_Player_Quest;
     public struct PlayerActions
     {
         private @MainInputActionsSettings m_Wrapper;
@@ -1364,6 +1407,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Spell => m_Wrapper.m_Player_Spell;
         public InputAction @Reload => m_Wrapper.m_Player_Reload;
+        public InputAction @Quest => m_Wrapper.m_Player_Quest;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1394,6 +1438,9 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 @Reload.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
                 @Reload.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
                 @Reload.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
+                @Quest.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuest;
+                @Quest.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuest;
+                @Quest.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuest;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1419,6 +1466,9 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 @Reload.started += instance.OnReload;
                 @Reload.performed += instance.OnReload;
                 @Reload.canceled += instance.OnReload;
+                @Quest.started += instance.OnQuest;
+                @Quest.performed += instance.OnQuest;
+                @Quest.canceled += instance.OnQuest;
             }
         }
     }
@@ -1544,6 +1594,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
     private readonly InputAction m_Toolbar_Slot10;
     private readonly InputAction m_Toolbar_Left;
     private readonly InputAction m_Toolbar_Right;
+    private readonly InputAction m_Toolbar_Scroll;
     public struct ToolbarActions
     {
         private @MainInputActionsSettings m_Wrapper;
@@ -1560,6 +1611,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
         public InputAction @Slot10 => m_Wrapper.m_Toolbar_Slot10;
         public InputAction @Left => m_Wrapper.m_Toolbar_Left;
         public InputAction @Right => m_Wrapper.m_Toolbar_Right;
+        public InputAction @Scroll => m_Wrapper.m_Toolbar_Scroll;
         public InputActionMap Get() { return m_Wrapper.m_Toolbar; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1605,6 +1657,9 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 @Right.started -= m_Wrapper.m_ToolbarActionsCallbackInterface.OnRight;
                 @Right.performed -= m_Wrapper.m_ToolbarActionsCallbackInterface.OnRight;
                 @Right.canceled -= m_Wrapper.m_ToolbarActionsCallbackInterface.OnRight;
+                @Scroll.started -= m_Wrapper.m_ToolbarActionsCallbackInterface.OnScroll;
+                @Scroll.performed -= m_Wrapper.m_ToolbarActionsCallbackInterface.OnScroll;
+                @Scroll.canceled -= m_Wrapper.m_ToolbarActionsCallbackInterface.OnScroll;
             }
             m_Wrapper.m_ToolbarActionsCallbackInterface = instance;
             if (instance != null)
@@ -1645,6 +1700,9 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
                 @Right.started += instance.OnRight;
                 @Right.performed += instance.OnRight;
                 @Right.canceled += instance.OnRight;
+                @Scroll.started += instance.OnScroll;
+                @Scroll.performed += instance.OnScroll;
+                @Scroll.canceled += instance.OnScroll;
             }
         }
     }
@@ -1703,6 +1761,7 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
         void OnLook(InputAction.CallbackContext context);
         void OnSpell(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
+        void OnQuest(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
@@ -1731,5 +1790,6 @@ public partial class @MainInputActionsSettings : IInputActionCollection2, IDispo
         void OnSlot10(InputAction.CallbackContext context);
         void OnLeft(InputAction.CallbackContext context);
         void OnRight(InputAction.CallbackContext context);
+        void OnScroll(InputAction.CallbackContext context);
     }
 }

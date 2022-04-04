@@ -4,46 +4,70 @@ using UnityEngine;
 
 public class ZapProjectileBehaviourScript : MonoBehaviour
 {
- 
+    [SerializeField] private GameObject lineRender;
+    
     [SerializeField] private float zapDamage = 2f;
     
     [SerializeField] private float zapDelay = 0.5f;
     [SerializeField] private float zapTimer = 0f;
     
     private List<EnemyBehaviourScript> _list;
+    private List<GameObject> _listOfRay;
     private Vector3 playerTarget;
+
+    private bool doneDamage = false;
     
     // Start is called before the first frame update
     void Start()
     {
         _list ??= new List<EnemyBehaviourScript>();
+        _listOfRay ??= new List<GameObject>();
+        
+        _listOfRay.Add(gameObject.transform.parent.gameObject);
+        
         playerTarget = FindObjectOfType<PlayerMovementBehaviour>().transform.position;
         zapTimer = zapDelay;
+        doneDamage = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (zapTimer < Time.deltaTime)
+        if (!doneDamage)
         {
-            Zap();
+            if (zapTimer < Time.deltaTime)
+            {
+                Zap();
+                doneDamage = true;
+            }
+            else
+            {
+                zapTimer -= Time.deltaTime;
+            }
         }
-        else
-        {
-            zapTimer -= Time.deltaTime;
-        }
+        
     }
 
     private void Zap()
     {
+        _list.Sort(CompareEnemyByDistance);
         for (int i = 0; i < _list.Count; i++)
         {
             var enemy = _list[i];
             enemy.ChangeCurrentHealth(-zapDamage);
+            _listOfRay.Add(enemy.gameObject);
         }
-        _list.Sort(CompareEnemyByDistance);
-        //TODO Render Lines
-        Destroy(gameObject.transform.parent.gameObject);
+        if (_listOfRay.Count > 2)
+        {
+            for (int i = 0; i < _listOfRay.Count-1; i++)
+            {
+                var first = _listOfRay[i];
+                var next= _listOfRay[i+1];
+                DrawLineBetween(new Vector3[] { first.transform.position, next.transform.position });
+            }
+        }
+        
+        Destroy(gameObject.transform.parent.gameObject, 1f);
     }
 
     private int CompareEnemyByDistance(EnemyBehaviourScript x, EnemyBehaviourScript y)
@@ -108,5 +132,14 @@ public class ZapProjectileBehaviourScript : MonoBehaviour
         {
             _list.Remove(enemyBehaviourScript);
         }
+    }
+
+    private void DrawLineBetween(Vector3[] pos)
+    {
+        var info = Instantiate(lineRender, transform.position, transform.rotation, transform);
+        LineRenderer lineRenderer = info.GetComponent<LineRenderer>();
+        lineRenderer.useWorldSpace = true;
+        lineRenderer.SetPositions(pos);
+        lineRenderer.gameObject.SetActive(true);
     }
 }

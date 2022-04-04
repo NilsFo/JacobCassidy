@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Quest",
+                    "type": "Button",
+                    "id": "314fe4e9-1c6a-4ee0-b356-1821f0112971",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -320,6 +329,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b4c6792-59c9-4675-af04-c417eb0a7cb4",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Quest",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -952,6 +972,15 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Scroll",
+                    "type": "PassThrough",
+                    "id": "2b7607b7-a2ae-4f61-b36e-43633fdd30ed",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1161,6 +1190,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ebc450bc-0c52-4197-86c7-e9ecf171acf6",
+                    "path": "<Mouse>/scroll/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Scroll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
