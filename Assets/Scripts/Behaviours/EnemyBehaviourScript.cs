@@ -15,7 +15,7 @@ public enum EnemyState
 public class EnemyBehaviourScript : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 2;
-    [SerializeField] private float currentHealth = 2;
+    [SerializeField] public float currentHealth = 2;
 
     [SerializeField] private float deathDelay = 1f;
     [SerializeField] private float deathTimer = 0f;

@@ -292,6 +292,7 @@ public class ZombieAI : MonoBehaviour
         {
             componentsInChild.gameObject.layer = debrisLayer;
         }
+        
 
         Invoke(nameof(DespawnAfterDeath), 2.0f);
     }

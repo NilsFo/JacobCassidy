@@ -83,6 +83,10 @@ public class FireGunBehaviourScript : MonoBehaviour
             var enemy = hit.collider.transform.GetComponentInParent<EnemyBehaviourScript>();
             if (enemy != null) {
                 enemy.ChangeCurrentHealth(-1);
+                if (enemy.currentHealth == 0) {
+                    // Give mana
+                    FindObjectOfType<PlayerStateBehaviourScript>().ChangeCurrentSanity(1);
+                }
             }
             hitPos = hit.point;
             hitPos.z = -10;

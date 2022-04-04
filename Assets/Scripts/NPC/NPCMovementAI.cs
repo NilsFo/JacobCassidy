@@ -162,7 +162,7 @@ public class NPCMovementAI : MonoBehaviour
     public bool IsGameOver()
     {
         // TODO check gamestate
-        return true;
+        return false;
     }
     
     // Update is called once per frame
