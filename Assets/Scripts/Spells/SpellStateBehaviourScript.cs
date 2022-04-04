@@ -198,6 +198,8 @@ public class SpellStateBehaviourScript : MonoBehaviour
                 audioPlayer.clip = spellAudio [currentIndex];
                 if(audioPlayer.clip != null)
                     audioPlayer.Play();
+            } else {
+                FindObjectOfType<SanityBehaviourScript>().Shack();
             }
             return success;
         }

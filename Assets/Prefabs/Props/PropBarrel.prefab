@@ -1,5 +1,103 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &423005241751407743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1958649080924124415}
+  - component: {fileID: 3320539681606745632}
+  - component: {fileID: 625206586354377049}
+  m_Layer: 11
+  m_Name: hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1958649080924124415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423005241751407743}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5263722079456385184}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &3320539681606745632
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423005241751407743}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0077590942, y: -0.0155181885}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.54319, y: 1.8070297}
+  m_EdgeRadius: 0
+--- !u!114 &625206586354377049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423005241751407743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0edc5bb72bbb56c44879a22830d5ab89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  currentHealth: 1
+  deathDelay: 0.1
+  deathTimer: 0
+  enemyState: 0
+  damageOnContact: 0
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  bloodSystem: {fileID: 0}
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6775750353064390220}
+        m_TargetAssemblyTypeName: PropBarrelBehaviourScript, Assembly-CSharp
+        m_MethodName: SpawnExplosion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5263722079456385187
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +110,6 @@ GameObject:
   - component: {fileID: 6775750353064390220}
   - component: {fileID: 5263722079456385185}
   - component: {fileID: 5263722079456385186}
-  - component: {fileID: 1583270405353897970}
   m_Layer: 6
   m_Name: PropBarrel
   m_TagString: Untagged
@@ -31,7 +128,8 @@ Transform:
   m_LocalPosition: {x: 16.49, y: 5.2400002, z: -0.1796555}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1958649080924124415}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explotion: {fileID: 326620631728038352, guid: a6281cb540e1c21439605ff856bbbefa, type: 3}
   renderer: {fileID: 5263722079456385185}
-  polygonCollider2D: {fileID: 5263722079456385186}
+  polygonCollider2D: {fileID: 3320539681606745632}
 --- !u!212 &5263722079456385185
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -136,42 +234,3 @@ PolygonCollider2D:
       - {x: 0.4375, y: -0.1875}
       - {x: 0.6875, y: -0.4375}
       - {x: 0.625, y: -0.6875}
---- !u!114 &1583270405353897970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5263722079456385187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0edc5bb72bbb56c44879a22830d5ab89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 1
-  currentHealth: 1
-  deathDelay: 0.1
-  deathTimer: 0
-  enemyState: 0
-  damageOnContact: 0
-  hitSound: {fileID: 0}
-  deathSound: {fileID: 0}
-  bloodSystem: {fileID: 0}
-  onDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6775750353064390220}
-        m_TargetAssemblyTypeName: PropBarrelBehaviourScript, Assembly-CSharp
-        m_MethodName: SpawnExplosion
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onDamageTaken:
-    m_PersistentCalls:
-      m_Calls: []

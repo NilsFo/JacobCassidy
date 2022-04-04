@@ -328,6 +328,9 @@ public class CultistAI : MonoBehaviour
 
     public void Die()
     {
+        if (currentState == CultistState.Dead) {
+            return;
+        }
         myMovement.myAnimator.myMovementAnimator.SetTrigger("Die");
         myMovement.SetMovementStateStasis();
         currentState = CultistState.Dead;

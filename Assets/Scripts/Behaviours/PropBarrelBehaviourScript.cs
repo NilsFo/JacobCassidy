@@ -7,7 +7,7 @@ public class PropBarrelBehaviourScript : MonoBehaviour
 
     public GameObject explotion;
     public SpriteRenderer renderer;
-    public PolygonCollider2D polygonCollider2D;
+    public Collider2D polygonCollider2D;
 
     public void SpawnExplosion()
     {
