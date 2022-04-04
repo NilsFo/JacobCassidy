@@ -871,6 +871,174 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: cassidy_walk_32
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d458a8570e65f2479e6fe284fc65191
+      internalID: -1933918690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cassidy_walk_33
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 742d79e98030c804190c222f347f918b
+      internalID: -1150842899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cassidy_walk_34
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f09d03bf109e1c3438c4bf6f2d86876e
+      internalID: 179226455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cassidy_walk_35
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f37b0e384c53e4d9ecc0e2d0c3dd47
+      internalID: 2032319550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cassidy_walk_36
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc10c0bc7e15e4e49980d6a270d0cdcc
+      internalID: 1083546084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cassidy_walk_37
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 761b8615a030cdc4d8c38eed61885d47
+      internalID: 1844031782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cassidy_walk_38
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c4bd9b3257c4334e9303d45c22c69d6
+      internalID: 502101832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cassidy_walk_39
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b44a2e5fe3af67c4f86523476556dddc
+      internalID: 532042332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -885,9 +1053,14 @@ TextureImporter:
       cassidy_walk_4: 592179090712437122
       cassidy_walk_20: 8477315897981931222
       cassidy_walk_12: 6485327621750967937
+      cassidy_walk_35: 2032319550
       cassidy_walk_25: -3957790934494649088
       cassidy_walk_21: 2061944054752363847
+      cassidy_walk_33: -1150842899
+      cassidy_walk_38: 502101832
+      cassidy_walk_34: 179226455
       cassidy_walk_1: 5631731169242221022
+      cassidy_walk_39: 532042332
       cassidy_walk_18: 1862798751906775712
       cassidy_walk_14: -3557782985514004985
       cassidy_walk_30: 7715108431629104686
@@ -898,10 +1071,12 @@ TextureImporter:
       cassidy_walk_9: -570888740949911493
       cassidy_walk_11: 2266990030094372651
       cassidy_walk_22: -1668926906045046578
+      cassidy_walk_37: 1844031782
       cassidy_walk_16: -1402788399047607386
       cassidy_walk_28: -1378413954125998805
       cassidy_walk_15: 7326887258260429601
       cassidy_walk_31: 8412954965895219835
+      cassidy_walk_36: 1083546084
       cassidy_walk_6: 2932600106174025204
       cassidy_walk_29: 4304810173837126915
       cassidy_walk_27: -1646269194458144262
@@ -912,6 +1087,7 @@ TextureImporter:
       cassidy_walk_13: -3455210898705665663
       cassidy_walk_17: -7276818118770031187
       cassidy_walk_0: 2727638938547581279
+      cassidy_walk_32: -1933918690
       cassidy_walk_19: 1713980805076731808
       cassidy_walk_26: 4483380565995165288
   spritePackingTag: 
