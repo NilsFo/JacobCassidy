@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -687,9 +687,9 @@ MonoBehaviour:
   uiOverlay: {fileID: 688430621}
   btn: {fileID: 451232334}
   rotationSpeed: 180
-  hoverSpeed: 0.25
-  fadeInSpeed: 0.069
-  fadeInDelay: -0.18
+  hoverSpeed: 0
+  fadeInSpeed: 0.08
+  fadeInDelay: -0.1
   crimsonValueChangeRate: 0.45
   crimsonValueTarget: 0.23529412
 --- !u!114 &451232338
@@ -891,15 +891,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.4516129
     y: 0
-    width: 0.43567055
-    height: 0.6557377
+    width: 0.2907769
+    height: 0.55720526
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.5
+  orthographic size: 9.968749
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
