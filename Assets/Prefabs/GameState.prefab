@@ -85,6 +85,7 @@ MonoBehaviour:
       m_Calls: []
   questLogText: {fileID: 0}
   isGameOver: 0
+  gameOver: {fileID: 0}
   playerStateBehaviourScript: {fileID: 7802783470283271111}
   enemieStateBehaviourScript: {fileID: 3191035166800469499}
   spellStateBehaviourScript: {fileID: 1809202575865811791}
@@ -195,7 +196,7 @@ MonoBehaviour:
   - {fileID: 1182842812073921434}
   placeHold: {fileID: 1352714986146920249}
   currentIndex: 0
-  learnAll: 1
+  learnAll: 0
   swapDelay: 0.2
   cassDialogueSprite: {fileID: 2727638938547581279, guid: cb8a3953bd2e51748bafdbba3d267718, type: 3}
   spellCollectQuote:

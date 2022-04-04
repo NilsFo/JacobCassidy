@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -181,9 +181,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\"Case Crimson Midnight\"\nCreated for Ludum Dare Game Jam 50.\n\nCreated
-    by Nils F\xF6rster, Adrian Herbers, Patrick Herbers, and Patrick Quiskamp.\n\nFont
-    used: PixelMix\nSounds: freesound.org\nMusic: TBA - Patrick Herbers"
+  m_text: "\"Case Crimson Midnight\"\nCreated for Ludum Dare Game Jam 50 (\"Delay
+    the Inevitable\").\n\nCreated by Nils F\xF6rster, Adrian Herbers, Patrick Herbers,
+    and Patrick Quiskamp.\n\nFont used: PixelMix\nAdditional sound effects from https://www.zapsplat.com\nMusic:
+    Crimson Midnight - Patrick Herbers"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9836bf76ede9d28489243a06a671139d, type: 2}
   m_sharedMaterial: {fileID: 832488639546379081, guid: 9836bf76ede9d28489243a06a671139d, type: 2}
@@ -891,15 +892,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.4516129
+    x: 0.052447554
     y: 0
-    width: 0.2907769
-    height: 0.55720526
+    width: 0.89510494
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9.968749
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

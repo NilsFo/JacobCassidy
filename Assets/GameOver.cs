@@ -21,6 +21,8 @@ public class GameOver : MonoBehaviour
     public bool fadeWin;
     public bool clickContinues = false;
 
+    public AudioSource deathsound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,8 +80,9 @@ public class GameOver : MonoBehaviour
 
     public void ShowLooseScreen()
     {
-        // playerAnimator.myMovementAnimator.fireEvents("Die");
-        // TODO play anim
+        playerAnimator.myMovementAnimator.SetTrigger("Die");
+        Destroy(FindObjectOfType<GunSpriteBehaviour>().gameObject);
+        deathsound.Play();
 
         Debug.LogWarning("LOST THE GAME");
 
