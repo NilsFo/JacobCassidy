@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SinusHover : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class SinusHover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dt = 0;
+        //Random jitter
+        dt = Random.Range(0.0f, 200.0f);
     }
 
     // Update is called once per frame

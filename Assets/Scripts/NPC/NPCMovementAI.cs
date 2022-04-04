@@ -158,10 +158,21 @@ public class NPCMovementAI : MonoBehaviour
             }
         }
     }
-
+    
+    public bool IsGameOver()
+    {
+        // TODO check gamestate
+        return true;
+    }
+    
     // Update is called once per frame
     void Update()
     {
+        if (IsGameOver())
+        {
+            return;
+        }
+        
         stunnedTimer = stunnedTimer - Time.deltaTime;
         if (!currentMovementState.ShouldMove())
             currentPathToTarget = null;
@@ -207,6 +218,10 @@ public class NPCMovementAI : MonoBehaviour
         }
 
         if (currentPathToTarget == null)
+        {
+            return;
+        }
+        if (IsGameOver())
         {
             return;
         }
