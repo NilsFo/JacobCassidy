@@ -247,7 +247,7 @@ public class ZombieAI : MonoBehaviour
             player.Knockback(transform.position, knockbackForce);
             player.TakeDamage();
             Debug.Log("Fishman hits player for 1 damage", this);
-            playerState.ChangeCurrentHealth(-1);
+            playerState.ChangeCurrentHealth(-2);
         }
     }
 

@@ -48,6 +48,8 @@ public class CultistAI : MonoBehaviour
     public int defenseSummons = 3;
     private int _defenseSummonsLeft;
 
+    public List<Transform> spawnPoints;
+
     private void Awake()
     {
         congregation = new List<GameObject>();
@@ -198,7 +200,26 @@ public class CultistAI : MonoBehaviour
     private ZombieAI SummonZombie(bool self)
     {
         //print("New zombie summoned.");
-        GameObject newZombie = Instantiate(zombiePrefab, new Vector3(transform.position.x, transform.position.y, 0),
+        // Find spawn point
+        Vector2 spawn = transform.position;
+        
+        if (currentState == CultistState.SummonDefense) {
+            var minDist = Mathf.Infinity;
+            foreach (var spawnPoint in spawnPoints) {
+                
+                // Find spawn point closest to player
+                var dist = (spawnPoint.position - player.transform.position).magnitude;
+                if (dist < minDist) {
+                    spawn = spawnPoint.position;
+                    minDist = dist;
+                }
+                
+            }
+        } else {
+            spawn = spawnPoints [Random.Range(0, spawnPoints.Count)].position;
+        }
+        
+        GameObject newZombie = Instantiate(zombiePrefab, new Vector3(spawn.x, spawn.y, 0),
             Quaternion.identity);
         newZombie.GetComponent<MovementAnimator>().myMovementAnimator.SetTrigger("Spawn");
 
